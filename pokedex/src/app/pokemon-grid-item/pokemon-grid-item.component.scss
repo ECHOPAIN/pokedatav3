@@ -1,0 +1,119 @@
+.card
+{
+  position: relative;
+  width: 210px;
+  height: 300px;
+  margin: 50px;
+  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  background: rgba(245, 245, 245, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(245, 245, 245, 0.5);
+  border-left: 1px solid rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.card .content
+{
+  padding: 20px;
+  text-align: center;
+}
+
+.card .content h2
+{
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  font-size: 6em;
+  color: rgba(31, 31, 31, 0.2);
+  pointer-events: none;
+}
+
+.card .content .contentBx h3
+{
+  font-size: 1.3em;
+  color: #1F1F1F;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+.card .content .imgBx
+{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.card .content .imgBx img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+@media (max-width: 1000px)
+{
+  .card
+  {
+    width: 105px;
+    height: 150px;
+    margin: 10px;
+  }
+
+  .card .content h2
+  {
+    top: 0px;
+    right: 15px;
+    font-size: 3em;
+  }
+
+  .card .content .contentBx h3
+  {
+    font-size: 0.7em;
+  }
+
+  .card .content .imgBx
+  {
+    width: 75px;
+    height: 75px;
+  }
+
+
+
+  @media (max-width: 500px)
+  {
+    .card
+    {
+      width: 70px;
+      height: 100px;
+      margin: 5px;
+    }
+
+    .card .content h2
+    {
+      top: 0px;
+      right: 10px;
+      font-size: 2em;
+    }
+
+    .card .content .contentBx h3
+    {
+      font-size: 0.5em;
+    }
+
+    .card .content .imgBx
+    {
+      width: 50px;
+      height: 50px;
+    }
+
+  }
+
+}
