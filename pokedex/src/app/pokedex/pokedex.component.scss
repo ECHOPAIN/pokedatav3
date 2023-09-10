@@ -1,9 +1,24 @@
-.content{
+.search
+{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  height: calc(100vh - 200px);
+  flex-direction: column;
+  padding: 20px;
+}
+
+.search h1
+{
+  color: #F5F5F5;
+  margin: 0.5%;
+}
+
+.search p
+{
+  color: #CACACA;
+  margin: 0.5%;
+}
+
+.search .bar{
+  margin: 0.5%;
 }
 
 .pokemonGridItems

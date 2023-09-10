@@ -1,6 +1,11 @@
 <div class="content">
+  <div class="search">
+    <h1>Pokedex</h1>
+    <p>Search for Pokemon by name.</p>
+    <input (keyup)="onKey($event)" class="bar">
+  </div>
   <div class="pokemonGridItems">
-    <div *ngFor="let pokemon of pokemons">
+    <div *ngFor="let pokemon of filteredPokemonList">
       <app-pokemon-grid-item [pokemon]="pokemon"></app-pokemon-grid-item>
     </div>
   </div>

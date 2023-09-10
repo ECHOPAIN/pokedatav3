@@ -11,7 +11,9 @@ import { PokedexService } from '../services/pokedex.service';
 })
 export class PokedexComponent implements OnInit {
   pokemons: PokemonsResultResults[] = [];
+  filteredPokemonList: PokemonsResultResults[] = [];
   isLoading = false;
+
 
   constructor(private pokedexService: PokedexService) { }
 
@@ -24,9 +26,25 @@ export class PokedexComponent implements OnInit {
     this.pokedexService.getAllPokemonResults()
       .subscribe(pokemonsRetrieved => {
           this.pokemons = pokemonsRetrieved.results;
+          this.filteredPokemonList = this.pokemons;
           //this.fromPokemonId = this.fromPokemonId + this.batchSize;
           this.isLoading = false;
       });
+  }
+
+  //When user is typing in the search bar
+  onKey(event: any) { // without type info
+    this.filterPokemon(event.target.value);
+  }
+
+  filterPokemon(search: String){
+    if (!search) {
+        this.filteredPokemonList = this.pokemons;
+      }
+
+      this.filteredPokemonList = this.pokemons.filter(
+        pokemon => pokemon?.name.toLowerCase().includes(search.toLowerCase())
+      );
   }
 
 
