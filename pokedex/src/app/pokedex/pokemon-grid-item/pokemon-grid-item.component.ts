@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonsResultResults } from '../model/pokemon/pokemonsResult';
-import { Pokemon } from '../model/pokemon/pokemon';
+import { PokemonsResultResults } from '../../model/pokemon/pokemonsResult';
+import { Pokemon } from '../../model/pokemon/pokemon';
 
 import VanillaTilt from 'vanilla-tilt';
 
