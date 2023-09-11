@@ -21,6 +21,7 @@ import { PokemonGridItemComponent } from './pokedex/pokemon-grid-item/pokemon-gr
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
