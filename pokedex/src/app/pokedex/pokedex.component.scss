@@ -1,12 +1,9 @@
 .search
 {
-  /*position: fixed;*/
-
+  position: fixed;
   display: flex;
   flex-direction: column;
   padding: 20px;
-
-  /*
   position: fixed;
   width: 90%;
   z-index: 2;
@@ -18,7 +15,7 @@
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   padding: 10px 20px;
-  left: 5%;*/
+  left: 5%;
 }
 
 .search h1
@@ -44,6 +41,7 @@
 
 .pokemonGridItems
 {
+  padding-top: 9em;
   position :relative;
   z-index: 0;
   display: flex;
@@ -52,4 +50,23 @@
   flex-wrap: wrap;
   margin-right: 0;
   margin-left: 0;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 1000px)
+{
+  .pokemonGridItems
+  {
+    padding-top: 7em;
+  }
+
+  .search
+  {
+    //TODO PHONE ONLY
+    box-shadow: none;
+    border-radius: 15px;
+    background: rgba(83,83,83,1);
+    border-top: 1px solid rgba(83,83,83,1);
+    border-left: 1px px solid rgba(83,83,83,1);
+  }
 }

@@ -95,6 +95,12 @@
       width: 91px;
       height: 130px;
       margin: 3px;
+
+      //TODO PHONE ONLY
+      box-shadow: none;
+      background: rgba(245, 245, 245, 1);
+      border-top: 1px solid rgba(245, 245, 245, 1);
+      border-left: 1px solid rgba(245, 245, 245, 1);
     }
 
     .card .content h2
@@ -102,6 +108,9 @@
       top: 0px;
       right: 13px;
       font-size: 2.7em;
+
+      //TODO PHONE ONLY
+      color: rgba(31, 31, 31, 1);
     }
 
     .card .content .contentBx h3

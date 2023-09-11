@@ -65,7 +65,7 @@ export const POKEMONS: PokemonsResult = {
         {
           name: "beedrill",
           url: "https://pokeapi.co/api/v2/pokemon/15/"
-        }/*,
+        },
         {
           name: "pidgey",
           url: "https://pokeapi.co/api/v2/pokemon/16/"
@@ -125,7 +125,7 @@ export const POKEMONS: PokemonsResult = {
         {
           name: "nidorina",
           url: "https://pokeapi.co/api/v2/pokemon/30/"
-        },
+        }/*,
         {
           name: "nidoqueen",
           url: "https://pokeapi.co/api/v2/pokemon/31/"
