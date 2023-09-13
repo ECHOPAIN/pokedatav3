@@ -1,4 +1,5 @@
 $black: #1F1F1F;
+$midBlack: #353535;
 $darkGray: #535353;
 $lightGray: #CACACA;
 $white: #F5F5F5;
@@ -94,9 +95,9 @@ header ul li ul li
 
     //TODO PHONE ONLY
     box-shadow: none;
-    background: $darkGray;
-    border-top: 1px solid $lightGray;
-    border-left: 1px solid $lightGray;
+    background: $midBlack;
+    border-top: 1px solid $darkGray;
+    border-left: 1px solid $darkGray;
   }
 
   header nav
@@ -110,8 +111,8 @@ header ul li ul li
     //TODO PHONE ONLY
     box-shadow: none;
     background: $darkGray;
-    border-top: 1px solid $lightGray;
-    border-left: 1px solid $lightGray;
+    border-top: 1px solid $darkGray;
+    border-left: 1px solid $darkGray;
   }
 
   header nav

@@ -1,4 +1,5 @@
 $black: #1F1F1F;
+$midBlack: #353535;
 $darkGray: #535353;
 $lightGray: #CACACA;
 $white: #F5F5F5;
@@ -81,8 +82,6 @@ $white: #F5F5F5;
   z-index: 0;
     //background: #fff;
   padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
 
   max-height: 100vh;
   padding-top: 20em;
@@ -93,6 +92,8 @@ $white: #F5F5F5;
   scrollbar-width: none;  /* Firefox */
 
   overflow: auto;
+  //no horizontal scroll
+  overflow-x: hidden;
 }
 
 
@@ -110,9 +111,9 @@ $white: #F5F5F5;
     //TODO PHONE ONLY
     box-shadow: none;
     border-radius: 15px;
-    background: $darkGray;
-    border-top: 1px solid $lightGray;
-    border-left: 1px solid $lightGray;
+    background: $midBlack;
+    border-top: 1px solid $darkGray;
+    border-left: 1px solid $darkGray;
   }
 
   .pokemonGridItems
