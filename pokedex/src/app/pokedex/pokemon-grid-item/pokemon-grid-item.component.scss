@@ -1,3 +1,8 @@
+$black: #1F1F1F;
+$darkGray: #535353;
+$lightGray: #CACACA;
+$white: #F5F5F5;
+
 .card
 {
   position: relative;
@@ -24,9 +29,9 @@
 .card .content h2
 {
   position: absolute;
-  top: 0px;
-  right: 30px;
-  font-size: 6em;
+  top: 20px;
+  right: 0.25em;
+  font-size: 5em;
   color: rgba(31, 31, 31, 0.2);
   pointer-events: none;
 }
@@ -45,6 +50,12 @@
   width: 150px;
   height: 150px;
   overflow: hidden;
+}
+
+.card:hover .content .imgBx {
+    height: 13em !important;
+    width: 13em !important;
+    transition: all 0.2s ease-out;
 }
 
 .card .content .imgBx img
@@ -98,19 +109,19 @@
 
       //TODO PHONE ONLY
       box-shadow: none;
-      background: rgba(245, 245, 245, 1);
-      border-top: 1px solid rgba(245, 245, 245, 1);
-      border-left: 1px solid rgba(245, 245, 245, 1);
+      background: $darkGray;
+      border-top: 1px solid $lightGray;
+      border-left: 1px solid $lightGray;
     }
 
     .card .content h2
     {
       top: 0px;
-      right: 13px;
-      font-size: 2.7em;
+      right: 0.15em;
+      font-size: 2.5em;
 
       //TODO PHONE ONLY
-      color: rgba(31, 31, 31, 1);
+      color: $black;
     }
 
     .card .content .contentBx h3

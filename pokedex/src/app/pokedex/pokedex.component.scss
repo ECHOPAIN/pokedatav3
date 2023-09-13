@@ -1,3 +1,8 @@
+$black: #1F1F1F;
+$darkGray: #535353;
+$lightGray: #CACACA;
+$white: #F5F5F5;
+
 .search
 {
   position: fixed;
@@ -20,23 +25,23 @@
 
 .search h1
 {
-  color: #F5F5F5;
+  color: $white;
   margin: 0.5%;
 }
 
 .search p
 {
-  color: #CACACA;
+  color: $lightGray;
   margin: 0.5%;
 }
 
 .search .bar{
   margin: 0.5%;
-  /*
-    max-width: 501px;
-    height: 25px;
-    border-radius: 5px;
-    */
+  max-width: 501px;
+  height: 25px;
+  border-radius: 5px;
+  border:none;
+  outline:none;
 }
 
 .pokemonGridItems
@@ -71,9 +76,9 @@
 {
   .pokemonGridItems
   {
-    padding-top: 9em;
+    padding-top: 11em;
     //TODO PHONE ONLY
-    max-height: 45em;
+    max-height: 40em;
   }
 
   .search
@@ -81,8 +86,8 @@
     //TODO PHONE ONLY
     box-shadow: none;
     border-radius: 15px;
-    background: rgba(83,83,83,1);
-    border-top: 1px solid rgba(83,83,83,1);
-    border-left: 1px px solid rgba(83,83,83,1);
+    background: $darkGray;
+    border-top: 1px solid $lightGray;
+    border-left: 1px solid $lightGray;
   }
 }
