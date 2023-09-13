@@ -41,7 +41,7 @@
 
 .pokemonGridItems
 {
-  padding-top: 9em;
+  padding-top: 10em;
   position :relative;
   z-index: 0;
   display: flex;
@@ -51,15 +51,14 @@
   margin-right: 0;
   margin-left: 0;
 
+  max-height: 63em;
+
 
   //remove scrollbar
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 
-
-    overflow: auto;
-
-  max-height: 54em;
+  overflow: auto;
 }
 
 //remove scrollbar
@@ -67,29 +66,14 @@
     display: none;
 }
 
-.cdk-virtual-scroll-viewport{
-  contain: unset !important;
-}
-::ng-deep .cdk-virtual-scroll-content-wrapper
-{
-  contain: unset !important;
-  padding-top: 9em;
-  position :relative;
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-right: 0;
-  margin-left: 0;
-}
-
 /*RESPONSIVE*/
 @media (max-width: 1000px)
 {
   .pokemonGridItems
   {
-    padding-top: 7em;
+    padding-top: 9em;
+    //TODO PHONE ONLY
+    max-height: 45em;
   }
 
   .search
