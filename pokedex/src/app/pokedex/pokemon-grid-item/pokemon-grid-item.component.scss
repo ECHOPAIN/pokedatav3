@@ -18,12 +18,25 @@ $white: #F5F5F5;
   border-top: 1px solid rgba(245, 245, 245, 0.5);
   border-left: 1px solid rgba(245, 245, 245, 0.5);
   backdrop-filter: blur(5px);
+
+  overflow: hidden;
 }
 
 .card .content
 {
   padding: 20px;
   text-align: center;
+}
+
+.card .content .imgBxLogo img
+{
+  display: block;
+  position: fixed;
+  top: 60%;
+  left: 40%;
+  width: 70%;
+  z-index: -1;
+  opacity: 0.5;
 }
 
 .card .content h2
