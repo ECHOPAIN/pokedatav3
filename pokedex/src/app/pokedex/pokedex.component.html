@@ -4,9 +4,41 @@
     <p>Search for Pokemon by name.</p>
     <input (keyup)="onKey($event)" class="bar">
   </div>
-  <div class="pokemonGridItems">
+
+  <!--div class="pokemonGridItems">
+    <div *ngFor="let pokemon of filteredPokemonList">
+      <app-pokemon-grid-item [pokemon]="pokemon"></app-pokemon-grid-item>
+    </div>
+
+  </div-->
+
+  <!--cdk-virtual-scroll-viewport  minBufferPx="50" maxBufferPx="100" itemSize="31" class="pokemonGridItems">
+    <div *cdkVirtualFor="let pokemon of filteredPokemonList">
+      <app-pokemon-grid-item [pokemon]="pokemon"></app-pokemon-grid-item>
+    </div>
+  </cdk-virtual-scroll-viewport-->
+
+  <div class="pokemonGridItems"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="500"
+    (scrolled)="onScroll()"
+    [scrollWindow]="false">
     <div *ngFor="let pokemon of filteredPokemonList">
       <app-pokemon-grid-item [pokemon]="pokemon"></app-pokemon-grid-item>
     </div>
   </div>
+
+  <div *ngIf="isLoading">Loading...</div>
+
+
+
+
+
+
+  <!--div class="pokemonGridItems">
+    <div *ngFor="let pokemon of filteredPokemonList">
+      <app-pokemon-grid-item [pokemon]="pokemon"></app-pokemon-grid-item>
+    </div>
+  </div-->
 </div>

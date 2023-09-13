@@ -125,7 +125,7 @@ export const POKEMONS: PokemonsResult = {
         {
           name: "nidorina",
           url: "https://pokeapi.co/api/v2/pokemon/30/"
-        }/*,
+        },
         {
           name: "nidoqueen",
           url: "https://pokeapi.co/api/v2/pokemon/31/"
@@ -5129,6 +5129,6 @@ export const POKEMONS: PokemonsResult = {
         {
           name: "miraidon-glide-mode",
           url: "https://pokeapi.co/api/v2/pokemon/10271/"
-        }*/
+        }
   ]
 }
