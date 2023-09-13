@@ -134,6 +134,11 @@ $white: #F5F5F5;
       width: 60px;
       height: 60px;
     }
-
+    .card:hover .content .imgBx {
+      //Remove animation
+      width: 60px !important;
+      height: 60px !important;
+      transition: none;
+    }
   }
 
