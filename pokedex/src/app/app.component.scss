@@ -2,7 +2,8 @@ section
 {
   position: relative;
   width: 100%;
-  padding: 100px;
+  //padding: 100px;
+  padding: 0 5em;
   display: flex;
   align-items: center;
 }
@@ -30,9 +31,5 @@ section
   {
     padding: 20px;
     padding-top: 0;
-  }
-  .content
-  {
-    margin-top: 100px;
   }
 }

@@ -3,9 +3,9 @@ $darkGray: #535353;
 $lightGray: #CACACA;
 $white: #F5F5F5;
 
-.content{
+/*.content{
   margin-top: 10em;
-}
+}*/
 
 .search
 {
@@ -53,7 +53,6 @@ $white: #F5F5F5;
 
 .pokemonGridItems
 {
-  padding-top: 1em;
   position :relative;
   z-index: 0;
   display: flex;
@@ -63,7 +62,9 @@ $white: #F5F5F5;
   margin-right: 0;
   margin-left: 0;
 
+  //max-height: 70vh; */
   max-height: 100vh;
+  padding-top: 18em;
   overflow: auto;
 
 
@@ -92,4 +93,10 @@ $white: #F5F5F5;
     border-top: 1px solid $lightGray;
     border-left: 1px solid $lightGray;
   }
+
+  .pokemonGridItems
+  {
+    padding-top: 17em;
+    padding-bottom: 6em;
+    }
 }
