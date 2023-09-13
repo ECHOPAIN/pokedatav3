@@ -16,6 +16,7 @@ export class PokedexComponent implements OnInit {
   batchSize: number = 50;
   maxPokemonId: number = 1010;
   search: String = "";
+  listDisplay: Boolean = false;
 
 
   constructor(private pokedexService: PokedexService) { }

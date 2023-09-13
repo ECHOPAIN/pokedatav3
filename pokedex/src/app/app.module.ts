@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PokemonGridItemComponent } from './pokedex/pokemon-grid-item/pokemon-grid-item.component';
+import { PokemonListItemComponent } from './pokedex/pokemon-list-item/pokemon-list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
     NavbarComponent,
-    PokemonGridItemComponent
+    PokemonGridItemComponent,
+    PokemonListItemComponent
   ],
   imports: [
     BrowserModule,

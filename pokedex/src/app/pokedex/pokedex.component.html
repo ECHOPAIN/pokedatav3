@@ -3,22 +3,22 @@
     <h1>Pokedex</h1>
     <p>Search for Pokemon by name.</p>
     <input (keyup)="onKey($event)" class="bar">
+    <input type="checkbox" class="checkbox" [checked]="listDisplay" (change)="listDisplay = !listDisplay">
   </div>
 
-  <!--div class="pokemonGridItems">
+
+  <div *ngIf="listDisplay" class="pokemonListItems"
+       infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="500"
+       (scrolled)="onScroll()"
+       [scrollWindow]="false">
     <div *ngFor="let pokemon of filteredPokemonList">
-      <app-pokemon-grid-item [pokemon]="pokemon"></app-pokemon-grid-item>
+      <app-pokemon-list-item [pokemon]="pokemon"></app-pokemon-list-item>
     </div>
+  </div>
 
-  </div-->
-
-  <!--cdk-virtual-scroll-viewport  minBufferPx="50" maxBufferPx="100" itemSize="31" class="pokemonGridItems">
-    <div *cdkVirtualFor="let pokemon of filteredPokemonList">
-      <app-pokemon-grid-item [pokemon]="pokemon"></app-pokemon-grid-item>
-    </div>
-  </cdk-virtual-scroll-viewport-->
-
-  <div class="pokemonGridItems"
+  <div *ngIf="!listDisplay" class="pokemonGridItems"
     infiniteScroll
     [infiniteScrollDistance]="2"
     [infiniteScrollThrottle]="500"

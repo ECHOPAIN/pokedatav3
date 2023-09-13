@@ -1,0 +1,51 @@
+.container
+{
+  border: solid #dee2e6;
+  border-width: 0 0 1px 0;
+}
+.pokemonListItem
+{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+}
+.pokemonListItem img
+{
+  width: 150px;
+  margin-right: 2rem;
+}
+.pokemonListItem h2
+{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.pokemonListItem p
+{
+  font-size: 1rem;
+  color: #495057;
+  margin: 0 0 1rem;
+}
+
+@media (max-width: 911px)
+{
+  .pokemonListItem
+  {
+    padding: 0.5rem;
+  }
+  .pokemonListItem img
+  {
+    width: 80px;
+    margin-right: 1rem;
+  }
+
+  .pokemonListItem h2
+  {
+    font-size: 1.2rem;
+  }
+  .pokemonListItem p
+  {
+    font-size: 0.8rem;
+    margin: 0 0 0.5rem;
+  }
+}

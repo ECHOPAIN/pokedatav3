@@ -50,6 +50,10 @@ $white: #F5F5F5;
   border:none;
   outline:none;
 }
+.search .checkbox{
+  margin: 0.5%;
+  width: 1em;
+}
 
 .pokemonGridItems
 {
@@ -62,11 +66,27 @@ $white: #F5F5F5;
   margin-right: 0;
   margin-left: 0;
 
-  //max-height: 70vh; */
   max-height: 100vh;
   padding-top: 18em;
   overflow: auto;
 
+  //remove scrollbar
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.pokemonListItems
+{
+  position :relative;
+  z-index: 0;
+    //background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+
+  max-height: 100vh;
+  padding-top: 20em;
+  overflow: auto;
 
   //remove scrollbar
   -ms-overflow-style: none;  /* IE and Edge */
@@ -74,6 +94,7 @@ $white: #F5F5F5;
 
   overflow: auto;
 }
+
 
 //remove scrollbar
 .pokemonGridItems::-webkit-scrollbar {

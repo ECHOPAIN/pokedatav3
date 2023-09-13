@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="pokemonListItem" (click)="display()">
+    <div class="imgBxLogo"><img src="assets/images/logoPokeball.png"></div>
+    <div class="imgBx"><img [src]="getFrontDefault()" alt="{{pokemon.name}}"></div>
+    <div class="pokemonListDetail">
+      <h2>{{pokemon.name}}</h2>
+      <p>{{getPokemonId()}}</p>
+    </div>
+  </div>
+</div>
