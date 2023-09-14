@@ -67,8 +67,8 @@ $white: #F5F5F5;
 }
 
 .card:hover .content .imgBx {
-   height: 13em !important;
-   width: 13em !important;
+   height: 18em !important;
+   width: 18em !important;
    transition: all 0.2s ease-out;
 }
 
@@ -162,8 +162,8 @@ $white: #F5F5F5;
     }
     .card:hover .content .imgBx {
       //Remove animation
-      width: 70px !important;
-      height: 70px !important;
+      width: 100px !important;
+      height: 100px !important;
     }
   }
 
