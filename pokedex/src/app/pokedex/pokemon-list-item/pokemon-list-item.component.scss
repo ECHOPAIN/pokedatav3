@@ -7,7 +7,10 @@ $white: #F5F5F5;
 .card
 {
   position: relative;
-  margin: 10px;
+  margin: 10px auto  10px auto;
+  height: 15vh;
+  max-width: 1300px;
+  width: 80%;
   box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
   border-radius: 15px;
   background: rgba(245, 245, 245, 0.2);
@@ -25,24 +28,43 @@ $white: #F5F5F5;
 {
   display: flex;
   align-items: center;
-  padding: 1rem;
-  width: 100%;
+  padding: 1%;
+  width: 90%;
+  justify-content: space-between;
 }
+
 .pokemonListItem img
 {
   width: 150px;
-  margin-right: 2rem;
 }
+
+.pokemonListItem .imgBxLogo
+{
+  position: fixed;
+  right: 10%;
+  top: -2rem;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.pokemonListItem .imgBx
+{
+  position: fixed;
+  right: 5%;
+}
+
 .pokemonListItem h2
 {
   font-size: 1.5rem;
   font-weight: 700;
+  text-transform: uppercase;
 }
 .pokemonListItem p
 {
-  font-size: 1rem;
+  font-size: 2rem;
   color: #495057;
   margin: 0 0 1rem;
+  color: rgba(31, 31, 31, 0.5);
 }
 
 @media (max-width: 1000px)
@@ -55,15 +77,24 @@ $white: #F5F5F5;
     background: $midBlack;
     border-top: 1px solid $darkGray;
     border-left: 1px solid $darkGray;
+    height: 12vh;
+    width: 80%;
   }
   .pokemonListItem
   {
     padding: 0.5rem;
+    width: 100%;
   }
   .pokemonListItem img
   {
-    width: 80px;
-    margin-right: 1rem;
+    width: 100px;
+    margin-right: 0;
+  }
+
+  .pokemonListItem .imgBxLogo
+  {
+    right: 2rem;
+    top: -1rem;
   }
 
   .pokemonListItem h2
