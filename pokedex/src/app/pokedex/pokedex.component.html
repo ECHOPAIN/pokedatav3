@@ -3,7 +3,11 @@
     <h1>Pokedex</h1>
     <p>Search for Pokemon by name.</p>
     <input (keyup)="onKey($event)" class="bar">
-    <input type="checkbox" class="checkbox" [checked]="listDisplay" (change)="listDisplay = !listDisplay">
+    <label class="checkboxContainer">
+      <input type="checkbox" class="checkbox" [checked]="listDisplay" (change)="listDisplay = !listDisplay">
+      <span></span>
+      <i class="indicator"><img src="assets/images/list.png"></i>
+    </label>
   </div>
 
 

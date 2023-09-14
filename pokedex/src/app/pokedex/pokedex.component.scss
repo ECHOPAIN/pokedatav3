@@ -51,10 +51,69 @@ $white: #F5F5F5;
   border:none;
   outline:none;
 }
-.search .checkbox{
-  margin: 0.5%;
-  width: 1em;
+
+
+//CheckBox
+.search .checkboxContainer{
+  margin: 1.5% 1%;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+  transition: .7s;
 }
+
+// Hide default Checkbox
+.search .checkboxContainer .checkbox{
+  display: none;
+  appearance: none;
+}
+
+.search .checkboxContainer span{
+  position: relative;
+  display: block;
+  width: 4em;
+  height: 2em;
+  border: 2px solid rgba(255,255,255,0.9);
+  border-right: 2px solid rgba(255,255,255,0.5);
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  box-shadow: 4px 4px 10px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.1);
+  border-radius: 80px;
+  transition: .7s;
+  backdrop-filter: blux(3px);
+}
+
+.search .checkboxContainer .indicator{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2em;
+  height: 2em;
+  background: $white;
+  border-radius: 2em;
+  transition: .7s;
+}
+
+.search .checkboxContainer .indicator img{
+  height: 1.1em;
+  margin: 0.5em;
+}
+
+.search .checkboxContainer .checkbox:checked ~ .indicator{
+  box-shadow: 0 0 5px $white;
+  left: 2em;
+}
+
+.search .checkboxContainer .checkbox:checked ~  .indicator img{
+  content: url("/assets/images/grid.png");
+}
+
+.search .checkboxContainer .checkbox:checked ~ span{
+  background: rgba(255,255,255,0.5);
+}
+//End Checkbox
+
+
 
 .pokemonGridItems
 {
@@ -68,7 +127,7 @@ $white: #F5F5F5;
   margin-left: 0;
 
   max-height: 100vh;
-  padding-top: 18em;
+  padding-top: 24em;
   overflow: auto;
 
   //remove scrollbar
@@ -84,7 +143,7 @@ $white: #F5F5F5;
   padding: 2rem;
 
   max-height: 100vh;
-  padding-top: 20em;
+  padding-top: 24em;
   overflow: auto;
 
   //remove scrollbar
@@ -118,7 +177,7 @@ $white: #F5F5F5;
 
   .pokemonGridItems
   {
-    padding-top: 17em;
+    padding-top: 20em;
     padding-bottom: 6em;
     }
 }

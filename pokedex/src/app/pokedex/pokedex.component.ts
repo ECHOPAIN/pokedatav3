@@ -47,7 +47,7 @@ export class PokedexComponent implements OnInit {
       }
 
       this.filteredPokemonList = this.pokemons.filter(
-        pokemon => pokemon?.name.toLowerCase().includes(search.toLowerCase())
+        pokemon => pokemon?.name.toLowerCase().includes(search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
       ).slice(0,this.batchSize);
   }
 
@@ -56,7 +56,7 @@ export class PokedexComponent implements OnInit {
     if (this.search) {
       var allFilteredPokemons: PokemonsResultResults[] = []
       allFilteredPokemons = this.pokemons.filter(
-              pokemon => pokemon?.name.toLowerCase().includes(this.search.toLowerCase())
+              pokemon => pokemon?.name.toLowerCase().includes(this.search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(this.search.toLowerCase())
             );
       //done
       if(this.filteredPokemonList.length >= allFilteredPokemons.length){
