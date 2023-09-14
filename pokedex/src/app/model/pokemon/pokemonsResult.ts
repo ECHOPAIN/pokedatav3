@@ -2,9 +2,9 @@ export interface PokemonsResult {
   count: number,
   next: any,
   previous: any,
-  results : PokemonsResultResults[]
+  results : Pokemons[]
 }
 
-export interface PokemonsResultResults {
+export interface Pokemons {
   name: string ,url: string
 }

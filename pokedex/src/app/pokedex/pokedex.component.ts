@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Pokemon } from '../model/pokemon/pokemon';
-import { PokemonsResultResults } from '../model/pokemon/pokemonsResult';
+import { Pokemons } from '../model/pokemon/pokemonsResult';
 import { PokedexService } from '../services/pokedex.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { PokedexService } from '../services/pokedex.service';
   styleUrls: ['./pokedex.component.scss']
 })
 export class PokedexComponent implements OnInit {
-  pokemons: PokemonsResultResults[] = [];
-  filteredPokemonList: PokemonsResultResults[] = [];
+  pokemons: Pokemons[] = [];
+  filteredPokemonList: Pokemons[] = [];
   isLoading: Boolean = false;
   batchSize: number = 50;
   maxPokemonId: number = 1010;
@@ -54,7 +54,7 @@ export class PokedexComponent implements OnInit {
   onScroll(){
     //we are searching for a pokemon
     if (this.search) {
-      var allFilteredPokemons: PokemonsResultResults[] = []
+      var allFilteredPokemons: Pokemons[] = []
       allFilteredPokemons = this.pokemons.filter(
               pokemon => pokemon?.name.toLowerCase().includes(this.search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(this.search.toLowerCase())
             );

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonsResultResults } from '../../model/pokemon/pokemonsResult';
+import { Pokemons } from '../../model/pokemon/pokemonsResult';
 import { Pokemon } from '../../model/pokemon/pokemon';
 
 @Component({
@@ -8,7 +8,7 @@ import { Pokemon } from '../../model/pokemon/pokemon';
   styleUrls: ['./pokemon-list-item.component.scss']
 })
 export class PokemonListItemComponent {
- @Input() pokemon: PokemonsResultResults;
+ @Input() pokemon: Pokemons;
 
   constructor() {
     this.pokemon =

@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { PokemonsResult } from '../model/pokemon/pokemonsResult';
-import { PokemonsResultResults } from '../model/pokemon/pokemonsResult';
+import { Pokemons } from '../model/pokemon/pokemonsResult';
+import { ItemsResult } from '../model/item/itemsResult';
+import { Items } from '../model/item/itemsResult';
 import { Pokemon } from '../model/pokemon/pokemon';
 import { PokeApiSpecies } from '../model/pokeapi/pokeApiSpecies'
 import { PokeApiDetail } from '../model/pokeapi/pokeApiDetail'
@@ -11,6 +13,7 @@ import { PokeApiEvolutionChain } from '../model/pokeapi/pokeApiEvolutionChain'
 
 //mock
 import { POKEMONS } from '../mock-pokemon'
+import { ITEMS } from '../mock-item'
 
 
 @Injectable({
@@ -22,6 +25,9 @@ export class PokedexService {
 
     constructor(private http: HttpClient) { }
 
+    //
+    //Pokemons
+    //
     getAllPokemonResults(): Observable<PokemonsResult>{
       return of(POKEMONS)
       //return this.http.get<PokemonsResult>(this.pokemonUrl+'/pokemon?limit=100000&offset=0')
@@ -39,4 +45,12 @@ export class PokedexService {
     getPokemonEvolutionChain(id: number): Observable<PokeApiEvolutionChain> {
       return this.http.get<PokeApiEvolutionChain>(this.pokemonUrl+'/evolution-chain/'+id)
     }
+
+    //
+    //Items
+    //
+    getAllItems(): Observable<ItemsResult>{
+          return of(ITEMS)
+          //return this.http.get<PokemonsResult>(this.pokemonUrl+'/item?limit=100000&offset=0')
+        }
 }

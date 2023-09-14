@@ -11,6 +11,8 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PokemonGridItemComponent } from './pokedex/pokemon-grid-item/pokemon-grid-item.component';
 import { PokemonListItemComponent } from './pokedex/pokemon-list-item/pokemon-list-item.component';
+import { ItemComponent } from './item/item.component';
+import { ItemGridItemComponent } from './item/item-grid-item/item-grid-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PokemonListItemComponent } from './pokedex/pokemon-list-item/pokemon-li
     PokedexComponent,
     NavbarComponent,
     PokemonGridItemComponent,
-    PokemonListItemComponent
+    PokemonListItemComponent,
+    ItemComponent,
+    ItemGridItemComponent
   ],
   imports: [
     BrowserModule,

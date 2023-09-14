@@ -1,0 +1,21 @@
+<div class="content">
+  <div class="search">
+    <h1>Items</h1>
+    <p>Search for item by name.</p>
+    <input (keyup)="onKey($event)" class="bar">
+  </div>
+
+  <div class="listGridItems"
+       infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="500"
+       (scrolled)="onScroll()"
+       [scrollWindow]="false">
+    <div *ngFor="let item of filteredItemList">
+      <app-item-grid-item [item]="item"></app-item-grid-item>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading">Loading...</div>
+
+</div>

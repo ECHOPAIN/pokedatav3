@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonsResultResults } from '../../model/pokemon/pokemonsResult';
+import { Pokemons } from '../../model/pokemon/pokemonsResult';
 import { Pokemon } from '../../model/pokemon/pokemon';
 
 import VanillaTilt from 'vanilla-tilt';
@@ -10,7 +10,7 @@ import VanillaTilt from 'vanilla-tilt';
   styleUrls: ['./pokemon-grid-item.component.scss']
 })
 export class PokemonGridItemComponent implements OnInit {
-  @Input() pokemon: PokemonsResultResults;
+  @Input() pokemon: Pokemons;
 
   constructor() {
     this.pokemon =

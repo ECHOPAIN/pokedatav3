@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { PokedexComponent } from './pokedex/pokedex.component';
+import { ItemComponent } from './item/item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pokedex', pathMatch: 'full' },
   { path: 'pokedex', component: PokedexComponent },
+  { path: 'item', component: ItemComponent },
   { path: '**', redirectTo: 'pokedex' }
 ];
 
