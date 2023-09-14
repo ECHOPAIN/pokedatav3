@@ -67,9 +67,15 @@ $white: #F5F5F5;
 }
 
 .card:hover .content .imgBx {
-    height: 13em !important;
-    width: 13em !important;
-    transition: all 0.2s ease-out;
+   height: 13em !important;
+   width: 13em !important;
+   transition: all 0.2s ease-out;
+}
+
+.card:hover {
+  width: 252px;
+  height: 360px;
+  transition: all 0.2s ease-out;
 }
 
 .card .content .imgBx img
@@ -128,6 +134,11 @@ $white: #F5F5F5;
     border-left: 1px solid $darkGray;
     }
 
+    .card:hover {
+      width: 109px;
+      height: 156px;
+    }
+
     .card .content h2
     {
       top: 0px;
@@ -151,9 +162,8 @@ $white: #F5F5F5;
     }
     .card:hover .content .imgBx {
       //Remove animation
-      width: 60px !important;
-      height: 60px !important;
-      transition: none;
+      width: 70px !important;
+      height: 70px !important;
     }
   }
 

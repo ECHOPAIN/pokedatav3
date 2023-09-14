@@ -24,6 +24,15 @@ $white: #F5F5F5;
   overflow: hidden;
 }
 
+.card:hover
+  {
+    height: 17vh;
+    max-width: 1500px;
+    width: 90%;
+    background: rgba(245, 245, 245, 0.5);
+    transition: all 0.2s ease-out;
+  }
+
 .pokemonListItem
 {
   display: flex;
@@ -71,7 +80,6 @@ $white: #F5F5F5;
 {
   .card
   {
-
     //TODO PHONE ONLY
     box-shadow: none;
     background: $midBlack;
@@ -80,6 +88,14 @@ $white: #F5F5F5;
     height: 12vh;
     width: 80%;
   }
+
+
+  .card:hover
+  {
+    height: 13vh;
+    width: 90%;
+  }
+
   .pokemonListItem
   {
     padding: 0.5rem;
@@ -99,7 +115,7 @@ $white: #F5F5F5;
 
   .pokemonListItem h2
   {
-    font-size: 1.2rem;
+    font-size: .8rem;
   }
   .pokemonListItem p
   {
