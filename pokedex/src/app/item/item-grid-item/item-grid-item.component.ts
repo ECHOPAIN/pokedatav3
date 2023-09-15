@@ -16,4 +16,12 @@ export class ItemGridItemComponent {
                 url: "https://pokeapi.co/api/v2/pokemon/0/"
               }
     }
+
+    getImage(){
+      return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/"+this.item.name+".png"
+    }
+
+    display(){
+
+    }
 }

@@ -1,0 +1,139 @@
+$black: #1F1F1F;
+$midBlack: #353535;
+$darkGray: #535353;
+$lightGray: #CACACA;
+$white: #F5F5F5;
+
+.card
+{
+  position: relative;
+  width: 20em;
+  height: 13em;
+  margin: 2em;
+  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  background: rgba(245, 245, 245, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(245, 245, 245, 0.5);
+  border-left: 1px solid rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(5px);
+
+  overflow: hidden;
+}
+
+.card .content
+{
+  padding: 20px;
+  text-align: center;
+}
+
+.card .content .imgBxLogo img
+{
+  display: block;
+  position: fixed;
+  top: 45%;
+  left: 55%;
+  width: 50%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.card .content h2
+{
+  position: absolute;
+  top: 0.5em;
+  left: 0.25em;
+  font-size: 2em;
+  color: rgba(31, 31, 31, 0.2);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.card .content .contentBx h3
+{
+  font-size: 1.3em;
+  color: #1F1F1F;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+.card .content .imgBx
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover .content .imgBx {
+   transition: all 0.2s ease-out;
+}
+
+.card:hover {
+  width: 22em;
+  height: 14em;
+  background: rgba(245, 245, 245, 0.5);
+  transition: all 0.2s ease-out;
+}
+
+.card .content .imgBx img
+{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    width: 30%;
+    z-index: -1;
+}
+
+  @media (max-width: 1000px)
+  {
+    .card
+    {
+      width: 9em;
+      height: 6.5em;
+      margin: 3px;
+
+      //TODO PHONE ONLY
+      box-shadow: none;
+      background: $midBlack;
+      border-top: 1px solid $darkGray;
+      border-left: 1px solid $darkGray;
+    }
+
+    .card:hover {
+      width: 10em;
+      height: 7em;
+    }
+
+    .card .content h2
+    {
+      top: 0px;
+      right: 0.15em;
+      font-size: 1em;
+
+      //TODO PHONE ONLY
+      color: $black;
+    }
+
+    .card .content .contentBx h3
+    {
+      font-size: 0.7em;
+      font-weight: 900;
+      padding-bottom: 1rem;
+      padding-right: 2rem;
+      width: 8rem;
+    }
+
+    .card .content .imgBx
+    {
+      width: 60px;
+      height: 60px;
+    }
+    .card:hover .content .imgBx {
+      //Remove animation
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+
