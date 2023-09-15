@@ -13,6 +13,7 @@ import { PokemonGridItemComponent } from './pokedex/pokemon-grid-item/pokemon-gr
 import { PokemonListItemComponent } from './pokedex/pokemon-list-item/pokemon-list-item.component';
 import { ItemComponent } from './item/item.component';
 import { ItemGridItemComponent } from './item/item-grid-item/item-grid-item.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ItemGridItemComponent } from './item/item-grid-item/item-grid-item.comp
     PokemonGridItemComponent,
     PokemonListItemComponent,
     ItemComponent,
-    ItemGridItemComponent
+    ItemGridItemComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

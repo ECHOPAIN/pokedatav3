@@ -1,0 +1,145 @@
+$black: #1F1F1F;
+$midBlack: #353535;
+$darkGray: #535353;
+$lightGray: #CACACA;
+$white: #F5F5F5;
+
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.content
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80vh;
+  margin: 6rem 0;
+  padding: 5vh 1rem;
+  //Glassmorphism
+  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  background: rgba(83, 83, 83, 0.2);
+  border-top: 1px solid rgba(83, 83, 83, 0.5);
+  border-left: 1px solid rgba(83, 83, 83, 0.5);
+  backdrop-filter: blur(5px);
+
+}
+.content .textBox
+{
+  position: relative;
+  max-width: 600px;
+}
+.content .textBox h2
+{
+  color: $darkGray;
+  font-size: 3.8em;
+  line-height: 1.4em;
+  font-weight: 500;
+}
+.content .textBox h2 span
+{
+  color: $lightGray;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+.content .textBox p
+{
+  color: $darkGray;
+}
+.content .textBox a
+{
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 20px;
+  background: $black;
+  color: $white;
+  border-radius: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.content .imgBox
+{
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
+  margin-top: 50px;
+}
+.content .imgBox img
+{
+  max-width: 500px;
+}
+.thumb
+{
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+}
+.thumb li
+{
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.thumb li:hover
+{
+  transform: translateY(-15px);
+}
+.thumb li img
+{
+  max-width: 60px;
+}
+.circle
+{
+  position: absolute;
+  top : 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(600px at right 800px);
+}
+
+@media (max-width: 1000px)
+{
+  .content
+  {
+    flex-direction: column;
+  }
+  .content .textBox h2
+  {
+    font-size: 2.5em;
+    margin-bottom : 15px;
+  }
+  .content .textBox
+  {
+    max-width: 100%;
+  }
+  .content .imgBox
+  {
+    max-width: 100%;
+    justify-content: center;
+  }
+  .content .imgBox img
+  {
+    max-width: 400px;
+  }
+  .thumb li img
+  {
+    max-width: 40px;
+  }
+  .circle
+  {
+    clip-path: circle(400px at center bottom);
+  }
+}
