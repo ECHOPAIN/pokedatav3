@@ -1,0 +1,143 @@
+$bug      : #8CB230;
+$dark     : #58575F;
+$dragon   : #0F6AC0;
+$electric : #FFCE4B;
+$fairy    : #FE55A6;
+$fighting : #FF3850;
+$fire     : #FF8C38;
+$flying   : #748FC9;
+$ghost    : #556AAE;
+$grass    : #39E23F;
+$ground   : #DD7748;
+$ice      : #61CEC0;
+$normal   : #9DA0AA;
+$poison   : #9F5BBA;
+$psychic  : #EA5D60;
+$rock     : #BAAB82;
+$steel    : #417D9A;
+$water    : #4BC9FF;
+
+/* The Modal (black background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 30; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  //overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content, .modal-content .backgroundColor{
+  height:100vh;
+  z-index: 31; /* Sit on top */
+  margin: auto;
+  /*min-width: 30%;
+  max-width: 500px;*/
+  width: 30rem;
+  max-width: 100%;
+  position: absolute;
+  top: 0;left: 0;right: 0;
+
+
+  box-shadow: 20px 20px 50px #0000001a;
+  border-radius: 15px;
+  border-top: 1px solid rgba(83,83,83,.5);
+  border-left: 1px px solid rgba(83,83,83,.5);
+}
+.modal-content
+{
+  background-image: url("/assets/images/pokeballBackground.jpg");
+  background-size: contain;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+/*Modal Content background colors */
+.modal-content .backgroundColor{
+    opacity: 0.5;
+}
+.backgroundColor.bug{background: $bug;}.backgroundColor.dark{background: $dark;}.backgroundColor.dragon{background: $dragon;}.backgroundColor.electric{background: $electric;}.backgroundColor.fairy{background: $fairy;}.backgroundColor.fighting{background: $fighting;}.backgroundColor.fire{background: $fire;}.backgroundColor.flying{background: $flying;}.backgroundColor.ghost{background: $ghost;}.backgroundColor.grass{background: $grass;}.backgroundColor.ground{background: $ground;}.backgroundColor.ice{background: $ice;}.backgroundColor.normal{background: $normal;}.backgroundColor.poison{background: $poison;}.backgroundColor.psychic{background: $psychic;}.backgroundColor.rock{background: $rock;}.backgroundColor.steel{background: $steel;}.backgroundColor.water{background: $water;}
+
+//Content
+.content
+{
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 32; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+
+  height:100vh;
+    z-index: 31; /* Sit on top */
+    margin: auto;
+    width: 30rem;
+    max-width: 100%;
+    position: absolute;
+    top: 0;left: 0;right: 0;
+}
+
+.content .imgBx img
+{
+  display: block;
+  margin-top: 3rem;
+  margin: 30px auto auto auto;
+  width: 70%;
+}
+
+.content .infos
+{
+  bottom: 0;
+  min-height: 62.5vh;
+  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  background: rgba(245, 245, 245, 0.2);
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  border-top: 1px solid rgba(245, 245, 245, 0.5);
+  border-left: 1px solid rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.content .infos .title
+{
+  display: flex;
+  flex-direction: row;
+}
+
+
+//Pokemon name
+.content .infos .title .nameBox
+{
+  //background: $electric;
+  border-radius: 0 50px 50px 0;
+  width: fit-content;
+  min-width: 40%;
+  height: 45px;
+  padding: 5px;
+  margin-top: -2px;
+  margin-left: -1px;
+}
+
+.content .infos .title .nameBox h1
+{
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+//Pokemon ID
+.content .infos .title>h1
+{
+    margin: 5px 20px;
+    width: 100%;
+    text-align: end;
+}

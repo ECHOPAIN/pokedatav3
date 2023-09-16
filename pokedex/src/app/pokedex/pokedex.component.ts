@@ -18,11 +18,18 @@ export class PokedexComponent implements OnInit {
   search: String = "";
   listDisplay: Boolean = false;
 
+  displayDetail:boolean = false;
+
 
   constructor(private pokedexService: PokedexService) { }
 
   ngOnInit(): void {
-    this.loadPokemonList()
+    this.loadPokemonList();
+
+    this.pokedexService.isDisplayDetail()
+            .subscribe(displayDetail => {
+              this.displayDetail = displayDetail;
+            });
   }
 
  loadPokemonList(): void {

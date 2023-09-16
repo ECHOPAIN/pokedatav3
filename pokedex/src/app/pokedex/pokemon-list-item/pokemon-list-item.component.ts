@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pokemons } from '../../model/pokemon/pokemonsResult';
 import { Pokemon } from '../../model/pokemon/pokemon';
+import { PokedexService } from '../../services/pokedex.service';
 
 @Component({
   selector: 'app-pokemon-list-item',
@@ -10,7 +11,7 @@ import { Pokemon } from '../../model/pokemon/pokemon';
 export class PokemonListItemComponent {
  @Input() pokemon: Pokemons;
 
-  constructor() {
+  constructor(private pokedexService: PokedexService) {
     this.pokemon =
             { name: "MissingNo.",
               url: "https://pokeapi.co/api/v2/pokemon/0/"
@@ -28,8 +29,8 @@ export class PokemonListItemComponent {
     return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+this.getPokemonId()+".png"
   }
 
-  display(){
-    //this.detailService.display(this.getPokemonId();
+  displayDetailWindow(){
+    this.pokedexService.displayDetailWindow(parseInt(this.getPokemonId()));
   }
 
 }

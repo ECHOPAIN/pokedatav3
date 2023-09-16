@@ -161,6 +161,10 @@ $white: #F5F5F5;
 .pokemonGridItems::-webkit-scrollbar {
   display: none;
 }
+//remove scrollbar
+.pokemonListItems::-webkit-scrollbar {
+  display: none;
+}
 
 /*RESPONSIVE*/
 @media (max-width: 1000px)

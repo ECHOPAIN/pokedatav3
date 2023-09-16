@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pokemons } from '../../model/pokemon/pokemonsResult';
 import { Pokemon } from '../../model/pokemon/pokemon';
+import { PokedexService } from '../../services/pokedex.service';
 
 import VanillaTilt from 'vanilla-tilt';
 
@@ -12,7 +13,7 @@ import VanillaTilt from 'vanilla-tilt';
 export class PokemonGridItemComponent implements OnInit {
   @Input() pokemon: Pokemons;
 
-  constructor() {
+  constructor(private pokedexService: PokedexService) {
     this.pokemon =
             { name: "MissingNo.",
               url: "https://pokeapi.co/api/v2/pokemon/0/"
@@ -33,8 +34,8 @@ export class PokemonGridItemComponent implements OnInit {
     return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+this.getPokemonId()+".png"
   }
 
-  display(){
-    //this.detailService.display(this.getPokemonId();
+  displayDetailWindow(){
+    this.pokedexService.displayDetailWindow(parseInt(this.getPokemonId()));
   }
 
   addVanillaTilt(){

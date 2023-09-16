@@ -14,6 +14,7 @@ import { PokemonListItemComponent } from './pokedex/pokemon-list-item/pokemon-li
 import { ItemComponent } from './item/item.component';
 import { ItemGridItemComponent } from './item/item-grid-item/item-grid-item.component';
 import { HomeComponent } from './home/home.component';
+import { PokemonDetailComponent } from './pokedex/pokemon-detail/pokemon-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     PokemonListItemComponent,
     ItemComponent,
     ItemGridItemComponent,
-    HomeComponent
+    HomeComponent,
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,
