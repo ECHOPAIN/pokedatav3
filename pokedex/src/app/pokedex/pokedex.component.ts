@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Event, NavigationEnd} from '@angular/router';
+
 
 import { Pokemon } from '../model/pokemon/pokemon';
 import { Pokemons } from '../model/pokemon/pokemonsResult';
@@ -21,7 +23,7 @@ export class PokedexComponent implements OnInit {
   displayDetail:boolean = false;
 
 
-  constructor(private pokedexService: PokedexService) { }
+  constructor(private pokedexService: PokedexService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadPokemonList();
@@ -30,6 +32,15 @@ export class PokedexComponent implements OnInit {
             .subscribe(displayDetail => {
               this.displayDetail = displayDetail;
             });
+
+    this.router.events.subscribe((event: Event) => {
+      if("\/pokedex".match(this.router.url)){
+        this.pokedexService.hideDetailWindow();
+      }else if(/\/pokedex\/[0-9]+/.test(this.router.url)){
+        this.pokedexService.displayDetailWindow(parseInt(this.router.url.split('/')[2]));
+      }
+    });
+
   }
 
  loadPokemonList(): void {

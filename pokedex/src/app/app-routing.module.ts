@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'pokedex', component: PokedexComponent },
+  { path: 'pokedex/:id', component: PokedexComponent },
   { path: 'item', component: ItemComponent },
   { path: '**', redirectTo: 'home' }
 ];

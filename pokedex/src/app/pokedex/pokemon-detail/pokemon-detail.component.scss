@@ -1,3 +1,9 @@
+$black    : #1F1F1F;
+$midBlack : #353535;
+$darkGray : #535353;
+$lightGray: #CACACA;
+$white    : #F5F5F5;
+
 $bug      : #8CB230;
 $dark     : #58575F;
 $dragon   : #0F6AC0;
@@ -27,7 +33,7 @@ $water    : #4BC9FF;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   //overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
+  //background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 }
 
@@ -62,6 +68,18 @@ $water    : #4BC9FF;
 }
 .backgroundColor.bug{background: $bug;}.backgroundColor.dark{background: $dark;}.backgroundColor.dragon{background: $dragon;}.backgroundColor.electric{background: $electric;}.backgroundColor.fairy{background: $fairy;}.backgroundColor.fighting{background: $fighting;}.backgroundColor.fire{background: $fire;}.backgroundColor.flying{background: $flying;}.backgroundColor.ghost{background: $ghost;}.backgroundColor.grass{background: $grass;}.backgroundColor.ground{background: $ground;}.backgroundColor.ice{background: $ice;}.backgroundColor.normal{background: $normal;}.backgroundColor.poison{background: $poison;}.backgroundColor.psychic{background: $psychic;}.backgroundColor.rock{background: $rock;}.backgroundColor.steel{background: $steel;}.backgroundColor.water{background: $water;}
 
+/* The Close Button */
+.close {
+  position: fixed;
+  color: white;
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 15px;
+  color: $black;
+  cursor: pointer;
+}
+
 //Content
 .content
 {
@@ -75,17 +93,27 @@ $water    : #4BC9FF;
   overflow: auto; /* Enable scroll if needed */
 
   height:100vh;
-    z-index: 31; /* Sit on top */
     margin: auto;
     width: 30rem;
     max-width: 100%;
     position: absolute;
     top: 0;left: 0;right: 0;
+
+
+  //remove scrollbar
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
+//remove scrollbar
+.content::-webkit-scrollbar {
+  display: none;
+}
+
 
 .content .imgBx img
 {
   display: block;
+  z-index: 33; /* Sit on top */
   margin-top: 3rem;
   margin: 30px auto auto auto;
   width: 70%;
@@ -93,8 +121,9 @@ $water    : #4BC9FF;
 
 .content .infos
 {
+  z-index: 32; /* Sit on top */
   bottom: 0;
-  min-height: 62.5vh;
+  min-height: 78vh;
   box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
   border-radius: 15px;
   background: rgba(245, 245, 245, 0.2);
