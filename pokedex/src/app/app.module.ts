@@ -15,6 +15,10 @@ import { ItemComponent } from './item/item.component';
 import { ItemGridItemComponent } from './item/item-grid-item/item-grid-item.component';
 import { HomeComponent } from './home/home.component';
 import { PokemonDetailComponent } from './pokedex/pokemon-detail/pokemon-detail.component';
+import { PokemonEvolutionTabComponent } from './pokedex/pokemon-detail/pokemon-evolution-tab/pokemon-evolution-tab.component';
+import { PokemonMoveTabComponent } from './pokedex/pokemon-detail/pokemon-move-tab/pokemon-move-tab.component';
+import { PokemonAboutTabComponent } from './pokedex/pokemon-detail/pokemon-about-tab/pokemon-about-tab.component';
+import { PokemonStatTabComponent } from './pokedex/pokemon-detail/pokemon-stat-tab/pokemon-stat-tab.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { PokemonDetailComponent } from './pokedex/pokemon-detail/pokemon-detail.
     ItemComponent,
     ItemGridItemComponent,
     HomeComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    PokemonEvolutionTabComponent,
+    PokemonMoveTabComponent,
+    PokemonAboutTabComponent,
+    PokemonStatTabComponent
   ],
   imports: [
     BrowserModule,

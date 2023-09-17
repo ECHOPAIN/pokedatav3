@@ -1,0 +1,83 @@
+$black    : #1F1F1F;
+$midBlack : #353535;
+$darkGray : #535353;
+$lightGray: #CACACA;
+$white    : #F5F5F5;
+
+$bug      : #8CB230;
+$dark     : #58575F;
+$dragon   : #0F6AC0;
+$electric : #FFCE4B;
+$fairy    : #FE55A6;
+$fighting : #FF3850;
+$fire     : #FF8C38;
+$flying   : #748FC9;
+$ghost    : #556AAE;
+$grass    : #39E23F;
+$ground   : #DD7748;
+$ice      : #61CEC0;
+$normal   : #9DA0AA;
+$poison   : #9F5BBA;
+$psychic  : #EA5D60;
+$rock     : #BAAB82;
+$steel    : #417D9A;
+$water    : #4BC9FF;
+
+.backgroundColor.bug{background: $bug;}.backgroundColor.dark{background: $dark;}.backgroundColor.dragon{background: $dragon;}.backgroundColor.electric{background: $electric;}.backgroundColor.fairy{background: $fairy;}.backgroundColor.fighting{background: $fighting;}.backgroundColor.fire{background: $fire;}.backgroundColor.flying{background: $flying;}.backgroundColor.ghost{background: $ghost;}.backgroundColor.grass{background: $grass;}.backgroundColor.ground{background: $ground;}.backgroundColor.ice{background: $ice;}.backgroundColor.normal{background: $normal;}.backgroundColor.poison{background: $poison;}.backgroundColor.psychic{background: $psychic;}.backgroundColor.rock{background: $rock;}.backgroundColor.steel{background: $steel;}.backgroundColor.water{background: $water;}
+
+.stats{
+  margin: 5%;
+}
+
+.stats h2
+{
+  text-align: center;
+}
+
+.stats .stats-container .stats-wrapper
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats .stats-container .stats-wrapper h3
+{
+  font-size: 0.8em;
+  font-weight: normal;
+  width: 40px;
+}
+
+.progressBar{
+  display: block;
+  width: 100%;
+  height: 15px;
+}
+
+.progressBar .percent{
+  position: relative;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #DDDDDD;
+  overflow: hidden;
+}
+
+.progressBar .percent .progress{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.1), rgba(0,0,0,0.1)) !important;
+  animation: animate 0.5s ease-in-out forwards;
+}
+
+@keyFrames animate
+{
+  from
+  {
+    width: 0;
+  }
+}

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { PokemonDetail } from '../../model/pokeapi/pokeApiDetail';
 import { PokemonSpecies } from '../../model/pokeapi/pokeApiSpecies';
+import { PokemonEvolutionChain } from '../../model/pokeapi/pokeApiEvolutionChain'
+
 import { PokedexService } from '../../services/pokedex.service';
 import { ColorService } from '../../services/color.service';
 
@@ -11,6 +13,7 @@ import { ColorService } from '../../services/color.service';
 //To delete
 import { POKEMONDETAIL } from '../../mock-pokemon-detail';
 import { POKEMONSPECIES } from '../../mock-pokemon-species';
+import { POKEMONEVOLUTIONCHAIN } from '../../mock-pokemon-evolution-chain';
 
 
 @Component({
@@ -40,9 +43,9 @@ export class PokemonDetailComponent {
           console.log(this.pokemonSpecies)
       });
 
-
-      /*this.pokemon = POKEMONDETAIL;
-      this.pokemonSpecies = POKEMONSPECIES;*/
+    //To delete
+    /*this.pokemon = POKEMONDETAIL;
+    this.pokemonSpecies = POKEMONSPECIES;*/
 
   }
 
@@ -81,30 +84,6 @@ export class PokemonDetailComponent {
         }
       })
     }
-  }
-
-  getPokemonFlavorText(){
-    var flavorTextToReturn = "";
-    this.pokemonSpecies.flavor_text_entries.forEach((flavorTextEntries) =>{
-                                                    if(flavorTextEntries.language.name == "en"){
-                                                      flavorTextToReturn = flavorTextEntries.flavor_text
-                                                    }})
-    return flavorTextToReturn;
-  }
-
-  getPokemonHeight(){
-    var height: String = this.pokemon.height + "";
-    if(height.length <=1){
-      height = "0"+height;
-    }
-    return height.substring(0, height.length-1)+","+height.substring(height.length-1, height.length)
-  }
-  getPokemonWeight(){
-    var weight: String = this.pokemon.weight + "";
-    if(weight.length <=1){
-      weight = "0"+weight;
-    }
-    return weight.substring(0, weight.length-1)+","+weight.substring(weight.length-1, weight.length)
   }
 
 }

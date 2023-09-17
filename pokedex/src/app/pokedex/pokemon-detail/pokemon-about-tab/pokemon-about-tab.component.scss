@@ -1,0 +1,31 @@
+$black    : #1F1F1F;
+$midBlack : #353535;
+$darkGray : #535353;
+$lightGray: #CACACA;
+$white    : #F5F5F5;
+
+.flavorTxt
+{
+  color: $black;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-align: justify;
+}
+
+//Height and Weight
+.sizeBox
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.sizeBox .heightBox, .sizeBox .weightBox
+{
+  display: flex;
+  flex-direction: column;
+}
+.sizeBox .heightBox p, .sizeBox .weightBox p
+{
+  text-align: center;
+}

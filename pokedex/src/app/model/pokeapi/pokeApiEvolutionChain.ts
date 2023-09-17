@@ -1,34 +1,37 @@
-export interface PokeApiEvolutionChain {
-  chain: PokeApiEvolutionChainType,
+export interface PokemonEvolutionChain {
+  baby_trigger_item: Object | null,
+  chain: PokemonEvolutionChainType,
+  id: number
 }
 
 
-export interface PokeApiEvolutionChainType{
-  evolution_details: PokeApiEvolution_details,
-  evolves_to: [],
+export interface PokemonEvolutionChainType{
+  evolution_details: PokemonEvolutionDetails[],
+  evolves_to: PokemonEvolutionChainType[],
+  is_baby: boolean,
   species: {name: string, url: string}
 }
 
-export interface PokeApiEvolution_details{
-  gender: string,
-  held_item: string,
-  item: string,
-  known_move: string,
-  known_move_type: string,
-  location: string,
-  min_affection: string,
-  min_beauty: string,
-  min_happiness: string,
-  min_level: number,
-  needs_overworld_rain: boolean,
-  party_species: string,
-  party_type: string,
-  relative_physical_stats: string,
-  time_of_day: string,
-  trade_species: string,
+export interface PokemonEvolutionDetails{
+  gender: string | null,
+  held_item: string | null,
+  item: {name: string, url: string} | null,
+  known_move: string | null,
+  known_move_type: string | null,
+  location: string | null,
+  min_affection: string | null,
+  min_beauty: string | null,
+  min_happiness: number | null,
+  min_level: number | null,
+  needs_overworld_rain: boolean | null,
+  party_species: string | null,
+  party_type: string | null,
+  relative_physical_stats: string | null,
+  time_of_day: string | null,
+  trade_species: string | null,
   trigger:{
      name: string,
      url: string
   },
-  turn_upside_down: boolean
+  turn_upside_down: boolean | null
 }
