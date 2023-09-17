@@ -20,6 +20,8 @@ export class PokemonDetailComponent {
   typeColor: String = "#FFF";
   isLoading: Boolean = false;
 
+  tabActive: String[] = ["active","","",""]
+
   constructor(private pokedexService: PokedexService,colorService: ColorService, private location: Location, private router: Router) {
     this.pokemon = {} as PokemonDetail;
     this.typeColor = "#FFF";
@@ -45,6 +47,31 @@ export class PokemonDetailComponent {
     this.pokemon = {} as PokemonDetail;
     this.typeColor = "#FFF";
     this.location.go("/pokedex");
+  }
+
+  setActiveTab(tabToActivate: number){
+    if(tabToActivate >= 0 && tabToActivate < this.tabActive.length){
+      this.tabActive = ["","","",""];
+      this.tabActive[tabToActivate] = "active";
+      var lines = Array.from(document.getElementsByClassName('line') as HTMLCollectionOf<HTMLElement>);
+      lines.forEach((line) => {
+        switch(tabToActivate){
+          case 0:
+            line.style.left = '1%';
+            break;
+          case 1:
+            line.style.left = '25%';
+            break;
+          case 2:
+            line.style.left = '50%';
+            break;
+          case 3:
+            line.style.left = '75%';
+            break;
+        }
+        //line.style.left = tabToActivate*120+17+"px";
+      })
+    }
   }
 
 }

@@ -170,3 +170,61 @@ $water    : #4BC9FF;
     width: 100%;
     text-align: end;
 }
+
+//Pokemon informations tabs
+.tabBox
+{
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid $darkGray;
+  position: relative;
+}
+.tabBox .tabBtn
+{
+  font-size: 18px;
+  font-weight: 600;
+  color: $midBlack;
+  background: none;
+  border: none;
+  padding: 18px;
+  cursor: pointer;
+}
+.tabBox .tabBtn.active{
+  font-size: 20px;
+  font-weight: 650;
+  color: $black;
+}
+.line{
+  position: absolute;
+  top: 58px;
+  left: 17px;
+  width: 90px;
+  height: 5px;
+  background-color: $black;
+  border-radius: 10px;
+  transition: all .3s ease-in-out;
+}
+.infoContentBox
+{
+  padding: 20px;
+}
+.infoContentBox .infoContent
+{
+  display: none;
+  animation: moving .5s ease;
+}
+@keyframes moving{
+  from{transform : translateX(50px);opacity: 0;}
+  to{transform : translateX(0px);opacity: 1;}
+}
+.infoContentBox .infoContent.active
+{
+  display: block;
+}
+.infoContentBox .infoContent h2
+{
+  margin-bottom: 10px;
+}
