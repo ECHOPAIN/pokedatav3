@@ -92,4 +92,19 @@ export class PokemonDetailComponent {
     return flavorTextToReturn;
   }
 
+  getPokemonHeight(){
+    var height: String = this.pokemon.height + "";
+    if(height.length <=1){
+      height = "0"+height;
+    }
+    return height.substring(0, height.length-1)+","+height.substring(height.length-1, height.length)
+  }
+  getPokemonWeight(){
+    var weight: String = this.pokemon.weight + "";
+    if(weight.length <=1){
+      weight = "0"+weight;
+    }
+    return weight.substring(0, weight.length-1)+","+weight.substring(weight.length-1, weight.length)
+  }
+
 }
