@@ -166,9 +166,33 @@ $water    : #4BC9FF;
 //Pokemon ID
 .content .infos .title>h1
 {
-    margin: 5px 20px;
-    width: 100%;
-    text-align: end;
+  margin: 5px 20px;
+  width: 100%;
+  text-align: end;
+}
+
+//Pokemon Type
+.typeBox
+{
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.typeBox .type
+{
+  margin: 5px;
+  padding: 5px;
+  border-radius: 50px;
+  min-width: 5rem;
+  text-align: center;
+}
+.typeBox .type h1
+{
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 450;
+  line-height: 24px;
+  text-transform: uppercase;
 }
 
 //Pokemon informations tabs
@@ -238,7 +262,22 @@ $water    : #4BC9FF;
   text-align: justify;
 }
 
-
+//Height and Weight
+.sizeBox
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.sizeBox .heightBox, .sizeBox .weightBox
+{
+  display: flex;
+  flex-direction: column;
+}
+.sizeBox .heightBox p, .sizeBox .weightBox p
+{
+  text-align: center;
+}
 
 @media (max-width: 1000px)
 {
@@ -246,6 +285,10 @@ $water    : #4BC9FF;
   {
     font-size: 1.1rem;
     font-weight: 600;
+  }
+  .typeBox .type h1
+  {
+    font-size: 1.1em;
   }
   .tabBox .tabBtn
   {
