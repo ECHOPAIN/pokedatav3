@@ -1,8 +1,8 @@
 <div class="modal" (click)="hideDetailWindow()"></div>
-<div class="modal-content" *ngIf="pokemon.name">
+<div class="modal-content" *ngIf="pokemon.name && pokemonSpecies.flavor_text_entries">
   <div class="backgroundColor" [ngClass]="pokemon.types[0].type.name"></div>
 </div>
-<div class="content" *ngIf="pokemon.name">
+<div class="content" *ngIf="pokemon.name && pokemonSpecies.flavor_text_entries">
   <span class="close" (click)="hideDetailWindow()">&times;</span>
   <div class="imgBx"><img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}"></div>
   <div class="infos">
@@ -13,19 +13,18 @@
       <h1>#{{pokemon.id}}</h1>
     </div>
     <div class="tabBox">
-      <button class="tabBtn" [ngClass]="tabActive[0]" (click)="setActiveTab(0)">Tab 1</button>
-      <button class="tabBtn" [ngClass]="tabActive[1]" (click)="setActiveTab(1)">Tab 2</button>
-      <button class="tabBtn" [ngClass]="tabActive[2]" (click)="setActiveTab(2)">Tab 3</button>
-      <button class="tabBtn" [ngClass]="tabActive[3]" (click)="setActiveTab(3)">Tab 4</button>
+      <button class="tabBtn" [ngClass]="tabActive[0]" (click)="setActiveTab(0)">About</button>
+      <button class="tabBtn" [ngClass]="tabActive[1]" (click)="setActiveTab(1)">Stats</button>
+      <button class="tabBtn" [ngClass]="tabActive[2]" (click)="setActiveTab(2)">Evolution</button>
+      <button class="tabBtn" [ngClass]="tabActive[3]" (click)="setActiveTab(3)">Moves</button>
       <div class="line"></div>
     </div>
     <div class="infoContentBox">
 
       <div class="infoContent" [ngClass]="tabActive[0]">
-        <h2>Title 1</h2>
-        <p>
-          Somes informations about pokemon
-        </p>
+        <div class="flavorTxt">
+          <p>{{getPokemonFlavorText()}}</p>
+        </div>
       </div>
 
       <div class="infoContent" [ngClass]="tabActive[1]">

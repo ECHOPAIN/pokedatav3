@@ -7,7 +7,7 @@ import { Pokemons } from '../model/pokemon/pokemonsResult';
 import { ItemsResult } from '../model/item/itemsResult';
 import { Items } from '../model/item/itemsResult';
 import { Pokemon } from '../model/pokemon/pokemon';
-import { PokeApiSpecies } from '../model/pokeapi/pokeApiSpecies'
+import { PokemonSpecies } from '../model/pokeapi/pokeApiSpecies'
 import { PokemonDetail } from '../model/pokeapi/pokeApiDetail'
 import { PokeApiEvolutionChain } from '../model/pokeapi/pokeApiEvolutionChain'
 
@@ -41,8 +41,8 @@ export class PokedexService {
     return this.http.get<PokemonDetail>(this.pokemonUrl+'/pokemon/'+id)
   }
 
-  getPokemonSpecies(id: number): Observable<PokeApiSpecies> {
-    return this.http.get<PokeApiSpecies>(this.pokemonUrl+'/pokemon-species/'+id)
+  getPokemonSpecies(id: number): Observable<PokemonSpecies> {
+    return this.http.get<PokemonSpecies>(this.pokemonUrl+'/pokemon-species/'+id)
   }
 
   // WARNING: id of the evolution chain, not the pokemon
@@ -78,6 +78,10 @@ export class PokedexService {
 
     getCurrentPokemonDetail(): Observable<PokemonDetail>{
       return this.getPokemonDetail(this.pokemonDetailId);
+    }
+
+    getCurrentPokemonSpecies(): Observable<PokemonSpecies>{
+      return this.getPokemonSpecies(this.pokemonDetailId);
     }
 
 }
