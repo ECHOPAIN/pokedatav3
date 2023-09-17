@@ -26,6 +26,8 @@
     </div>
     <div class="infoContentBox">
 
+
+
       <div class="infoContent" [ngClass]="tabActive[0]">
         <h2>Description</h2>
         <div class="flavorTxt">
@@ -43,12 +45,75 @@
         </div>
       </div>
 
+
+
       <div class="infoContent" [ngClass]="tabActive[1]">
         <h2>Title 2</h2>
         <p>
           Somes informations about pokemon
         </p>
+        <div class="stats">
+          <h2>Statistics</h2>
+          <div class="stats-container">
+            <div class="stats-wrapper">
+              <h3>HP</h3>
+              <h3>{{pokemon.stats[0].base_stat}}</h3>
+              <div class="progressBar">
+                <div class="percent">
+                  <div class="progress backgroundColor" style="width: {{pokemon.stats[0].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-wrapper">
+              <h3>ATK</h3>
+              <h3>{{pokemon.stats[1].base_stat}}</h3>
+              <div class="progressBar">
+                <div class="percent">
+                  <div class="progress backgroundColor" style="width: {{pokemon.stats[1].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-wrapper">
+              <h3>DEF</h3>
+              <h3>{{pokemon.stats[2].base_stat}}</h3>
+              <div class="progressBar">
+                <div class="percent">
+                  <div class="progress backgroundColor" style="width: {{pokemon.stats[2].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-wrapper">
+              <h3>SATK</h3>
+              <h3>{{pokemon.stats[3].base_stat}}</h3>
+              <div class="progressBar">
+                <div class="percent">
+                  <div class="progress backgroundColor" style="width: {{pokemon.stats[3].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-wrapper">
+              <h3>SDEF</h3>
+              <h3>{{pokemon.stats[4].base_stat}}</h3>
+              <div class="progressBar">
+                <div class="percent">
+                  <div class="progress backgroundColor" style="width: {{pokemon.stats[4].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-wrapper">
+              <h3>SPD</h3>
+              <h3>{{pokemon.stats[5].base_stat}}</h3>
+              <div class="progressBar">
+                <div class="percent">
+                  <div class="progress backgroundColor" style="width: {{pokemon.stats[5].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+
 
       <div class="infoContent" [ngClass]="tabActive[2]">
         <h2>Title 3</h2>
@@ -57,12 +122,16 @@
         </p>
       </div>
 
+
+
       <div class="infoContent" [ngClass]="tabActive[3]">
         <h2>Title 4</h2>
         <p>
           Somes informations about pokemon
         </p>
       </div>
+
+
 
     </div>
   </div>
