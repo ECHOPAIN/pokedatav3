@@ -24,13 +24,15 @@ import { POKEMONEVOLUTIONCHAIN } from '../../mock-pokemon-evolution-chain';
 export class PokemonDetailComponent {
   pokemon: PokemonDetail;
   pokemonSpecies : PokemonSpecies;
-  typeColor: String = "#FFF";
+  pokemonEvolutionChain : PokemonEvolutionChain
 
+  typeColor: String = "#FFF";
   tabActive: String[] = ["active","","",""]
 
   constructor(private pokedexService: PokedexService,colorService: ColorService, private location: Location, private router: Router) {
     this.pokemon = {} as PokemonDetail;
     this.pokemonSpecies = {} as PokemonSpecies;
+    this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
     this.typeColor = "#FFF";
     this.pokedexService.getCurrentPokemonDetail()
       .subscribe(pokemonRetrieved => {
@@ -40,12 +42,16 @@ export class PokemonDetailComponent {
     this.pokedexService.getCurrentPokemonSpecies()
       .subscribe(pokemonSpeciesRetrieved => {
           this.pokemonSpecies = pokemonSpeciesRetrieved;
-          console.log(this.pokemonSpecies)
+          this.pokedexService.getPokemonEvolutionChain(parseInt(this.pokemonSpecies.evolution_chain.url.split('/')[6]))
+          .subscribe(pokemonEvolutionChainRetrieved => {
+                    this.pokemonEvolutionChain = pokemonEvolutionChainRetrieved;
+          })
       });
 
     //To delete
     /*this.pokemon = POKEMONDETAIL;
-    this.pokemonSpecies = POKEMONSPECIES;*/
+    this.pokemonSpecies = POKEMONSPECIES;
+    this.pokemonEvolutionChain = POKEMONEVOLUTIONCHAIN;*/
 
   }
 

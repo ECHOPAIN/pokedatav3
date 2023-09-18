@@ -1,0 +1,34 @@
+p
+{
+  text-align: center;
+}
+
+.evolutionBox
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.evolutionBox .pokemon
+{
+  display: flex;
+  flex-direction: column;
+}
+.evolutionBox .pokemon p
+{
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.evolutionBox .requirement
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.evolutionBox .requirement .imgBx img
+{
+  width: 50px;
+}

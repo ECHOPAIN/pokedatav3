@@ -26,31 +26,21 @@
     </div>
     <div class="infoContentBox">
 
-
-
       <div class="infoContent" [ngClass]="tabActive[0]">
         <app-pokemon-about-tab [pokemon]="pokemon" [pokemonSpecies]="pokemonSpecies"></app-pokemon-about-tab>
       </div>
-
-
 
       <div class="infoContent" [ngClass]="tabActive[1]">
         <app-pokemon-stat-tab [pokemon]="pokemon"></app-pokemon-stat-tab>
       </div>
 
-
-
       <div class="infoContent" [ngClass]="tabActive[2]">
-        <app-pokemon-evolution-tab></app-pokemon-evolution-tab>
+        <app-pokemon-evolution-tab [pokemon]="pokemon" [pokemonEvolutionChain]="pokemonEvolutionChain"></app-pokemon-evolution-tab>
       </div>
-
-
 
       <div class="infoContent" [ngClass]="tabActive[3]">
         <app-pokemon-move-tab></app-pokemon-move-tab>
       </div>
-
-
 
     </div>
   </div>

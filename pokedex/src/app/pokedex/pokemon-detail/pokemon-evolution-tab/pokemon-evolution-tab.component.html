@@ -1,4 +1,20 @@
-<h2>Title for evolution</h2>
-<p>
-  Somes informations about evolution
-</p>
+<div *ngIf="pokemonEvolutionChain.chain">
+  <div *ngIf="loadPokemonEvolutionChain()"></div>
+  <div class="evolutionBox" *ngFor="let evolution of chain">
+    <div class="pokemon">
+      <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon1)" alt="{{evolution.pokemon1.name}}"></div>
+      <p>{{evolution.pokemon1.name}}</p>
+    </div>
+    <div class="requirement">
+      <div class="imgBx"><img src="assets/images/arrow.png"></div>
+      <p>Level Up</p>
+    </div>
+    <div class="pokemon">
+      <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon2)" alt="{{evolution.pokemon2.name}}"></div>
+      <p>{{evolution.pokemon2.name}}</p>
+    </div>
+  </div>
+  <div *ngIf="chain.length == 0">
+    <p>This Pokemon has no evolution</p>
+  </div>
+</div>
