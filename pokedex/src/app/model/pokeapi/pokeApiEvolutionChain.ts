@@ -13,12 +13,12 @@ export interface PokemonEvolutionChainType{
 }
 
 export interface PokemonEvolutionDetails{
-  gender: string | null,
-  held_item: string | null,
+  gender: number | null,
+  held_item: {name: string, url: string} | null,
   item: {name: string, url: string} | null,
-  known_move: string | null,
-  known_move_type: string | null,
-  location: string | null,
+  known_move: {name: string, url: string} | null,
+  known_move_type: {name: string, url: string} | null,
+  location: {name: string, url: string} | null,
   min_affection: string | null,
   min_beauty: string | null,
   min_happiness: number | null,

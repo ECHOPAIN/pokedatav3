@@ -5,8 +5,36 @@
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon1)" alt="{{evolution.pokemon1.name}}"></div>
       <p>{{evolution.pokemon1.name}}</p>
     </div>
+
     <div class="requirement">
       <div class="imgBx"><img src="assets/images/arrow.png"></div>
+
+      <div *ngIf="evolution.evolutionDetails.gender">
+        <p *ngIf="evolution.evolutionDetails.gender == 1">female</p>
+        <p *ngIf="evolution.evolutionDetails.gender == 2">male</p>
+      </div>
+
+      <div *ngIf="evolution.evolutionDetails.held_item">
+        <p>held item : {{evolution.evolutionDetails.held_item.name}}</p>
+      </div>
+
+      <div *ngIf="evolution.evolutionDetails.item">
+        <p>use item : {{evolution.evolutionDetails.item.name}}</p>
+      </div>
+
+      <div *ngIf="evolution.evolutionDetails.known_move">
+        <p>knowing move : {{evolution.evolutionDetails.known_move.name}}</p>
+      </div>
+
+      <div *ngIf="evolution.evolutionDetails.known_move_type">
+        <p>knowing move type : {{evolution.evolutionDetails.known_move_type.name}}</p>
+      </div>
+
+      <div *ngIf="evolution.evolutionDetails.location">
+        <p>location : {{evolution.evolutionDetails.location.name}}</p>
+      </div>
+
+
       <p>Level Up</p>
     </div>
     <div class="pokemon">

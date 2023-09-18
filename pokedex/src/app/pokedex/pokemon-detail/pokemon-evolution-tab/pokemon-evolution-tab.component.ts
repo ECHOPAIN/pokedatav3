@@ -46,12 +46,13 @@ export class PokemonEvolutionTabComponent {
     if(pokemonEvolutionChain.evolves_to){
       pokemonEvolutionChain.evolves_to.forEach((evolves_to : PokemonEvolutionChainType) => {
         chain.push({pokemon1: pokemonEvolutionChain.species,
+                    evolutionDetails: evolves_to.evolution_details[0],
                     pokemon2: evolves_to.species})
-        console.log('adding evolution :'+ pokemonEvolutionChain.species.name + " into " + evolves_to.species.name);
+        //console.log('adding evolution :'+ pokemonEvolutionChain.species.name + " into " + evolves_to.species.name);
+        //console.log('with : '+ evolves_to.evolution_details[0].gender);
         this.buildChain(chain, evolves_to)
       })
     }
-    console.log("chain size : "+chain.length)
     return chain;
   }
 
