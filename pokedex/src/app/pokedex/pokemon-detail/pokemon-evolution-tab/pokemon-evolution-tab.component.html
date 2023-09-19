@@ -6,36 +6,101 @@
       <p>{{evolution.pokemon1.name}}</p>
     </div>
 
-    <div class="requirement">
+    <div class="requirementBox">
       <div class="imgBx"><img src="assets/images/arrow.png"></div>
 
-      <div *ngIf="evolution.evolutionDetails.gender">
-        <p *ngIf="evolution.evolutionDetails.gender == 1">female</p>
-        <p *ngIf="evolution.evolutionDetails.gender == 2">male</p>
+      <div class="requirementList" *ngFor="let evolutionDetails of evolution.evolutionDetails">
+        <p *ngIf="evolutionDetails !== evolution.evolutionDetails[0]">OR</p>
+        <div class="requirementListItem">
+
+          <div *ngIf="evolutionDetails.gender">
+            <p *ngIf="evolutionDetails.gender == 1">female</p>
+            <p *ngIf="evolutionDetails.gender == 2">male</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.held_item">
+            <p>held item : {{evolutionDetails.held_item.name}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.item">
+            <p>use item : {{evolutionDetails.item.name}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.known_move">
+            <p>knowing move : {{evolutionDetails.known_move.name}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.known_move_type">
+            <p>knowing move type : {{evolutionDetails.known_move_type.name}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.location">
+            <p>location : {{evolutionDetails.location.name}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.min_affection">
+            <p>affection : {{evolutionDetails.min_affection}} hearts</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.min_beauty">
+            <p>beauty : {{evolutionDetails.min_beauty}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.min_happiness">
+            <p>happiness : {{evolutionDetails.min_happiness}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.min_level">
+            <p>level : {{evolutionDetails.min_level}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.needs_overworld_rain">
+            <p>needs overworld rain</p>
+          </div>
+
+
+
+          <div *ngIf="evolutionDetails.party_species">
+            <p>party_species : {{evolutionDetails.party_species}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.party_type">
+            <p>party_type : {{evolutionDetails.party_type}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.relative_physical_stats">
+            <p>relative_physical_stats : {{evolutionDetails.relative_physical_stats}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.time_of_day">
+            <p>during {{evolutionDetails.time_of_day}} time</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.trade_species">
+            <p>trade_species : {{evolutionDetails.trade_species}}</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.trigger.name == 'trade'">
+            <p>trading</p>
+          </div>
+
+          <!-- nincada -> shedinja -->
+          <div *ngIf="evolutionDetails.trigger.name == 'shed'">
+            <p>level 20, free party space and pokeball in bag</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.turn_upside_down">
+            <p>turn upside down</p>
+          </div>
+
+          <!-- display what cause the evolution -->
+          <!--div *ngIf="evolutionDetails.trigger">
+            <p>trigger : {{evolutionDetails.trigger.name}}</p>
+          </div-->
+
+        </div>
       </div>
 
-      <div *ngIf="evolution.evolutionDetails.held_item">
-        <p>held item : {{evolution.evolutionDetails.held_item.name}}</p>
-      </div>
-
-      <div *ngIf="evolution.evolutionDetails.item">
-        <p>use item : {{evolution.evolutionDetails.item.name}}</p>
-      </div>
-
-      <div *ngIf="evolution.evolutionDetails.known_move">
-        <p>knowing move : {{evolution.evolutionDetails.known_move.name}}</p>
-      </div>
-
-      <div *ngIf="evolution.evolutionDetails.known_move_type">
-        <p>knowing move type : {{evolution.evolutionDetails.known_move_type.name}}</p>
-      </div>
-
-      <div *ngIf="evolution.evolutionDetails.location">
-        <p>location : {{evolution.evolutionDetails.location.name}}</p>
-      </div>
-
-
-      <p>Level Up</p>
     </div>
     <div class="pokemon">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon2)" alt="{{evolution.pokemon2.name}}"></div>

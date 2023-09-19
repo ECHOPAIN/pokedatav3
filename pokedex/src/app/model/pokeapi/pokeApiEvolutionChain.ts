@@ -29,9 +29,6 @@ export interface PokemonEvolutionDetails{
   relative_physical_stats: string | null,
   time_of_day: string | null,
   trade_species: string | null,
-  trigger:{
-     name: string,
-     url: string
-  },
+  trigger:{name: string, url: string},
   turn_upside_down: boolean | null
 }

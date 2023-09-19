@@ -46,7 +46,7 @@ export class PokemonEvolutionTabComponent {
     if(pokemonEvolutionChain.evolves_to){
       pokemonEvolutionChain.evolves_to.forEach((evolves_to : PokemonEvolutionChainType) => {
         chain.push({pokemon1: pokemonEvolutionChain.species,
-                    evolutionDetails: evolves_to.evolution_details[0],
+                    evolutionDetails: evolves_to.evolution_details,
                     pokemon2: evolves_to.species})
         //console.log('adding evolution :'+ pokemonEvolutionChain.species.name + " into " + evolves_to.species.name);
         //console.log('with : '+ evolves_to.evolution_details[0].gender);
