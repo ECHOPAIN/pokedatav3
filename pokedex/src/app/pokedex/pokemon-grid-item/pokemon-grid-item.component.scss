@@ -124,8 +124,8 @@ $white: #F5F5F5;
   {
     .card
     {
-      width: 7rem;
-      height: 9rem;
+      width: 9rem;
+      height: 8rem;
       margin: 3px;
 
       //TODO PHONE ONLY
@@ -136,15 +136,20 @@ $white: #F5F5F5;
     }
 
     .card:hover {
-      width: 8rem;
-      height: 10rem;
+      width: 10rem;
+      height: 9rem;
     }
 
+    .card .content
+    {
+      margin-top: 25px;
+    }
+    
     .card .content h2
     {
-      top: 0px;
-      right: 0.15em;
-      font-size: 2.5em;
+      top: 0.15em;
+      right: 0.25em;
+      font-size: 3em;
 
       //TODO PHONE ONLY
       color: $black;
@@ -152,19 +157,18 @@ $white: #F5F5F5;
 
     .card .content .contentBx h3
     {
-      font-size: 0.7em;
+      font-size: .9em;
       font-weight: 900;
     }
 
     .card .content .imgBx
     {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
     }
     .card:hover .content .imgBx {
-      //Remove animation
-      width: 100px !important;
-      height: 100px !important;
+      width: 120px !important;
+      height: 120px !important;
     }
   }
 

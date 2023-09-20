@@ -41,9 +41,17 @@ export class PokemonAboutTabComponent {
     return weight.substring(0, weight.length-1)+","+weight.substring(weight.length-1, weight.length)
   }
   getPokemonFemaleRate(){
-    return this.pokemonSpecies.gender_rate*12.5;
+    var gender_rate = this.pokemonSpecies.gender_rate;
+    if(this.pokemonSpecies.gender_rate < 0){
+      return '-';
+    }
+    return this.pokemonSpecies.gender_rate*12.5 + '%';
   }
   getPokemonMaleRate(){
-    return 100 - this.getPokemonFemaleRate();
+    var gender_rate = this.pokemonSpecies.gender_rate;
+        if(this.pokemonSpecies.gender_rate < 0){
+          return '-';
+        }
+        return 100-this.pokemonSpecies.gender_rate*12.5 + '%';
   }
 }

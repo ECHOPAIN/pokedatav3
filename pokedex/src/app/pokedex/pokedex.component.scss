@@ -169,9 +169,11 @@ $white: #F5F5F5;
 /*RESPONSIVE*/
 @media (max-width: 1000px)
 {
-
   .search
   {
+    top: 6em;
+    padding: 5px 10px;
+
     //TODO PHONE ONLY
     box-shadow: none;
     border-radius: 15px;
@@ -179,10 +181,40 @@ $white: #F5F5F5;
     border-top: 1px solid $darkGray;
     border-left: 1px solid $darkGray;
   }
+  .search h1
+  {
+    font-size : 1.2em;
+    line-height: 25px;
+  }
+  .search p
+  {
+    font-size: .9em;
+  }
+  .search .bar{
+    max-width: 250px;
+    height: 18px;
+  }
+  //CheckBox
+  .search .checkboxContainer span{
+    width: 3em;
+    height: 1.5em;
+  }
+  .search .checkboxContainer .indicator{
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .search .checkboxContainer .indicator img{
+    height: 0.825em;
+    margin: 0.375em;
+  }
+  .search .checkboxContainer .checkbox:checked ~ .indicator{
+    left: 1.5em;
+  }
 
   .pokemonGridItems
   {
-    padding-top: 20em;
-    padding-bottom: 6em;
-    }
+    padding-top: 17em;
+    padding-bottom: 1em;
+  }
+
 }

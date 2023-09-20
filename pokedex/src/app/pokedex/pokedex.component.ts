@@ -14,6 +14,7 @@ import { PokedexService } from '../services/pokedex.service';
 export class PokedexComponent implements OnInit {
   pokemons: Pokemons[] = [];
   filteredPokemonList: Pokemons[] = [];
+  allFilteredPokemons: Pokemons[] = []
   isLoading: Boolean = false;
   batchSize: number = 50;
   maxPokemonId: number = 1010;
@@ -47,6 +48,10 @@ export class PokedexComponent implements OnInit {
     this.isLoading = true;
     this.pokedexService.getAllPokemonResults()
       .subscribe(pokemonsRetrieved => {
+          /*this.pokemons = pokemonsRetrieved.results.filter(
+                        pokemon => pokemon==pokemonsRetrieved.results[parseInt(pokemon?.url.split('/')[6].toLowerCase())-1]//pokemon?.name.toLowerCase().includes(this.search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(this.search.toLowerCase())
+                      );
+          this.filteredPokemonList = this.pokemons;*/
           this.pokemons = pokemonsRetrieved.results.slice(0, this.maxPokemonId);
           this.filteredPokemonList = this.pokemons.slice(0, this.batchSize);
           this.isLoading = false;
@@ -64,27 +69,27 @@ export class PokedexComponent implements OnInit {
         this.filteredPokemonList = this.pokemons;
       }
 
-      this.filteredPokemonList = this.pokemons.filter(
+      this.allFilteredPokemons = this.pokemons.filter(
         pokemon => pokemon?.name.toLowerCase().includes(search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
-      ).slice(0,this.batchSize);
+      )
+      this.filteredPokemonList = this.allFilteredPokemons.slice(0,this.batchSize);
   }
 
   onScroll(){
     //we are searching for a pokemon
     if (this.search) {
-      var allFilteredPokemons: Pokemons[] = []
-      allFilteredPokemons = this.pokemons.filter(
+      this.allFilteredPokemons = this.pokemons.filter(
               pokemon => pokemon?.name.toLowerCase().includes(this.search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(this.search.toLowerCase())
             );
       //done
-      if(this.filteredPokemonList.length >= allFilteredPokemons.length){
+      if(this.filteredPokemonList.length >= this.allFilteredPokemons.length){
         return;
       }
       //if we reach the end of the list
-      if (this.filteredPokemonList.length+this.batchSize > allFilteredPokemons.length) {
-        this.filteredPokemonList.push(...allFilteredPokemons.slice(this.filteredPokemonList.length,allFilteredPokemons.length));
+      if (this.filteredPokemonList.length+this.batchSize > this.allFilteredPokemons.length) {
+        this.filteredPokemonList.push(...this.allFilteredPokemons.slice(this.filteredPokemonList.length,this.allFilteredPokemons.length));
       } else {
-        this.filteredPokemonList.push(...allFilteredPokemons.slice(this.filteredPokemonList.length,this.filteredPokemonList.length+this.batchSize));
+        this.filteredPokemonList.push(...this.allFilteredPokemons.slice(this.filteredPokemonList.length,this.filteredPokemonList.length+this.batchSize));
       }
     }else{
       //we are not searching for a pokemon
