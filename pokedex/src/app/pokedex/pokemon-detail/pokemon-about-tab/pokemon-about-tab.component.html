@@ -12,3 +12,35 @@
     <p>{{getPokemonWeight()}} kg</p>
   </div>
 </div>
+<div class="spritesBox">
+  <div class="normalSpriteBox">
+    <div class="spriteBox">
+      <div class="imgBx"><img src="{{pokemon.sprites.front_default}}" alt="front_default"></div>
+      <h3>Front sprite</h3>
+    </div>
+    <div class="spriteBox">
+      <div class="imgBx"><img src="{{pokemon.sprites.back_default}}" alt="back_default"></div>
+      <h3>Back sprite</h3>
+    </div>
+  </div>
+  <div class="shinySpriteBox">
+    <div class="spriteBox">
+      <div class="imgBx"><img src="{{pokemon.sprites.front_shiny}}" alt="front_shiny"></div>
+      <h3>Shiny front sprite</h3>
+    </div>
+    <div class="spriteBox">
+      <div class="imgBx"><img src="{{pokemon.sprites.back_shiny}}" alt="back_shiny"></div>
+      <h3>Shiny back sprite</h3>
+    </div>
+  </div>
+</div>
+<div class="genderBox">
+  <div class="maleBox">
+    <h2>Male</h2>
+    <p>{{getPokemonMaleRate()}} %</p>
+  </div>
+  <div class="femaleBox">
+    <h2>Female</h2>
+    <p>{{getPokemonFemaleRate()}} %</p>
+  </div>
+</div>

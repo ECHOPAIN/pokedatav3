@@ -29,3 +29,47 @@ $white    : #F5F5F5;
 {
   text-align: center;
 }
+
+//Sprites
+.spritesBox
+{
+  display: flex;
+  flex-direction: column;
+}
+.spritesBox .normalSpriteBox, .spritesBox .shinySpriteBox
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.spritesBox .normalSpriteBox .spriteBox, .spritesBox .shinySpriteBox .spriteBox
+{
+  display: flex;
+  flex-direction: column;
+}
+.spritesBox .normalSpriteBox .spriteBox h3, .spritesBox .shinySpriteBox .spriteBox h3
+{
+  text-align: center;
+}
+.spritesBox .normalSpriteBox .spriteBox .imgBx, .spritesBox .shinySpriteBox .spriteBox .imgBx
+{
+  display: flex;
+  justify-content: space-around;
+}
+
+//Gender rates
+.genderBox
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.genderBox .maleBox, .genderBox .femaleBox
+{
+  display: flex;
+  flex-direction: column;
+}
+.genderBox .maleBox p, .genderBox .femaleBox p
+{
+  text-align: center;
+}
