@@ -44,8 +44,7 @@ export class PokedexComponent implements OnInit {
       }else if(/\/pokedex\/[0-9]+/.test(this.router.url)){
         this.pokedexService.hideDetailWindow();
         setTimeout( () => {
-          console.log("changed " + this.router.url.split('/')[2] + " event "+event)
-                  this.pokedexService.displayDetailWindow(parseInt(this.router.url.split('/')[2]));
+          this.pokedexService.displayDetailWindow(parseInt(this.router.url.split('/')[2]));
         }, 0 );
 
       }

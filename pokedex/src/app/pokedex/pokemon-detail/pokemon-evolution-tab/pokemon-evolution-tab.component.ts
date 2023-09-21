@@ -66,7 +66,6 @@ export class PokemonEvolutionTabComponent {
   }
 
   redirect(pokemon:any){
-    console.log("redirect to "+ this.getPokemonId(pokemon));
     this.router.navigate(['./pokedex/'+this.getPokemonId(pokemon)]);
   }
 
