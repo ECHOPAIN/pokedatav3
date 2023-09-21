@@ -79,20 +79,16 @@ $white: #F5F5F5;
 @media (max-width: 1000px)
 {
 
-  .pokemonListItems
-  {
-    //padding: 0;
-  }
-
   .card
   {
+    height: 12vh;
+    width: 90%;
+
     //TODO PHONE ONLY
     box-shadow: none;
     background: $midBlack;
     border-top: 1px solid $darkGray;
     border-left: 1px solid $darkGray;
-    height: 12vh;
-    width: 80%;
   }
 
 

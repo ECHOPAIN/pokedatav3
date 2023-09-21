@@ -1,7 +1,8 @@
 <div *ngIf="pokemonEvolutionChain.chain">
   <div *ngIf="loadPokemonEvolutionChain()"></div>
   <div class="evolutionBox" *ngFor="let evolution of chain">
-    <div class="pokemon">
+
+    <div class="pokemon" (click)="redirect(evolution.pokemon1)">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon1)" alt="{{evolution.pokemon1.name}}"></div>
       <p>{{evolution.pokemon1.name}}</p>
     </div>
@@ -102,7 +103,7 @@
       </div>
 
     </div>
-    <div class="pokemon">
+    <div class="pokemon" (click)="redirect(evolution.pokemon2)">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon2)" alt="{{evolution.pokemon2.name}}"></div>
       <p>{{evolution.pokemon2.name}}</p>
     </div>

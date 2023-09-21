@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Event, NavigationEnd} from '@angular/router';
+import { Router, Event, NavigationEnd, Scroll} from '@angular/router';
 
 
 import { Pokemon } from '../model/pokemon/pokemon';
@@ -20,6 +20,7 @@ export class PokedexComponent implements OnInit {
   maxPokemonId: number = 1010;
   search: String = "";
   listDisplay: Boolean = false;
+  firstCall: Boolean = true;
 
   displayDetail:boolean = false;
 
@@ -35,10 +36,19 @@ export class PokedexComponent implements OnInit {
             });
 
     this.router.events.subscribe((event: Event) => {
+    if(event instanceof NavigationEnd
+    || (Scroll && this.firstCall)){ // Scroll && this.firstCall = on page load
+      this.firstCall = false;
       if("\/pokedex".match(this.router.url)){
         this.pokedexService.hideDetailWindow();
       }else if(/\/pokedex\/[0-9]+/.test(this.router.url)){
-        this.pokedexService.displayDetailWindow(parseInt(this.router.url.split('/')[2]));
+        this.pokedexService.hideDetailWindow();
+        setTimeout( () => {
+          console.log("changed " + this.router.url.split('/')[2] + " event "+event)
+                  this.pokedexService.displayDetailWindow(parseInt(this.router.url.split('/')[2]));
+        }, 0 );
+
+      }
       }
     });
 

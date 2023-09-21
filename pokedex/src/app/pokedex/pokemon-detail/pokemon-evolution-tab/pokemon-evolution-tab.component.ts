@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Router} from '@angular/router';
 
 import { PokemonDetail } from '../../../model/pokeapi/pokeApiDetail';
 import { PokemonEvolutionChain, PokemonEvolutionChainType } from '../../../model/pokeapi/pokeApiEvolutionChain';
@@ -14,7 +15,7 @@ export class PokemonEvolutionTabComponent {
 
  chain;
 
-  constructor() {
+  constructor(private router: Router) {
       this.pokemon = {} as PokemonDetail;
       this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
       this.chain = null as any;
@@ -62,6 +63,11 @@ export class PokemonEvolutionTabComponent {
 
   getFrontDefault(pokemon:any){
     return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+this.getPokemonId(pokemon)+".png"
+  }
+
+  redirect(pokemon:any){
+    console.log("redirect to "+ this.getPokemonId(pokemon));
+    this.router.navigate(['./pokedex/'+this.getPokemonId(pokemon)]);
   }
 
 }
