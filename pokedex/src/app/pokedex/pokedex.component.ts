@@ -69,6 +69,10 @@ export class PokedexComponent implements OnInit {
 
   //When user is typing in the search bar
   onKey(event: any) { // without type info
+    //console.log(event);
+    if(event.key =='Enter'){
+      //console.log('enter pressed');
+    }
     this.filterPokemon(event.target.value);
   }
 
