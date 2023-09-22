@@ -9,9 +9,26 @@
 
 body{
   background-color: #1F1F1F;
-  overflow: scroll !important;
+  //overflow: scroll !important;
   overflow-y: hidden;
   //overflow: hidden;
+  //remove scrollbar
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  overflow: auto;
+  //no horizontal scroll
+  overflow-x: hidden;
+}
+
+
+//remove scrollbar
+.body::-webkit-scrollbar {
+  display: none;
+}
+//remove scrollbar
+.body::-webkit-scrollbar {
+  display: none;
 }
 
 html, body { height: 100%; }
