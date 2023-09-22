@@ -24,14 +24,22 @@ $steel    : #417D9A;
 $water    : #4BC9FF;
 
 .backgroundColor.bug{background: $bug;}.backgroundColor.dark{background: $dark;}.backgroundColor.dragon{background: $dragon;}.backgroundColor.electric{background: $electric;}.backgroundColor.fairy{background: $fairy;}.backgroundColor.fighting{background: $fighting;}.backgroundColor.fire{background: $fire;}.backgroundColor.flying{background: $flying;}.backgroundColor.ghost{background: $ghost;}.backgroundColor.grass{background: $grass;}.backgroundColor.ground{background: $ground;}.backgroundColor.ice{background: $ice;}.backgroundColor.normal{background: $normal;}.backgroundColor.poison{background: $poison;}.backgroundColor.psychic{background: $psychic;}.backgroundColor.rock{background: $rock;}.backgroundColor.steel{background: $steel;}.backgroundColor.water{background: $water;}
+//.color.bug{color: $bug;}.color.dark{color: $dark;}.color.dragon{color: $dragon;}.color.electric{color: $electric;}.color.fairy{color: $fairy;}.color.fighting{color: $fighting;}.color.fire{color: $fire;}.color.flying{color: $flying;}.color.ghost{color: $ghost;}.color.grass{color: $grass;}.color.ground{color: $ground;}.color.ice{color: $ice;}.color.normal{color: $normal;}.color.poison{color: $poison;}.color.psychic{color: $psychic;}.color.rock{color: $rock;}.color.steel{color: $steel;}.color.water{color: $water;}
 
-.stats{
-  margin: 5%;
+h1
+{
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
-.stats h2
-{
-  text-align: center;
+.statsContent{
+  display: flex;
+  flex-direction: row;
+}
+
+.stats{
+  width: 80%;
+  margin: 5%;
 }
 
 .stats .stats-container .stats-wrapper
@@ -80,4 +88,11 @@ $water    : #4BC9FF;
   {
     width: 0;
   }
+}
+
+.sideInfos{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 5%;
 }

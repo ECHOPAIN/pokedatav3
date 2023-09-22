@@ -91,9 +91,9 @@ export class PokedexComponent implements OnInit {
   onScroll(){
     //we are searching for a pokemon
     if (this.search) {
-      this.allFilteredPokemons = this.pokemons.filter(
+      /*this.allFilteredPokemons = this.pokemons.filter(
               pokemon => pokemon?.name.toLowerCase().includes(this.search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(this.search.toLowerCase())
-            );
+            );*/
       //done
       if(this.filteredPokemonList.length >= this.allFilteredPokemons.length){
         return;

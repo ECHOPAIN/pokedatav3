@@ -1,0 +1,50 @@
+$black    : #1F1F1F;
+$midBlack : #353535;
+$darkGray : #535353;
+$lightGray: #CACACA;
+$white    : #F5F5F5;
+
+.container
+{
+  border: solid $darkGray;
+  border-width: 0 0 1px 0;
+}
+.moveListItem
+{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+.moveListItem h2
+{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.moveListItem p
+{
+  font-size: 1rem;
+  color: $midBlack;
+  margin: 0 0 1rem;
+  width: 30em;
+}
+
+@media (max-width: 911px)
+{
+  .moveListItem
+  {
+    padding: 0.5rem;
+  }
+
+  .moveListItem h2
+  {
+    font-size: 1.2rem;
+  }
+  .pokemonListItem p
+  {
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+    width: 30em;
+  }
+}

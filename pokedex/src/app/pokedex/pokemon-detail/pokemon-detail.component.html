@@ -5,16 +5,16 @@
 <div class="content" *ngIf="pokemon.name && pokemonSpecies.flavor_text_entries">
   <span class="close" (click)="hideDetailWindow()">&times;</span>
   <div class="imgBx"><img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}"></div>
-  <div class="infos">
+  <div class="infos borderTopColor" [ngClass]="pokemon.types[0].type.name">
     <div class="title">
       <div class="nameBox backgroundColor" [ngClass]="pokemon.types[0].type.name">
         <h1>{{pokemon.name}}</h1>
       </div>
-      <h1>#{{pokemon.id}}</h1>
+      <p>#{{getFormatedId(pokemon.id)}} </p>
     </div>
     <div class="typeBox">
       <div class="type backgroundColor" [ngClass]="type.type.name"  *ngFor="let type of pokemon.types">
-        <h1>{{type.type.name}}</h1>
+        <p>{{type.type.name}}</p>
       </div>
     </div>
     <div class="tabBox">
@@ -31,7 +31,7 @@
       </div>
 
       <div class="infoContent" [ngClass]="tabActive[1]">
-        <app-pokemon-stat-tab [pokemon]="pokemon"></app-pokemon-stat-tab>
+        <app-pokemon-stat-tab [pokemon]="pokemon" [pokemonSpecies]="pokemonSpecies"></app-pokemon-stat-tab>
       </div>
 
       <div class="infoContent" [ngClass]="tabActive[2]">
@@ -39,7 +39,7 @@
       </div>
 
       <div class="infoContent" [ngClass]="tabActive[3]">
-        <app-pokemon-move-tab></app-pokemon-move-tab>
+        <app-pokemon-move-tab [pokemon]="pokemon"></app-pokemon-move-tab>
       </div>
 
     </div>
