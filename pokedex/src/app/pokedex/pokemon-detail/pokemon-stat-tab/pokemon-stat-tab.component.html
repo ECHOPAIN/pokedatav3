@@ -1,3 +1,10 @@
+<h2>Abilities</h2>
+<div class="abilitiesBox" *ngIf="pokemon.abilities">
+  <div class="abilityBox" *ngFor="let ability of pokemon.abilities">
+    <p *ngIf="ability.is_hidden" class="hiddenAbility">talent caché</p>
+    <p>{{ability.ability.name}}</p>
+  </div>
+</div>
 <div class="statsContent">
   <div class="stats">
     <h1 class="color" [ngClass]="pokemon.types[0].type.name">STATS</h1>

@@ -32,6 +32,19 @@ h1
   font-weight: 400;
 }
 
+.abilitiesBox .abilityBox{
+  margin: 0 0 10px;
+}
+.abilitiesBox .abilityBox p{
+  margin: 0;
+  font-weight: 600;
+}
+.abilitiesBox .abilityBox .hiddenAbility{
+  color: $darkGray;
+  font-style: italic;
+  opacity: 0.5;
+}
+
 .statsContent{
   display: flex;
   flex-direction: row;
