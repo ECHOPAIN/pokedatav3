@@ -15,8 +15,8 @@
         <div class="requirementListItem">
 
           <div *ngIf="evolutionDetails.gender">
-            <p *ngIf="evolutionDetails.gender == 1">female</p>
-            <p *ngIf="evolutionDetails.gender == 2">male</p>
+            <p *ngIf="evolutionDetails.gender == 1">♀ female</p>
+            <p *ngIf="evolutionDetails.gender == 2">♂ male</p>
           </div>
 
           <div *ngIf="evolutionDetails.held_item">
@@ -62,15 +62,16 @@
 
 
           <div *ngIf="evolutionDetails.party_species">
-            <p>party_species : {{evolutionDetails.party_species}}</p>
+            <p>with a {{evolutionDetails.party_species.name}} in the party</p>
           </div>
 
           <div *ngIf="evolutionDetails.party_type">
-            <p>party_type : {{evolutionDetails.party_type}}</p>
+            <p>with a {{evolutionDetails.party_type.name}} type pokemon in the party</p>
           </div>
 
           <div *ngIf="evolutionDetails.relative_physical_stats">
-            <p>relative_physical_stats : {{evolutionDetails.relative_physical_stats}}</p>
+            <p *ngIf="evolutionDetails.relative_physical_stats == 1">Atk &gt; Def</p>
+            <p *ngIf="evolutionDetails.relative_physical_stats ==-1">Atk &lt; Def</p>
           </div>
 
           <div *ngIf="evolutionDetails.time_of_day">
@@ -78,20 +79,19 @@
           </div>
 
           <div *ngIf="evolutionDetails.trade_species">
-            <p>trade_species : {{evolutionDetails.trade_species}}</p>
+            <p>{{evolutionDetails.trade_species.name}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.trigger.name == 'trade'">
             <p>trading</p>
           </div>
 
-          <!-- nincada -> shedinja -->
-          <div *ngIf="evolutionDetails.trigger.name == 'shed'">
-            <p>level 20, free party space and pokeball in bag</p>
-          </div>
-
           <div *ngIf="evolutionDetails.turn_upside_down">
             <p>turn upside down</p>
+          </div>
+
+          <div *ngIf="evolutionDetails.other">
+            <p>{{evolutionDetails.other}}</p>
           </div>
 
           <!-- display what cause the evolution -->

@@ -28,7 +28,8 @@ export interface PokemonEvolutionDetails{
   party_type: string | null,
   relative_physical_stats: string | null,
   time_of_day: string | null,
-  trade_species: string | null,
+  trade_species: {name: string, url: string} | null,
   trigger:{name: string, url: string},
-  turn_upside_down: boolean | null
+  turn_upside_down: boolean | null,
+  other?: string | null //custom field for unrecorded evolutions
 }
