@@ -1,5 +1,5 @@
-<div class="card">
-  <div class="content" (click)="display()">
+<div class="card" (click)="displayDetailWindow()">
+  <div class="content">
     <div class="imgBxLogo"><img src="assets/images/logoPokeball.png" ></div>
     <h2>{{item.name}}</h2>
     <div class="imgBx"><img [src]="getImage()" alt="{{item.name}}"></div>

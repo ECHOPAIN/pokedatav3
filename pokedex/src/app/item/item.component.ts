@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, Event, NavigationEnd, Scroll} from '@angular/router';
 
 import { Items } from '../model/item/itemsResult';
+import { ItemService } from '../services/item.service';
 import { PokedexService } from '../services/pokedex.service';
 
 @Component({
@@ -16,10 +18,36 @@ export class ItemComponent {
   maxItemId: number = 954;
   search: String = "";
 
-  constructor(private pokedexService: PokedexService) { }
+  displayDetail:boolean = false;
+  firstCall: Boolean = true;
+
+  constructor(private pokedexService: PokedexService, private itemService: ItemService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadItemList()
+
+    this.itemService.isDisplayDetail()
+            .subscribe(displayDetail => {
+              setTimeout( () => { this.displayDetail = displayDetail; }, 500 );
+              //this.displayDetail = displayDetail;
+            });
+
+    this.router.events.subscribe((event: Event) => {
+    if(event instanceof NavigationEnd
+    || (Scroll && this.firstCall)){ // Scroll && this.firstCall = on page load
+      this.firstCall = false;
+      if("\/item".match(this.router.url)){
+        this.itemService.hideDetailWindow();
+      }else if(/\/item\/[0-9]+/.test(this.router.url)){
+        this.itemService.hideDetailWindow();
+        setTimeout( () => {
+          this.itemService.displayDetailWindow(parseInt(this.router.url.split('/')[2]));
+        }, 0 );
+
+      }
+      }
+    });
+
   }
 
   loadItemList(): void {
@@ -39,14 +67,14 @@ export class ItemComponent {
 
   filterItem(search: String){
     this.search = search;
-      if (!search) {
-          this.filteredItemList = this.items;
-        }
+    if (!search) {
+        this.filteredItemList = this.items;
+      }
 
-        this.filteredItemList = this.items.filter(
-          item => item?.name.toLowerCase().includes(search.toLowerCase())||item?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
-        ).slice(0,this.batchSize);
-    }
+      this.filteredItemList = this.items.filter(
+        item => item?.name.toLowerCase().includes(search.toLowerCase())||item?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
+      ).slice(0,this.batchSize);
+  }
 
     onScroll(){
       //we are searching for a item

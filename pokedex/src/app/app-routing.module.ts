@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'pokedex', component: PokedexComponent },
   { path: 'pokedex/:id', component: PokedexComponent },
   { path: 'item', component: ItemComponent },
+  { path: 'item/:id', component: ItemComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

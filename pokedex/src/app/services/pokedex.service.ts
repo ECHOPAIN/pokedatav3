@@ -76,6 +76,8 @@ export class PokedexService {
       this.displayDetail.next(false);
     }
 
+
+
     getCurrentPokemonDetail(): Observable<PokemonDetail>{
       return this.getPokemonDetail(this.pokemonDetailId);
     }

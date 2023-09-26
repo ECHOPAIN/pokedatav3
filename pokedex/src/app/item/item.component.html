@@ -16,6 +16,8 @@
     </div>
   </div>
 
-  <div *ngIf="isLoading">Loading...</div>
+  <!--div *ngIf="isLoading">Loading...</div-->
+
+  <app-item-detail *ngIf="displayDetail" app-item-detail></app-item-detail>
 
 </div>

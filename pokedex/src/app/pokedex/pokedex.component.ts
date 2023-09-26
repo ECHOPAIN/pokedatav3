@@ -20,9 +20,9 @@ export class PokedexComponent implements OnInit {
   maxPokemonId: number = 1010;
   search: String = "";
   listDisplay: Boolean = false;
-  firstCall: Boolean = true;
 
   displayDetail:boolean = false;
+  firstCall: Boolean = true;
 
 
   constructor(private pokedexService: PokedexService, private router: Router) { }
@@ -82,9 +82,51 @@ export class PokedexComponent implements OnInit {
         this.filteredPokemonList = this.pokemons;
       }
 
-      this.allFilteredPokemons = this.pokemons.filter(
-        pokemon => pokemon?.name.toLowerCase().includes(search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
-      )
+      //special search
+      switch(search.toLowerCase())
+      {
+        case "gen1":
+        case "generation1":
+          this.allFilteredPokemons = this.pokemons.slice(0,151);
+          break;
+        case "gen2":
+        case "generation2":
+          this.allFilteredPokemons = this.pokemons.slice(151,251);
+          break;
+        case "gen3":
+        case "generation3":
+          this.allFilteredPokemons = this.pokemons.slice(251,386);
+          break;
+        case "gen4":
+        case "generation4":
+          this.allFilteredPokemons = this.pokemons.slice(386,493);
+          break;
+        case "gen5":
+        case "generation5":
+          this.allFilteredPokemons = this.pokemons.slice(493,649);
+          break;
+        case "gen6":
+        case "generation6":
+          this.allFilteredPokemons = this.pokemons.slice(649,721);
+          break;
+        case "gen7":
+        case "generation7":
+          this.allFilteredPokemons = this.pokemons.slice(721,809);
+          break;
+        case "gen8":
+        case "generation8":
+          this.allFilteredPokemons = this.pokemons.slice(809,905);
+          break;
+        case "gen9":
+        case "generation9":
+          this.allFilteredPokemons = this.pokemons.slice(905,1010);
+          break;
+        default:
+          //classic search
+          this.allFilteredPokemons = this.pokemons.filter(
+            pokemon => pokemon?.name.toLowerCase().includes(search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
+          )
+      }
       this.filteredPokemonList = this.allFilteredPokemons.slice(0,this.batchSize);
   }
 

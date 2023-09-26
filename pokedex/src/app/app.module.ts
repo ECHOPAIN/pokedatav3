@@ -19,6 +19,7 @@ import { PokemonEvolutionTabComponent } from './pokedex/pokemon-detail/pokemon-e
 import { PokemonMoveTabComponent } from './pokedex/pokemon-detail/pokemon-move-tab/pokemon-move-tab.component';
 import { PokemonAboutTabComponent } from './pokedex/pokemon-detail/pokemon-about-tab/pokemon-about-tab.component';
 import { PokemonStatTabComponent } from './pokedex/pokemon-detail/pokemon-stat-tab/pokemon-stat-tab.component';
+import { ItemDetailComponent } from './item/item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PokemonStatTabComponent } from './pokedex/pokemon-detail/pokemon-stat-t
     PokemonEvolutionTabComponent,
     PokemonMoveTabComponent,
     PokemonAboutTabComponent,
-    PokemonStatTabComponent
+    PokemonStatTabComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,

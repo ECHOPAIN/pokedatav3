@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Location} from '@angular/common';
 
 import { Items } from '../../model/item/itemsResult';
+import { ItemService } from '../../services/item.service';
 
 @Component({
   selector: 'app-item-grid-item',
@@ -10,7 +12,7 @@ import { Items } from '../../model/item/itemsResult';
 export class ItemGridItemComponent {
   @Input() item: Items;
 
-  constructor() {
+  constructor(private itemService: ItemService, private location: Location) {
       this.item =
               { name: "MissingNo.",
                 url: "https://pokeapi.co/api/v2/pokemon/0/"
@@ -24,7 +26,15 @@ export class ItemGridItemComponent {
       return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/"+this.item.name+".png"
     }
 
-    display(){
 
-    }
+
+  getItemId(){
+    return this.item.url.split('/')[6]
+  }
+
+
+  displayDetailWindow(){
+    this.itemService.displayDetailWindow(parseInt(this.getItemId()));
+    this.location.go("/item/"+this.getItemId());
+  }
 }
