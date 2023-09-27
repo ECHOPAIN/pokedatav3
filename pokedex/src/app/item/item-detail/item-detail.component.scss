@@ -1,3 +1,10 @@
+$black    : #1F1F1F;
+$midBlack : #353535;
+$darkGray : #535353;
+$lightGray: #CACACA;
+$white    : #F5F5F5;
+
+
 /* The Modal (black background) */
 .modal {
   display: block; /* Hidden by default */
@@ -11,3 +18,164 @@
   //background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 }
+
+/* The Close Button */
+.close {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 15px;
+  color: $black;
+  cursor: pointer;
+}
+
+.card
+{
+  z-index: 32; /* Sit on top */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40em;
+  height: 26em;
+  margin: 4em;
+  box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  background: rgba(245, 245, 245, 0.2);
+  //display: flex;
+  //justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(245, 245, 245, 0.5);
+  border-left: 1px solid rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(5px);
+
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card .content
+{
+  padding: 40px;
+  text-align: center;
+}
+
+.card .content .imgBxLogo img
+{
+  display: block;
+  position: fixed;
+  top: 45%;
+  left: 55%;
+  width: 50%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.card .content h2
+{
+  font-size: 2em;
+  color: rgba(31, 31, 31, 0.5);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.card .content .contentBx
+{
+    margin-top: 10%;
+}
+
+.card .content .contentBx p
+{
+  font-size: 1.3em;
+  color: #1F1F1F;
+  z-index: 1;
+}
+
+.card .content .imgBx
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover .content .imgBx {
+   transition: all 0.2s ease-out;
+}
+
+.card:hover {
+  width: 44em;
+  height: 28em;
+  background: rgba(245, 245, 245, 0.5);
+  transition: all 0.2s ease-out;
+}
+
+.card .content .imgBx img
+{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    width: 30%;
+    z-index: -1;
+}
+
+  @media (max-width: 1000px)
+  {
+    .card
+    {
+      width: 18em;
+      height: 13em;
+      margin: 3px;
+
+      //TODO PHONE ONLY
+      box-shadow: none;
+      background: $midBlack;
+      border-top: 1px solid $darkGray;
+      border-left: 1px solid $darkGray;
+    }
+
+    .card:hover {
+      width: 20em;
+      height: 14em;
+    }
+
+    .card .content
+    {
+      padding: 40px 0 0 0;
+    }
+    .card .content h2
+    {
+      font-size: 1em;
+      transform: translate(0,-80%);
+
+      //TODO PHONE ONLY
+      color: $black;
+    }
+
+    .card .content .contentBx
+    {
+      transform: translate(0,-50%);
+      margin-top: 0;
+    }
+    .card .content .contentBx p
+    {
+      font-size: 0.7em;
+      font-weight: 700;
+      padding-bottom: 1rem;
+      width: 90%! important;
+      margin: 0 10px 0 10px;
+      width: 8rem;
+    }
+    .card:hover .content .imgBx {
+      //Remove animation
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+

@@ -28,6 +28,18 @@ export class ItemDetailComponent {
       }
     }
 
+  getPokemonFlavorText(){
+    var flavorTextToReturn = "";
+    this.item.flavor_text_entries.forEach((flavorTextEntries) =>{
+                                                    if(flavorTextEntries.language.name == "en" &&
+                                                    (flavorTextEntries.text[0] != "-" && flavorTextEntries.text[2] != "-" && flavorTextEntries.text[4] != "-") //!= "- - -"
+                                                    ){
+                                                      console.log("ok for text :"+flavorTextEntries.text)
+                                                      flavorTextToReturn = flavorTextEntries.text
+                                                    }})
+    return flavorTextToReturn;
+  }
+
   hideDetailWindow(){
       this.itemService.hideDetailWindow();
       this.item = {} as ItemDetail;
