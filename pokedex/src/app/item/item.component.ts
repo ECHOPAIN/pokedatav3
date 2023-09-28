@@ -28,8 +28,7 @@ export class ItemComponent {
 
     this.itemService.isDisplayDetail()
             .subscribe(displayDetail => {
-              setTimeout( () => { this.displayDetail = displayDetail; }, 500 );
-              //this.displayDetail = displayDetail;
+              this.displayDetail = displayDetail;
             });
 
     this.router.events.subscribe((event: Event) => {

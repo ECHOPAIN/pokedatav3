@@ -15,17 +15,14 @@ export class ItemDetailComponent {
 
   constructor(private itemService: ItemService, private location: Location, private router: Router) {
     this.item = {} as ItemDetail;
-
-    this.itemService.getCurrentItemDetail()
-      .subscribe(itemRetrieved => {
-          this.item = itemRetrieved;
-      });
   }
 
   ngOnInit(): void {
-      if("/item".match(this.router.url)){
-        this.hideDetailWindow();
-      }
+
+      this.itemService.getCurrentItemDetail()
+        .subscribe(itemRetrieved => {
+            this.item = itemRetrieved;
+        });
     }
 
   getPokemonFlavorText(){
@@ -34,7 +31,7 @@ export class ItemDetailComponent {
                                                     if(flavorTextEntries.language.name == "en" &&
                                                     (flavorTextEntries.text[0] != "-" && flavorTextEntries.text[2] != "-" && flavorTextEntries.text[4] != "-") //!= "- - -"
                                                     ){
-                                                      console.log("ok for text :"+flavorTextEntries.text)
+                                                      //console.log("ok for text :"+flavorTextEntries.text)
                                                       flavorTextToReturn = flavorTextEntries.text
                                                     }})
     return flavorTextToReturn;
