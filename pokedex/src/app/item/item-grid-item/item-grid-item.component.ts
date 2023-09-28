@@ -20,7 +20,7 @@ export class ItemGridItemComponent {
     }
 
     getImage(){
-    if(/tm[0-9]+/.test(this.item.name)){
+    if( ( /tm[0-9]+/.test(this.item.name) ) || ( this.item.name == "hm08" ) ){
       return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-normal.png"
     }
       return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/"+this.item.name+".png"
