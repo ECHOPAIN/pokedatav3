@@ -172,7 +172,7 @@ $white    : #F5F5F5;
       margin: 0 10px 0 10px;
       width: 8rem;
     }
-    .card:hover .content .imgBx {
+    .card:hover .content .imgBx img{
       //Remove animation
       width: 100px !important;
       height: 100px !important;
