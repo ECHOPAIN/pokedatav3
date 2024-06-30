@@ -4,7 +4,7 @@
 </div>
 <div class="content" *ngIf="pokemon.name && pokemonSpecies.flavor_text_entries">
   <span class="close" (click)="hideDetailWindow()">&times;</span>
-  <div class="imgBx"><img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}"></div>
+  <div class="imgBx"><img [src]="getOfficialArtwork()" alt="{{pokemon.name}}"></div>
   <div class="infos borderTopColor" [ngClass]="pokemon.types[0].type.name">
     <div class="title">
       <div class="nameBox backgroundColor" [ngClass]="pokemon.types[0].type.name">

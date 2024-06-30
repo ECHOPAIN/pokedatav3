@@ -61,6 +61,10 @@ export class PokemonDetailComponent {
     }
   }
 
+  getOfficialArtwork():string{
+    return this.pokemon.sprites.other['official-artwork'].front_default;
+  }
+
   getFormatedId(id: number){
     if(id < 10 ){
       return "00"+id;
