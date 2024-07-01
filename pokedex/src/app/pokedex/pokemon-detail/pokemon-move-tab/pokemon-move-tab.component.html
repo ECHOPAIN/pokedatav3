@@ -1,8 +1,8 @@
 <div class="container" *ngFor="let move of getSortedPokemonMove()">
   <div class="moveListItem">
-    <p>{{move.move.name}}</p>
-    <p>Lvl : {{move.version_group_details[move.version_group_details.length-1].level_learned_at}}</p>
-    <p>Method : {{move.version_group_details[move.version_group_details.length-1].move_learn_method.name}}</p>
+    <p [ngClass]="pokemon.types[0].type.name">{{move.move.name}}</p>
+    <p [ngClass]="pokemon.types[0].type.name">Lvl : {{move.version_group_details[move.version_group_details.length-1].level_learned_at}}</p>
+    <p [ngClass]="pokemon.types[0].type.name">Method : {{move.version_group_details[move.version_group_details.length-1].move_learn_method.name}}</p>
     <!--img [src]="pokemon.front_default" alt="{{pokemon.name}}">
     <div class="pokemonListDetail">
       <h2>{{pokemon.name | titlecase}}</h2>

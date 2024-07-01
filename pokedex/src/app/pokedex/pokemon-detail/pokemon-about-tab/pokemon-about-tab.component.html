@@ -1,46 +1,63 @@
-<h2>Description</h2>
+<h2 [ngClass]="pokemon.types[0].type.name">Description</h2>
 <div class="flavorTxt">
-  <p>{{getPokemonFlavorText()}}</p>
+  <p [ngClass]="pokemon.types[0].type.name">{{getPokemonFlavorText()}}</p>
 </div>
-<div class="sizeBox">
-  <div class="heightBox">
-    <h2>Height</h2>
-    <p>{{getPokemonHeight()}} m</p>
-  </div>
-  <div class="weightBox">
-    <h2>Weight</h2>
-    <p>{{getPokemonWeight()}} kg</p>
-  </div>
-</div>
-<div class="spritesBox" *ngIf="pokemon.sprites.front_default">
-  <div class="normalSpriteBox">
-    <div class="spriteBox">
-      <div class="imgBx"><img src="{{pokemon.sprites.front_default}}" alt="front_default"></div>
-      <h3>Front sprite</h3>
+
+<div class="aboutSection">
+
+  <div class="sectionRight">
+    <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Sprites</h2>
+    <div class="spritesBox" *ngIf="pokemon.sprites.front_default">
+      <div class="normalSpriteBox">
+        <div class="spriteBox">
+          <div class="imgBx"><img src="{{pokemon.sprites.front_default}}" alt="front_default"></div>
+          <p [ngClass]="pokemon.types[0].type.name">Front sprite</p>
+        </div>
+        <div class="spriteBox" *ngIf="pokemon.sprites.back_default">
+          <div class="imgBx"><img src="{{pokemon.sprites.back_default}}" alt="back_default"></div>
+          <p [ngClass]="pokemon.types[0].type.name">Back sprite</p>
+        </div>
+      </div>
+      <div class="shinySpriteBox" *ngIf="pokemon.sprites.front_shiny">
+        <div class="spriteBox">
+          <div class="imgBx"><img src="{{pokemon.sprites.front_shiny}}" alt="front_shiny"></div>
+          <p [ngClass]="pokemon.types[0].type.name">Shiny front sprite</p>
+        </div>
+        <div class="spriteBox" *ngIf="pokemon.sprites.back_shiny">
+          <div class="imgBx"><img src="{{pokemon.sprites.back_shiny}}" alt="back_shiny"></div>
+          <p [ngClass]="pokemon.types[0].type.name">Shiny back sprite</p>
+        </div>
+      </div>
     </div>
-    <div class="spriteBox" *ngIf="pokemon.sprites.back_default">
-      <div class="imgBx"><img src="{{pokemon.sprites.back_default}}" alt="back_default"></div>
-      <h3>Back sprite</h3>
+    <div class="genderBox">
+      <div class="maleBox">
+        <h2 [ngClass]="pokemon.types[0].type.name">Male</h2>
+        <p [ngClass]="pokemon.types[0].type.name">♂ {{getPokemonMaleRate()}}</p>
+      </div>
+      <div class="femaleBox">
+        <h2 [ngClass]="pokemon.types[0].type.name">Female</h2>
+        <p [ngClass]="pokemon.types[0].type.name">♀ {{getPokemonFemaleRate()}}</p>
+      </div>
     </div>
   </div>
-  <div class="shinySpriteBox" *ngIf="pokemon.sprites.front_shiny">
-    <div class="spriteBox">
-      <div class="imgBx"><img src="{{pokemon.sprites.front_shiny}}" alt="front_shiny"></div>
-      <h3>Shiny front sprite</h3>
+
+  <div class="sectionLeft">
+    <div class="content">
+      <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Type</h2>
+        <div class="type" *ngFor="let type of pokemon.types">
+          <div class="typeIcon" [ngClass]="type.type.name">
+            <img src="assets/images/typeIcons/{{type.type.name}}.svg"/>
+          </div>
+          <p [ngClass]="pokemon.types[0].type.name">{{type.type.name}}</p>
+        </div>
     </div>
-    <div class="spriteBox" *ngIf="pokemon.sprites.back_shiny">
-      <div class="imgBx"><img src="{{pokemon.sprites.back_shiny}}" alt="back_shiny"></div>
-      <h3>Shiny back sprite</h3>
+    <div class="content">
+      <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Height</h2>
+      <p [ngClass]="pokemon.types[0].type.name">{{getPokemonHeight()}} m</p>
     </div>
-  </div>
-</div>
-<div class="genderBox">
-  <div class="maleBox">
-    <h2>Male</h2>
-    <p>♂ {{getPokemonMaleRate()}}</p>
-  </div>
-  <div class="femaleBox">
-    <h2>Female</h2>
-    <p>♀ {{getPokemonFemaleRate()}}</p>
+    <div class="content">
+      <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Weight</h2>
+      <p [ngClass]="pokemon.types[0].type.name">{{getPokemonWeight()}} kg</p>
+    </div>
   </div>
 </div>

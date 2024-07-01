@@ -67,7 +67,7 @@ $water    : #4BC9FF;
     opacity: 0.5;
 }
 .backgroundColor.bug{background: $bug;}.backgroundColor.dark{background: $dark;}.backgroundColor.dragon{background: $dragon;}.backgroundColor.electric{background: $electric;}.backgroundColor.fairy{background: $fairy;}.backgroundColor.fighting{background: $fighting;}.backgroundColor.fire{background: $fire;}.backgroundColor.flying{background: $flying;}.backgroundColor.ghost{background: $ghost;}.backgroundColor.grass{background: $grass;}.backgroundColor.ground{background: $ground;}.backgroundColor.ice{background: $ice;}.backgroundColor.normal{background: $normal;}.backgroundColor.poison{background: $poison;}.backgroundColor.psychic{background: $psychic;}.backgroundColor.rock{background: $rock;}.backgroundColor.steel{background: $steel;}.backgroundColor.water{background: $water;}
-.borderTopColor.bug{border-top: 5px solid $bug;}.borderTopColor.dark{border-top: 5px solid $dark;}.borderTopColor.dragon{border-top: 5px solid $dragon;}.borderTopColor.electric{border-top: 5px solid $electric;}.borderTopColor.fairy{border-top: 5px solid $fairy;}.borderTopColor.fighting{border-top: 5px solid $fighting;}.borderTopColor.fire{border-top: 5px solid $fire;}.borderTopColor.flying{border-top: 5px solid $flying;}.borderTopColor.ghost{border-top: 5px solid $ghost;}.borderTopColor.grass{border-top: 5px solid $grass;}.borderTopColor.ground{border-top: 5px solid $ground;}.borderTopColor.ice{border-top: 5px solid $ice;}.borderTopColor.normal{border-top: 5px solid $normal;}.borderTopColor.poison{border-top: 5px solid $poison;}.borderTopColor.psychic{border-top: 5px solid $psychic;}.borderTopColor.rock{border-top: 5px solid $rock;}.borderTopColor.steel{border-top: 5px solid $steel;}.borderTopColor.water{border-top: 5px solid $water;}
+.pokemonTypeColor.bug{border-top: 5px solid $bug;}.pokemonTypeColor.dark{border-top: 5px solid $dark;}.pokemonTypeColor.dragon{border-top: 5px solid $dragon;}.pokemonTypeColor.electric{border-top: 5px solid $electric;}.pokemonTypeColor.fairy{border-top: 5px solid $fairy;}.pokemonTypeColor.fighting{border-top: 5px solid $fighting;}.pokemonTypeColor.fire{border-top: 5px solid $fire;}.pokemonTypeColor.flying{border-top: 5px solid $flying;}.pokemonTypeColor.ghost{border-top: 5px solid $ghost;}.pokemonTypeColor.grass{border-top: 5px solid $grass;}.pokemonTypeColor.ground{border-top: 5px solid $ground;}.pokemonTypeColor.ice{border-top: 5px solid $ice;}.pokemonTypeColor.normal{border-top: 5px solid $normal;}.pokemonTypeColor.poison{border-top: 5px solid $poison;}.pokemonTypeColor.psychic{border-top: 5px solid $psychic;}.pokemonTypeColor.rock{border-top: 5px solid $rock;}.pokemonTypeColor.steel{border-top: 5px solid $steel;}.pokemonTypeColor.water{border-top: 5px solid $water;}
 
 /* The Close Button */
 .close {
@@ -126,7 +126,7 @@ $water    : #4BC9FF;
   min-height: 78vh;
   box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
   //border-radius: 15px;
-  background: rgba(245, 245, 245, 0.2);
+  //background: rgba(245, 245, 245, 0.2);
   display: flex;
   flex-direction: column;
   //align-items: center;
@@ -135,6 +135,15 @@ $water    : #4BC9FF;
   backdrop-filter: blur(5px);
   border-radius: 0 15px 15px 15px;
 }
+
+.infos.pokemonTypeColor.bug{background: #00000050;}.infos.pokemonTypeColor.dark{background: #FFFFFF50;}.infos.pokemonTypeColor.dragon{background: #FFFFFF50;}.infos.pokemonTypeColor.electric{background: #00000050;}.infos.pokemonTypeColor.fairy{background: #00000050;}.infos.pokemonTypeColor.fighting{background: #00000050;}.infos.pokemonTypeColor.fire{background: #00000050;}.infos.pokemonTypeColor.flying{background: #00000050;}.infos.pokemonTypeColor.ghost{background: #FFFFFF50;}.infos.pokemonTypeColor.grass{background: #50505080;}.infos.pokemonTypeColor.ground{background: #00000050;}.infos.pokemonTypeColor.ice{background: #00000050;}.infos.pokemonTypeColor.normal{background: #00000050;}.infos.pokemonTypeColor.poison{background: #FFFFFF50;}.infos.pokemonTypeColor.psychic{background: #00000050;}.infos.pokemonTypeColor.rock{background: #00000050;}.infos.pokemonTypeColor.steel{background: #FFFFFF50;}.infos.pokemonTypeColor.water{background: #00000050;}
+
+p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color: $white}p.fairy{color: $white}p.fighting{color: $white}p.fire{color: $white}p.flying{color: $white}p.ghost{color: $black}p.grass{color: $white}p.ground{color: $white}p.ice{color: $white}p.normal{color: $white}p.poison{color: $black}p.psychic{color: $white}p.rock{color: $white}p.steel{color: $black}p.water{color: $white}
+.bug .tabBtn{color: $white}.dark .tabBtn{color: $black}.dragon .tabBtn{color: $black}.electric .tabBtn{color: $white}.fairy .tabBtn{color: $white}.fighting .tabBtn{color: $white}.fire .tabBtn{color: $white}.flying .tabBtn{color: $white}.ghost .tabBtn{color: $black}.grass .tabBtn{color: $white}.ground .tabBtn{color: $white}.ice .tabBtn{color: $white}.normal .tabBtn{color: $white}.poison .tabBtn{color: $black}.psychic .tabBtn{color: $white}.rock .tabBtn{color: $white}.steel .tabBtn{color: $black}.water .tabBtn{color: $white}
+.bug .tabBtn.active{color: $bug;}.dark .tabBtn.active{color: $dark;}.dragon .tabBtn.active{color: $dragon;}.electric .tabBtn.active{color: $electric;}.fairy .tabBtn.active{color: $fairy;}.fighting .tabBtn.active{color: $fighting;}.fire .tabBtn.active{color: $fire;}.flying .tabBtn.active{color: $flying;}.ghost .tabBtn.active{color: $ghost;}.grass .tabBtn.active{color: $grass;}.ground .tabBtn.active{color: $ground;}.ice .tabBtn.active{color: $ice;}.normal .tabBtn.active{color: $normal;}.poison .tabBtn.active{color: $poison;}.psychic .tabBtn.active{color: $psychic;}.rock .tabBtn.active{color: $rock;}.steel .tabBtn.active{color: $steel;}.water .tabBtn.active{color: $water;}
+
+h1.bug{color: $black}h1.dark{color: $white}h1.dragon{color: $white}h1.electric{color: $black}h1.fairy{color: $black}h1.fighting{color: $black}h1.fire{color: $black}h1.flying{color: $black}h1.ghost{color: $white}h1.grass{color: $black}h1.ground{color: $black}h1.ice{color: $black}h1.normal{color: $black}h1.poison{color: $white}h1.psychic{color: $black}h1.rock{color: $black}h1.steel{color: $white}h1.water{color: $black}
+
 
 .content .infos .title
 {
@@ -159,8 +168,9 @@ $water    : #4BC9FF;
 {
   font-size: 1.4rem;
   font-weight: 600;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   text-align: center;
+  letter-spacing: 3px;
 }
 
 //Pokemon ID
@@ -173,34 +183,10 @@ $water    : #4BC9FF;
   text-align: end;
 }
 
-//Pokemon Type
-.typeBox
-{
-  padding: 5px;
-  display: flex;
-  flex-direction: row;
-}
-.typeBox .type
-{
-  margin: 5px;
-  padding: 5px;
-  border-radius: 50px;
-  min-width: 5rem;
-  text-align: center;
-}
-.typeBox .type p
-{
-  margin: 0;
-  font-size: 1.1em;
-  font-weight: 600;
-  line-height: 24px;
-  text-transform: uppercase;
-}
-
 //Pokemon informations tabs
 .tabBox
 {
-  margin: 20px 0;
+  //margin: 20px 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -212,7 +198,7 @@ $water    : #4BC9FF;
 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: $midBlack;
+  //color: $midBlack;
   background: none;
   border: none;
   padding: 18px;
@@ -221,7 +207,7 @@ $water    : #4BC9FF;
 .tabBox .tabBtn.active{
   font-size: 1.2rem;
   font-weight: 650;
-  color: $black;
+  //color: $black;
 }
 .line{
   position: absolute;

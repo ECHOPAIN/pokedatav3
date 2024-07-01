@@ -4,7 +4,7 @@
 
     <div class="pokemon" (click)="redirect(evolution.pokemon1)">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon1)" alt="{{evolution.pokemon1.name}}"></div>
-      <p>{{evolution.pokemon1.name}}</p>
+      <p [ngClass]="pokemon.types[0].type.name">{{evolution.pokemon1.name}}</p>
     </div>
 
     <div class="requirementBox">
@@ -20,53 +20,53 @@
           </div>
 
           <div *ngIf="evolutionDetails.held_item">
-            <p>held item : {{evolutionDetails.held_item.name}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">held item : {{evolutionDetails.held_item.name}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.item">
-            <p>use item : {{evolutionDetails.item.name}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">use item : {{evolutionDetails.item.name}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.known_move">
-            <p>knowing move : {{evolutionDetails.known_move.name}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">knowing move : {{evolutionDetails.known_move.name}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.known_move_type">
-            <p>knowing move type : {{evolutionDetails.known_move_type.name}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">knowing move type : {{evolutionDetails.known_move_type.name}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.location">
-            <p>location : {{evolutionDetails.location.name}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">location : {{evolutionDetails.location.name}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.min_affection">
-            <p>affection : {{evolutionDetails.min_affection}} hearts</p>
+            <p [ngClass]="pokemon.types[0].type.name">affection : {{evolutionDetails.min_affection}} hearts</p>
           </div>
 
           <div *ngIf="evolutionDetails.min_beauty">
-            <p>beauty : {{evolutionDetails.min_beauty}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">beauty : {{evolutionDetails.min_beauty}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.min_happiness">
-            <p>happiness : {{evolutionDetails.min_happiness}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">happiness : {{evolutionDetails.min_happiness}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.min_level">
-            <p>level : {{evolutionDetails.min_level}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">level : {{evolutionDetails.min_level}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.needs_overworld_rain">
-            <p>needs overworld rain</p>
+            <p [ngClass]="pokemon.types[0].type.name">needs overworld rain</p>
           </div>
 
 
 
           <div *ngIf="evolutionDetails.party_species">
-            <p>with a {{evolutionDetails.party_species.name}} in the party</p>
+            <p [ngClass]="pokemon.types[0].type.name">with a {{evolutionDetails.party_species.name}} in the party</p>
           </div>
 
           <div *ngIf="evolutionDetails.party_type">
-            <p>with a {{evolutionDetails.party_type.name}} type pokemon in the party</p>
+            <p [ngClass]="pokemon.types[0].type.name">with a {{evolutionDetails.party_type.name}} type pokemon in the party</p>
           </div>
 
           <div *ngIf="evolutionDetails.relative_physical_stats">
@@ -75,28 +75,28 @@
           </div>
 
           <div *ngIf="evolutionDetails.time_of_day">
-            <p>during {{evolutionDetails.time_of_day}} time</p>
+            <p [ngClass]="pokemon.types[0].type.name">during {{evolutionDetails.time_of_day}} time</p>
           </div>
 
           <div *ngIf="evolutionDetails.trade_species">
-            <p>{{evolutionDetails.trade_species.name}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">{{evolutionDetails.trade_species.name}}</p>
           </div>
 
           <div *ngIf="evolutionDetails.trigger.name == 'trade'">
-            <p>trading</p>
+            <p [ngClass]="pokemon.types[0].type.name">trading</p>
           </div>
 
           <div *ngIf="evolutionDetails.turn_upside_down">
-            <p>turn upside down</p>
+            <p [ngClass]="pokemon.types[0].type.name">turn upside down</p>
           </div>
 
           <div *ngIf="evolutionDetails.other">
-            <p>{{evolutionDetails.other}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">{{evolutionDetails.other}}</p>
           </div>
 
           <!-- display what cause the evolution -->
           <!--div *ngIf="evolutionDetails.trigger">
-            <p>trigger : {{evolutionDetails.trigger.name}}</p>
+            <p [ngClass]="pokemon.types[0].type.name">trigger : {{evolutionDetails.trigger.name}}</p>
           </div-->
 
         </div>
@@ -105,10 +105,10 @@
     </div>
     <div class="pokemon" (click)="redirect(evolution.pokemon2)">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon2)" alt="{{evolution.pokemon2.name}}"></div>
-      <p>{{evolution.pokemon2.name}}</p>
+      <p [ngClass]="pokemon.types[0].type.name">{{evolution.pokemon2.name}}</p>
     </div>
   </div>
   <div *ngIf="chain.length == 0">
-    <p>This Pokemon has no evolution</p>
+    <p [ngClass]="pokemon.types[0].type.name">This Pokemon has no evolution</p>
   </div>
 </div>

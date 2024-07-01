@@ -24,7 +24,15 @@ $steel    : #417D9A;
 $water    : #4BC9FF;
 
 .backgroundColor.bug{background: $bug;}.backgroundColor.dark{background: $dark;}.backgroundColor.dragon{background: $dragon;}.backgroundColor.electric{background: $electric;}.backgroundColor.fairy{background: $fairy;}.backgroundColor.fighting{background: $fighting;}.backgroundColor.fire{background: $fire;}.backgroundColor.flying{background: $flying;}.backgroundColor.ghost{background: $ghost;}.backgroundColor.grass{background: $grass;}.backgroundColor.ground{background: $ground;}.backgroundColor.ice{background: $ice;}.backgroundColor.normal{background: $normal;}.backgroundColor.poison{background: $poison;}.backgroundColor.psychic{background: $psychic;}.backgroundColor.rock{background: $rock;}.backgroundColor.steel{background: $steel;}.backgroundColor.water{background: $water;}
-//.color.bug{color: $bug;}.color.dark{color: $dark;}.color.dragon{color: $dragon;}.color.electric{color: $electric;}.color.fairy{color: $fairy;}.color.fighting{color: $fighting;}.color.fire{color: $fire;}.color.flying{color: $flying;}.color.ghost{color: $ghost;}.color.grass{color: $grass;}.color.ground{color: $ground;}.color.ice{color: $ice;}.color.normal{color: $normal;}.color.poison{color: $poison;}.color.psychic{color: $psychic;}.color.rock{color: $rock;}.color.steel{color: $steel;}.color.water{color: $water;}
+
+h2
+{
+  text-transform: uppercase;
+}
+h2.bug{color: $bug;}h2.dark{color: $dark;}h2.dragon{color: $dragon;}h2.electric{color: $electric;}h2.fairy{color: $fairy;}h2.fighting{color: $fighting;}h2.fire{color: $fire;}h2.flying{color: $flying;}h2.ghost{color: $ghost;}h2.grass{color: $grass;}h2.ground{color: $ground;}h2.ice{color: $ice;}h2.normal{color: $normal;}h2.poison{color: $poison;}h2.psychic{color: $psychic;}h2.rock{color: $rock;}h2.steel{color: $steel;}h2.water{color: $water;}
+
+p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color: $white}p.fairy{color: $white}p.fighting{color: $white}p.fire{color: $white}p.flying{color: $white}p.ghost{color: $black}p.grass{color: $white}p.ground{color: $white}p.ice{color: $white}p.normal{color: $white}p.poison{color: $black}p.psychic{color: $white}p.rock{color: $white}p.steel{color: $black}p.water{color: $white}
+h3.bug{color: $white}h3.dark{color: $black}h3.dragon{color: $black}h3.electric{color: $white}h3.fairy{color: $white}h3.fighting{color: $white}h3.fire{color: $white}h3.flying{color: $white}h3.ghost{color: $black}h3.grass{color: $white}h3.ground{color: $white}h3.ice{color: $white}h3.normal{color: $white}h3.poison{color: $black}h3.psychic{color: $white}h3.rock{color: $white}h3.steel{color: $black}h3.water{color: $white}
 
 h1
 {
@@ -73,15 +81,15 @@ h1
 .progressBar{
   display: block;
   width: 100%;
-  height: 15px;
+  height: 10px;
 }
 
 .progressBar .percent{
   position: relative;
   width: 100%;
-  height: 15px;
+  height: 10px;
   border-radius: 5px;
-  background: #DDDDDD;
+  background: #55555544;
   overflow: hidden;
 }
 
@@ -91,7 +99,7 @@ h1
   left: 0;
   height: 100%;
   border-radius: 5px;
-  background-image: linear-gradient(to right, rgba(255,255,255,0.1), rgba(0,0,0,0.1)) !important;
+  //background-image: linear-gradient(to right, rgba(255,255,255,0.1), rgba(0,0,0,0.1)) !important;
   animation: animate 0.5s ease-in-out forwards;
 }
 

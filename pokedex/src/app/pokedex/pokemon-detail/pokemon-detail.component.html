@@ -5,19 +5,14 @@
 <div class="content" *ngIf="pokemon.name && pokemonSpecies.flavor_text_entries">
   <span class="close" (click)="hideDetailWindow()">&times;</span>
   <div class="imgBx"><img [src]="getOfficialArtwork()" alt="{{pokemon.name}}"></div>
-  <div class="infos borderTopColor" [ngClass]="pokemon.types[0].type.name">
+  <div class="infos pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">
     <div class="title">
       <div class="nameBox backgroundColor" [ngClass]="pokemon.types[0].type.name">
-        <h1>{{pokemon.name}}</h1>
+        <h1 [ngClass]="pokemon.types[0].type.name">{{pokemon.name | titlecase}}</h1>
       </div>
-      <p>#{{getFormatedId(pokemon.id)}} </p>
+      <p [ngClass]="pokemon.types[0].type.name">#{{getFormatedId(pokemon.id)}} </p>
     </div>
-    <div class="typeBox">
-      <div class="type backgroundColor" [ngClass]="type.type.name"  *ngFor="let type of pokemon.types">
-        <p>{{type.type.name}}</p>
-      </div>
-    </div>
-    <div class="tabBox">
+    <div class="tabBox" [ngClass]="pokemon.types[0].type.name">
       <button class="tabBtn" [ngClass]="tabActive[0]" (click)="setActiveTab(0)">About</button>
       <button class="tabBtn" [ngClass]="tabActive[1]" (click)="setActiveTab(1)">Stats</button>
       <button class="tabBtn" [ngClass]="tabActive[2]" (click)="setActiveTab(2)">Evolution</button>

@@ -1,17 +1,17 @@
-<h2>Abilities</h2>
+<h2 [ngClass]="pokemon.types[0].type.name">Abilities</h2>
 <div class="abilitiesBox" *ngIf="pokemon.abilities">
   <div class="abilityBox" *ngFor="let ability of pokemon.abilities">
     <p *ngIf="ability.is_hidden" class="hiddenAbility">talent caché</p>
-    <p>{{ability.ability.name}}</p>
+    <p [ngClass]="pokemon.types[0].type.name">{{ability.ability.name}}</p>
   </div>
 </div>
+<h2 class="color" [ngClass]="pokemon.types[0].type.name">STATS</h2>
 <div class="statsContent">
   <div class="stats">
-    <h1 class="color" [ngClass]="pokemon.types[0].type.name">STATS</h1>
     <div class="stats-container">
       <div class="stats-wrapper">
-        <h3>HP</h3>
-        <h3>{{pokemon.stats[0].base_stat}}</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">HP</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">{{pokemon.stats[0].base_stat}}</h3>
         <div class="progressBar">
           <div class="percent">
             <div class="progress backgroundColor" style="width: {{pokemon.stats[0].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
@@ -19,8 +19,8 @@
         </div>
       </div>
       <div class="stats-wrapper">
-        <h3>ATK</h3>
-        <h3>{{pokemon.stats[1].base_stat}}</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">ATK</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">{{pokemon.stats[1].base_stat}}</h3>
         <div class="progressBar">
           <div class="percent">
             <div class="progress backgroundColor" style="width: {{pokemon.stats[1].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
@@ -28,8 +28,8 @@
         </div>
       </div>
       <div class="stats-wrapper">
-        <h3>DEF</h3>
-        <h3>{{pokemon.stats[2].base_stat}}</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">DEF</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">{{pokemon.stats[2].base_stat}}</h3>
         <div class="progressBar">
           <div class="percent">
             <div class="progress backgroundColor" style="width: {{pokemon.stats[2].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
@@ -37,8 +37,8 @@
         </div>
       </div>
       <div class="stats-wrapper">
-        <h3>SATK</h3>
-        <h3>{{pokemon.stats[3].base_stat}}</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">SATK</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">{{pokemon.stats[3].base_stat}}</h3>
         <div class="progressBar">
           <div class="percent">
             <div class="progress backgroundColor" style="width: {{pokemon.stats[3].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
@@ -46,8 +46,8 @@
         </div>
       </div>
       <div class="stats-wrapper">
-        <h3>SDEF</h3>
-        <h3>{{pokemon.stats[4].base_stat}}</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">SDEF</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">{{pokemon.stats[4].base_stat}}</h3>
         <div class="progressBar">
           <div class="percent">
             <div class="progress backgroundColor" style="width: {{pokemon.stats[4].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
@@ -55,8 +55,8 @@
         </div>
       </div>
       <div class="stats-wrapper">
-        <h3>SPD</h3>
-        <h3>{{pokemon.stats[5].base_stat}}</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">SPD</h3>
+        <h3 [ngClass]="pokemon.types[0].type.name">{{pokemon.stats[5].base_stat}}</h3>
         <div class="progressBar">
           <div class="percent">
             <div class="progress backgroundColor" style="width: {{pokemon.stats[5].base_stat/2}}%;" [ngClass]="pokemon.types[0].type.name"></div>
