@@ -32,7 +32,6 @@ h2
 h2.bug{color: $bug;}h2.dark{color: $dark;}h2.dragon{color: $dragon;}h2.electric{color: $electric;}h2.fairy{color: $fairy;}h2.fighting{color: $fighting;}h2.fire{color: $fire;}h2.flying{color: $flying;}h2.ghost{color: $ghost;}h2.grass{color: $grass;}h2.ground{color: $ground;}h2.ice{color: $ice;}h2.normal{color: $normal;}h2.poison{color: $poison;}h2.psychic{color: $psychic;}h2.rock{color: $rock;}h2.steel{color: $steel;}h2.water{color: $water;}
 
 p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color: $white}p.fairy{color: $white}p.fighting{color: $white}p.fire{color: $white}p.flying{color: $white}p.ghost{color: $black}p.grass{color: $white}p.ground{color: $white}p.ice{color: $white}p.normal{color: $white}p.poison{color: $black}p.psychic{color: $white}p.rock{color: $white}p.steel{color: $black}p.water{color: $white}
-h3.bug{color: $white}h3.dark{color: $black}h3.dragon{color: $black}h3.electric{color: $white}h3.fairy{color: $white}h3.fighting{color: $white}h3.fire{color: $white}h3.flying{color: $white}h3.ghost{color: $black}h3.grass{color: $white}h3.ground{color: $white}h3.ice{color: $white}h3.normal{color: $white}h3.poison{color: $black}h3.psychic{color: $white}h3.rock{color: $white}h3.steel{color: $black}h3.water{color: $white}
 
 h1
 {
@@ -40,17 +39,35 @@ h1
   font-weight: 400;
 }
 
+.abilitiesBox{
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 12px;
+}
+
 .abilitiesBox .abilityBox{
-  margin: 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    min-height: 40px;
+    padding: 6px 2px;
+    background-color: #53535377;
 }
 .abilitiesBox .abilityBox p{
-  margin: 0;
   font-weight: 600;
+  margin: auto 12px;
 }
+
+.abilitiesBox .abilityBox:has(.hiddenAbility.bug){border: 2px solid $bug;}.abilitiesBox .abilityBox:has(.hiddenAbility.dark){border: 2px solid $dark;}.abilitiesBox .abilityBox:has(.hiddenAbility.dragon){border: 2px solid $dragon;}.abilitiesBox .abilityBox:has(.hiddenAbility.electric){border: 2px solid $electric;}.abilitiesBox .abilityBox:has(.hiddenAbility.fairy){border: 2px solid $fairy;}.abilitiesBox .abilityBox:has(.hiddenAbility.fighting){border: 2px solid $fighting;}.abilitiesBox .abilityBox:has(.hiddenAbility.fire){border: 2px solid $fire;}.abilitiesBox .abilityBox:has(.hiddenAbility.flying){border: 2px solid $flying;}.abilitiesBox .abilityBox:has(.hiddenAbility.ghost){border: 2px solid $ghost;}.abilitiesBox .abilityBox:has(.hiddenAbility.grass){border: 2px solid $grass;}.abilitiesBox .abilityBox:has(.hiddenAbility.ground){border: 2px solid $ground;}.abilitiesBox .abilityBox:has(.hiddenAbility.ice){border: 2px solid $ice;}.abilitiesBox .abilityBox:has(.hiddenAbility.normal){border: 2px solid $normal;}.abilitiesBox .abilityBox:has(.hiddenAbility.poison){border: 2px solid $poison;}.abilitiesBox .abilityBox:has(.hiddenAbility.psychic){border: 2px solid $psychic;}.abilitiesBox .abilityBox:has(.hiddenAbility.rock){border: 2px solid $rock;}.abilitiesBox .abilityBox:has(.hiddenAbility.steel){border: 2px solid $steel;}.abilitiesBox .abilityBox:has(.hiddenAbility.water){border: 2px solid $water;}
+
 .abilitiesBox .abilityBox .hiddenAbility{
   color: $darkGray;
   font-style: italic;
   opacity: 0.5;
+  text-shadow: 1px 1px black;
 }
 
 .statsContent{
@@ -60,7 +77,11 @@ h1
 
 .stats{
   width: 80%;
-  margin: 5%;
+  margin: 1%;
+}
+
+.stats .stats-wrapper{
+  margin-bottom: 5px;
 }
 
 .stats .stats-container .stats-wrapper
@@ -71,8 +92,9 @@ h1
   align-items: center;
 }
 
-.stats .stats-container .stats-wrapper h3
+.stats .stats-container .stats-wrapper p
 {
+  margin: 0;
   font-size: 0.8em;
   font-weight: normal;
   width: 40px;
@@ -109,11 +131,4 @@ h1
   {
     width: 0;
   }
-}
-
-.sideInfos{
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  margin: 5%;
 }
