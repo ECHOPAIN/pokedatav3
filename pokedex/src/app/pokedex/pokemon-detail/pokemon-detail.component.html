@@ -12,6 +12,14 @@
       </div>
       <p [ngClass]="pokemon.types[0].type.name">#{{getFormatedId(pokemon.id)}} </p>
     </div>
+    <div class="types">
+      <div class="type" [ngClass]="type.type.name" *ngFor="let type of pokemon.types">
+        <div class="typeIcon">
+          <img src="assets/images/typeIcons/{{type.type.name}}.svg"/>
+        </div>
+        <p [ngClass]="pokemon.types[0].type.name">{{type.type.name}}</p>
+      </div>
+    </div>
     <div class="tabBox" [ngClass]="pokemon.types[0].type.name">
       <button class="tabBtn" [ngClass]="tabActive[0]" (click)="setActiveTab(0)">About</button>
       <button class="tabBtn" [ngClass]="tabActive[1]" (click)="setActiveTab(1)">Stats</button>

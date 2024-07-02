@@ -5,7 +5,7 @@
 
 <div class="aboutSection">
 
-  <div class="sectionRight">
+  <div class="sectionLeft">
     <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Sprites</h2>
     <div class="spritesBox" *ngIf="pokemon.sprites.front_default">
       <div class="normalSpriteBox">
@@ -41,10 +41,10 @@
     </div>
   </div>
 
-  <div class="sectionLeft">
+  <div class="sectionRight">
     <div class="content">
       <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Type</h2>
-        <div class="type" *ngFor="let type of pokemon.types">
+        <div class="contentBox" *ngFor="let type of pokemon.types">
           <div class="typeIcon" [ngClass]="type.type.name">
             <img src="assets/images/typeIcons/{{type.type.name}}.svg"/>
           </div>
@@ -52,12 +52,18 @@
         </div>
     </div>
     <div class="content">
-      <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Height</h2>
-      <p [ngClass]="pokemon.types[0].type.name">{{getPokemonHeight()}} m</p>
-    </div>
-    <div class="content">
       <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Weight</h2>
-      <p [ngClass]="pokemon.types[0].type.name">{{getPokemonWeight()}} kg</p>
+      <div class="contentBox">
+        <img class="weightImg" [ngClass]="pokemon.types[0].type.name" src="assets/images/weight-hanging-solid.png"/>
+        <p [ngClass]="pokemon.types[0].type.name">{{getPokemonWeight()}} kg</p>
+      </div>
+    </div>
+    <div class="content last">
+      <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Height</h2>
+      <div class="contentBox">
+        <img class="heightImg" [ngClass]="pokemon.types[0].type.name" src="assets/images/arrow-vertical.svg"/>
+        <p [ngClass]="pokemon.types[0].type.name">{{getPokemonHeight()}} m</p>
+      </div>
     </div>
   </div>
 </div>
