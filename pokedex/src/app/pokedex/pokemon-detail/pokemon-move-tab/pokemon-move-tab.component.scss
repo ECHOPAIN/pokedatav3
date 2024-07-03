@@ -47,12 +47,16 @@ p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color
 {
   font-size: 1rem;
   //color: $midBlack;
-  margin: 0 0 1rem;
   width: 7em;
+  margin: 5px 1px;
 }
 
+
+p.method.bug{color: $lightGray}p.method.dark{color: $midBlack}p.method.dragon{color: $midBlack}p.method.electric{color: $lightGray}p.method.fairy{color: $lightGray}p.method.fighting{color: $lightGray}p.method.fire{color: $lightGray}p.method.flying{color: $lightGray}p.method.ghost{color: $midBlack}p.method.grass{color: $lightGray}p.method.ground{color: $lightGray}p.method.ice{color: $lightGray}p.method.normal{color: $lightGray}p.method.poison{color: $midBlack}p.method.psychic{color: $lightGray}p.method.rock{color: $lightGray}p.method.steel{color: $midBlack}p.method.water{color: $lightGray}
+
+
 .typeIcon {
-  margin-right: 5px;
+  margin: 10px;
   border-radius: 100%;
   height: 20px;
   width: 20px;
@@ -78,11 +82,5 @@ p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color
   .moveListItem h2
   {
     font-size: 1.2rem;
-  }
-  .pokemonListItem p
-  {
-    font-size: 1rem;
-    margin: 0 0 0.5rem;
-    width: 30em;
   }
 }

@@ -5,9 +5,9 @@
       <ng-template #elseBlockName>
         <p [ngClass]="pokemon.types[0].type.name">-</p>
       </ng-template>
-      <p *ngIf="move.version_group_details[move.version_group_details.length-1].move_learn_method.name == 'level-up'; else elseBlockLvl" [ngClass]="pokemon.types[0].type.name">Lvl : {{move.version_group_details[move.version_group_details.length-1].level_learned_at}}</p>
+      <p class="method" *ngIf="move.version_group_details[move.version_group_details.length-1].move_learn_method.name == 'level-up'; else elseBlockLvl" [ngClass]="pokemon.types[0].type.name">Lvl : {{move.version_group_details[move.version_group_details.length-1].level_learned_at}}</p>
       <ng-template #elseBlockLvl>
-        <p [ngClass]="pokemon.types[0].type.name">{{move.version_group_details[move.version_group_details.length-1].move_learn_method.name}}</p>
+        <p class="method" [ngClass]="pokemon.types[0].type.name">{{move.version_group_details[move.version_group_details.length-1].move_learn_method.name}}</p>
       </ng-template>
     </div>
     <p *ngIf="getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.power; else elseBlockPower" [ngClass]="pokemon.types[0].type.name">{{getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.power}}</p>
