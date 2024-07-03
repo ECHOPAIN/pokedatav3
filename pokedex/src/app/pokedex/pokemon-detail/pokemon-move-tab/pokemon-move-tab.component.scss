@@ -4,6 +4,25 @@ $darkGray : #535353;
 $lightGray: #CACACA;
 $white    : #F5F5F5;
 
+$iconbug      : #92BC2C;
+$icondark     : #595761;
+$icondragon   : #0C69C8;
+$iconelectric : #F2D94E;
+$iconfairy    : #EE90E6;
+$iconfighting : #D3425F;
+$iconfire     : #FBA54C;
+$iconflying   : #A1BBEC;
+$iconghost    : #5F6DBC;
+$icongrass    : #5FBD58;
+$iconground   : #DA7C4D;
+$iconice      : #75D0C1;
+$iconnormal   : #A0A29F;
+$iconpoison   : #B763CF;
+$iconpsychic  : #FA8581;
+$iconrock     : #C9BB8A;
+$iconsteel    : #5695A3;
+$iconwater    : #539DDF;
+
 p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color: $white}p.fairy{color: $white}p.fighting{color: $white}p.fire{color: $white}p.flying{color: $white}p.ghost{color: $black}p.grass{color: $white}p.ground{color: $white}p.ice{color: $white}p.normal{color: $white}p.poison{color: $black}p.psychic{color: $white}p.rock{color: $white}p.steel{color: $black}p.water{color: $white}
 
 .container
@@ -29,8 +48,25 @@ p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color
   font-size: 1rem;
   //color: $midBlack;
   margin: 0 0 1rem;
-  width: 30em;
+  width: 7em;
 }
+
+.typeIcon {
+  margin-right: 5px;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+}
+
+.typeIcon img {
+  height: 60%;
+  width: 60%;
+  margin: 20%;
+}
+
+.typeIcon.bug{background: $iconbug; box-shadow: 0 0 5px $iconbug;}.typeIcon.dark{background: $icondark; box-shadow: 0 0 5px $icondark;}.typeIcon.dragon{background: $icondragon; box-shadow: 0 0 5px $icondragon;}.typeIcon.electric{background: $iconelectric; box-shadow: 0 0 5px $iconelectric;}.typeIcon.fairy{background: $iconfairy; box-shadow: 0 0 5px $iconfairy;}.typeIcon.fighting{background: $iconfighting; box-shadow: 0 0 5px $iconfighting;}.typeIcon.fire{background: $iconfire; box-shadow: 0 0 5px $iconfire;}.typeIcon.flying{background: $iconflying; box-shadow: 0 0 5px $iconflying;}.typeIcon.ghost{background: $iconghost; box-shadow: 0 0 5px  $iconghost;}.typeIcon.grass{background: $icongrass; box-shadow: 0 0 5px  $icongrass;}.typeIcon.ground{background: $iconground; box-shadow: 0 0 5px $iconground;}.typeIcon.ice{background: $iconice; box-shadow: 0 0 5px $iconice;}.typeIcon.normal{background: $iconnormal; box-shadow: 0 0 5px $iconnormal;}.typeIcon.poison{background: $iconpoison; box-shadow: 0 0 5px $iconpoison;}.typeIcon.psychic{background: $iconpsychic; box-shadow: 0 0 5px $iconpsychic;}.typeIcon.rock{background: $iconrock; box-shadow: 0 0 5px $iconrock;}.typeIcon.steel{background: $iconsteel; box-shadow: 0 0 5px $iconsteel;}.typeIcon.water{background: $iconwater;  box-shadow: 0 0 5px $iconwater;}
+
 
 @media (max-width: 911px)
 {

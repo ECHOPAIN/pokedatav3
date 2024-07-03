@@ -5,15 +5,16 @@ import { Router } from '@angular/router';
 import { PokemonDetail } from '../../model/pokeapi/pokeApiDetail';
 import { PokemonSpecies } from '../../model/pokeapi/pokeApiSpecies';
 import { PokemonEvolutionChain } from '../../model/pokeapi/pokeApiEvolutionChain'
+import { PokemonMove } from '../../model/pokeapi/pokeApiMove'
 
 import { PokedexService } from '../../services/pokedex.service';
 import { ColorService } from '../../services/color.service';
 
 
 //To delete
-import { POKEMONDETAIL } from '../../mock-pokemon-detail';
+/*import { POKEMONDETAIL } from '../../mock-pokemon-detail';
 import { POKEMONSPECIES } from '../../mock-pokemon-species';
-import { POKEMONEVOLUTIONCHAIN } from '../../mock-pokemon-evolution-chain';
+import { POKEMONEVOLUTIONCHAIN } from '../../mock-pokemon-evolution-chain';*/
 
 
 @Component({
@@ -24,7 +25,8 @@ import { POKEMONEVOLUTIONCHAIN } from '../../mock-pokemon-evolution-chain';
 export class PokemonDetailComponent {
   pokemon: PokemonDetail;
   pokemonSpecies : PokemonSpecies;
-  pokemonEvolutionChain : PokemonEvolutionChain
+  pokemonEvolutionChain : PokemonEvolutionChain;
+  pokemonMoves : PokemonMove[];
 
   typeColor: String = "#FFF";
   tabActive: String[] = ["active","","",""]
@@ -33,11 +35,19 @@ export class PokemonDetailComponent {
     this.pokemon = {} as PokemonDetail;
     this.pokemonSpecies = {} as PokemonSpecies;
     this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
+    this.pokemonMoves = [] as PokemonMove[];
     this.typeColor = "#FFF";
     this.pokedexService.getCurrentPokemonDetail()
       .subscribe(pokemonRetrieved => {
           this.pokemon = pokemonRetrieved;
           this.typeColor = colorService.getColorOfType(this.pokemon.types[0].type.name);
+          
+          this.pokemon.moves.forEach(move => {
+            this.pokedexService.getCurrentPokemonMoveDetail(+move.move.url.split('/')[6])
+              .subscribe(pokemonMoveRetrieved => {
+                  this.pokemonMoves.push(pokemonMoveRetrieved);
+              });
+          });
       });
     this.pokedexService.getCurrentPokemonSpecies()
       .subscribe(pokemonSpeciesRetrieved => {

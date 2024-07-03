@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonDetail } from '../../../model/pokeapi/pokeApiDetail';
+import { PokemonMove } from '../../../model/pokeapi/pokeApiMove'
 
 @Component({
   selector: 'app-pokemon-move-tab',
@@ -9,12 +10,15 @@ import { PokemonDetail } from '../../../model/pokeapi/pokeApiDetail';
 export class PokemonMoveTabComponent {
  @Input() pokemon: PokemonDetail;
 
+ @Input() pokemonMoves: PokemonMove[];
+
   constructor() {
     this.pokemon = {} as PokemonDetail;
+    this.pokemonMoves = [] as PokemonMove[];
   }
 
   getSortedPokemonMove(){
-    return this.pokemon.moves.sort(function IHaveAName(a, b) { // non-anonymous as you ordered...
+    return this.pokemon.moves.sort((a, b) => { // non-anonymous as you ordered...
                                     var lvlA = a.version_group_details[a.version_group_details.length-1].level_learned_at
                                     var lvlB = b.version_group_details[b.version_group_details.length-1].level_learned_at
                                     var methodA = a.version_group_details[a.version_group_details.length-1].move_learn_method.name
@@ -28,4 +32,22 @@ export class PokemonMoveTabComponent {
                                          : 0;                   // a and b are equal
                                 });;
   }
+
+  getPokemonMoveDetail(moveId: number){
+    return this.pokemonMoves.find((pokemonMove) => pokemonMove.id == moveId);
+  }
+
+  getPokemonMoveId(url:string): number{
+    return +url.split('/')[6];
+  }
+
+  getMoveName(url:string){
+    var pokemonMove:PokemonMove = this.getPokemonMoveDetail(this.getPokemonMoveId(url))!;
+    if(pokemonMove && pokemonMove.names){
+      return pokemonMove.names[7]?.name;
+    }else{
+      return "-";
+    }
+  }
+
 }
