@@ -2,7 +2,8 @@
 <div class="abilitiesBox" *ngIf="pokemon.abilities">
   <div class="abilityBox" *ngFor="let ability of pokemon.abilities">
     <p [ngClass]="pokemon.types[0].type.name">{{ability.ability.name}}</p>
-    <p *ngIf="ability.is_hidden" class="hiddenAbility" [ngClass]="pokemon.types[0].type.name">(hidden)</p>
+    <!--p *ngIf="ability.is_hidden" class="hiddenAbility" [ngClass]="pokemon.types[0].type.name">(hidden)</p-->
+    <img *ngIf="ability.is_hidden" class="hiddenAbility" [ngClass]="pokemon.types[0].type.name" src="assets/images/hidden.png"/>
   </div>
 </div>
 <h2 class="color" [ngClass]="pokemon.types[0].type.name">STATS</h2>

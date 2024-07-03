@@ -37,19 +37,25 @@ $white: #F5F5F5;
   line-height: 32px;
 }
 
-.search p
-{
-  color: $lightGray;
-  margin: 0.5%;
-}
-
-.search .bar{
+/*.search .bar{
   margin: 0.5%;
   max-width: 501px;
   height: 25px;
   border-radius: 5px;
   border:none;
   outline:none;
+}*/
+
+.search .bar {
+  height: 2em;
+  border: 0;
+  font-size: 1rem;
+  outline: 0;
+  width: 100%;
+  background: rgba(245, 245, 245, 0.8666666667);
+  padding: 0 0.6rem;
+  border-radius: 6px;
+  width: 90%;
 }
 
 
@@ -186,13 +192,9 @@ $white: #F5F5F5;
     font-size : 1.2em;
     line-height: 25px;
   }
-  .search p
-  {
-    font-size: .9em;
-  }
   .search .bar{
-    max-width: 250px;
-    height: 18px;
+    max-width: 75%;
+    height: 1.7rem;
   }
   //CheckBox
   .search .checkboxContainer span{
