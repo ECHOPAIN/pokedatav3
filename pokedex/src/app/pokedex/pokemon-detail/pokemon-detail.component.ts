@@ -41,21 +41,23 @@ export class PokemonDetailComponent {
       .subscribe(pokemonRetrieved => {
           this.pokemon = pokemonRetrieved;
           this.typeColor = colorService.getColorOfType(this.pokemon.types[0].type.name);
-          
+
+
+        this.pokedexService.getPokemonSpecies(+this.pokemon.species.url.split('/')[6])
+          .subscribe(pokemonSpeciesRetrieved => {
+              this.pokemonSpecies = pokemonSpeciesRetrieved;
+              this.pokedexService.getPokemonEvolutionChain(parseInt(this.pokemonSpecies.evolution_chain.url.split('/')[6]))
+              .subscribe(pokemonEvolutionChainRetrieved => {
+                        this.pokemonEvolutionChain = pokemonEvolutionChainRetrieved;
+              })
+          });
+
           this.pokemon.moves.forEach(move => {
             this.pokedexService.getCurrentPokemonMoveDetail(+move.move.url.split('/')[6])
               .subscribe(pokemonMoveRetrieved => {
                   this.pokemonMoves.push(pokemonMoveRetrieved);
               });
           });
-      });
-    this.pokedexService.getCurrentPokemonSpecies()
-      .subscribe(pokemonSpeciesRetrieved => {
-          this.pokemonSpecies = pokemonSpeciesRetrieved;
-          this.pokedexService.getPokemonEvolutionChain(parseInt(this.pokemonSpecies.evolution_chain.url.split('/')[6]))
-          .subscribe(pokemonEvolutionChainRetrieved => {
-                    this.pokemonEvolutionChain = pokemonEvolutionChainRetrieved;
-          })
       });
 
     //To delete

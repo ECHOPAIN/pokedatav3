@@ -87,8 +87,9 @@ export class PokedexService {
       return this.getPokemonDetail(this.pokemonDetailId);
     }
 
-    getCurrentPokemonSpecies(): Observable<PokemonSpecies>{
+    //Do not use anymore, broken on mega
+    /*getCurrentPokemonSpecies(): Observable<PokemonSpecies>{
       return this.getPokemonSpecies(this.pokemonDetailId);
-    }
+    }*/
 
 }
