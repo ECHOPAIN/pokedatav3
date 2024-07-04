@@ -47,8 +47,16 @@ p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color
 {
   font-size: 1rem;
   //color: $midBlack;
-  width: 7em;
+  width: 100%;
   margin: 5px 1px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.moveBox{
+  margin-right: 10px;
+  width: 100%;
+  max-width: 70px;
 }
 
 
@@ -83,4 +91,14 @@ p.method.bug{color: $lightGray}p.method.dark{color: $midBlack}p.method.dragon{co
   {
     font-size: 1.2rem;
   }
+
+  .moveBox{
+    margin-right: 5px;
+    max-width: 55px;
+  }
+
+  .moveBox p{
+    font-size: 0.8rem;
+  }
+
 }
