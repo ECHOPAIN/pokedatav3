@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
-import { PokemonSpeciesNames } from '../model/translation/translation';
+import { PokemonSpecies } from '../model/pokeapi/pokeApiSpecies';
+
+import { PokemonSpeciesNames, TypeNames } from '../model/translation/translation';
 
 @Injectable({
   providedIn: 'root'
@@ -41,10 +43,13 @@ export class TranslationService {
 
   private countryId: number = 9;//en;
 
-  private pokemonSpeciesNamesFile = 'assets/pokemon_species_names.csv';
+  private pokemonSpeciesNamesFile = 'assets/translation/pokemon_species_names.csv';
   private pokemonSpeciesNamesList: PokemonSpeciesNames[] = [];
+  private typeNamesFile = 'assets/translation/type_names.csv';
+  private typeNamesList: TypeNames[] = [];
 
   constructor(private http: HttpClient) {
+      //load name translation file
       this.http.get(this.pokemonSpeciesNamesFile, {responseType: 'text'})
      .subscribe(
          data => {
@@ -59,6 +64,21 @@ export class TranslationService {
              //console.log(error);
          }
      );
+     //load name translation file
+     this.http.get(this.typeNamesFile, {responseType: 'text'})
+    .subscribe(
+        data => {
+            let csvToRowArray = data.split("\n");
+            for (let index = 1; index < csvToRowArray.length - 1; index++) {
+              let row = csvToRowArray[index].split(",");
+              this.typeNamesList.push( {type_id: parseInt( row[0], 10),local_language_id: parseInt( row[1], 10),name: row[2]} as TypeNames);
+            }
+            //console.log(this.typeNamesList);
+        },
+        error => {
+            //console.log(error);
+        }
+    );
   }
 
   setLanguageByCode(countryCode: string): void{
@@ -76,6 +96,8 @@ export class TranslationService {
     return result;
   }
 
+
+
   translatePokemonName(idPokemon:number){
     var res = "-";
     this.pokemonSpeciesNamesList.forEach((pokemonSpeciesNames) =>  {
@@ -84,5 +106,25 @@ export class TranslationService {
       }
     });
     return res;
+  }
+
+
+  translateTypeName(idType:number){
+    var res = "-";
+    this.typeNamesList.forEach((typeNames) =>  {
+      if (typeNames.type_id === idType && typeNames.local_language_id === this.countryId){
+        res = typeNames.name;
+      }
+    });
+    return res;
+  }
+
+  getTranslatedFlavorText(pokemonSpecies: PokemonSpecies){
+    var flavorTextToReturn = "";
+    pokemonSpecies.flavor_text_entries.forEach((flavorTextEntries) =>{
+                                                if(+flavorTextEntries.language.url.split('/')[6] === this.countryId){
+                                                  flavorTextToReturn = flavorTextEntries.flavor_text
+                                                }})
+    return flavorTextToReturn;
   }
 }

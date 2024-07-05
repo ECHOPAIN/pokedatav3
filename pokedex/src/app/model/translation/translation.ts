@@ -4,3 +4,9 @@ export interface PokemonSpeciesNames {
   name: string,
   genus: string
 }
+
+export interface TypeNames {
+  type_id: number,
+  local_language_id: number,
+  name: string
+}

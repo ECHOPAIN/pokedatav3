@@ -10,6 +10,8 @@ import { PokemonMove } from '../../model/pokeapi/pokeApiMove'
 import { PokedexService } from '../../services/pokedex.service';
 import { ColorService } from '../../services/color.service';
 
+import { TranslationService } from '../../services/translation.service';
+
 
 //To delete
 /*import { POKEMONDETAIL } from '../../mock-pokemon-detail';
@@ -31,7 +33,7 @@ export class PokemonDetailComponent {
   typeColor: String = "#FFF";
   tabActive: String[] = ["active","","",""]
 
-  constructor(private pokedexService: PokedexService,colorService: ColorService, private location: Location, private router: Router) {
+  constructor(private pokedexService: PokedexService,colorService: ColorService, private location: Location, private router: Router, private translationService: TranslationService) {
     this.pokemon = {} as PokemonDetail;
     this.pokemonSpecies = {} as PokemonSpecies;
     this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
@@ -71,6 +73,15 @@ export class PokemonDetailComponent {
     if("/pokemon".match(this.router.url)){
       this.hideDetailWindow();
     }
+  }
+
+  getPokemonName(): string{
+    //return this.pokemon.name;
+    return this.translationService.translatePokemonName(+this.pokemon.species.url.split('/')[6]);
+  }
+
+  getPokemonType(typeId:number): string{
+    return this.translationService.translateTypeName(typeId);
   }
 
   getOfficialArtwork():string{

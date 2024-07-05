@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PokemonDetail } from '../../../model/pokeapi/pokeApiDetail';
 import { PokemonSpecies } from '../../../model/pokeapi/pokeApiSpecies';
 
+import { TranslationService } from '../../../services/translation.service';
+
 
 @Component({
   selector: 'app-pokemon-about-tab',
@@ -13,18 +15,19 @@ export class PokemonAboutTabComponent {
  @Input() pokemon: PokemonDetail;
  @Input() pokemonSpecies : PokemonSpecies;
 
-  constructor() {
+  constructor(private translationService: TranslationService) {
       this.pokemon = {} as PokemonDetail;
       this.pokemonSpecies = {} as PokemonSpecies;
   }
 
   getPokemonFlavorText(){
-    var flavorTextToReturn = "";
+    return this.translationService.getTranslatedFlavorText(this.pokemonSpecies);
+    /*var flavorTextToReturn = "";
     this.pokemonSpecies.flavor_text_entries.forEach((flavorTextEntries) =>{
                                                     if(flavorTextEntries.language.name == "en"){
                                                       flavorTextToReturn = flavorTextEntries.flavor_text
                                                     }})
-    return flavorTextToReturn;
+    return flavorTextToReturn;*/
   }
   getPokemonHeight(){
     var height: String = this.pokemon.height + "";

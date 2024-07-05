@@ -8,7 +8,7 @@
   <div class="infos pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">
     <div class="title">
       <div class="nameBox backgroundColor" [ngClass]="pokemon.types[0].type.name">
-        <h1 [ngClass]="pokemon.types[0].type.name">{{pokemon.name | titlecase}}</h1>
+        <h1 [ngClass]="pokemon.types[0].type.name">{{getPokemonName() | titlecase}}</h1>
       </div>
       <p [ngClass]="pokemon.types[0].type.name">#{{getFormatedId(pokemon.id)}} </p>
     </div>
@@ -17,7 +17,7 @@
         <div class="typeIcon">
           <img src="assets/images/typeIcons/{{type.type.name}}.svg"/>
         </div>
-        <p [ngClass]="type.type.name">{{type.type.name}}</p>
+        <p [ngClass]="type.type.name">{{getPokemonType(+type.type.url.split('/')[6])}}</p>
       </div>
     </div>
     <div class="tabBox" [ngClass]="pokemon.types[0].type.name">
