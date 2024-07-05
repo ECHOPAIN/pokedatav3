@@ -5,6 +5,8 @@ import { Pokemons } from '../../model/pokemon/pokemonsResult';
 import { Pokemon } from '../../model/pokemon/pokemon';
 import { PokedexService } from '../../services/pokedex.service';
 
+import { TranslationService } from '../../services/translation.service';
+
 @Component({
   selector: 'app-pokemon-list-item',
   templateUrl: './pokemon-list-item.component.html',
@@ -13,7 +15,7 @@ import { PokedexService } from '../../services/pokedex.service';
 export class PokemonListItemComponent {
  @Input() pokemon: Pokemons;
 
-  constructor(private pokedexService: PokedexService, private location: Location) {
+  constructor(private pokedexService: PokedexService, private location: Location, private translationService: TranslationService) {
     this.pokemon =
             { name: "MissingNo.",
               url: "https://pokeapi.co/api/v2/pokemon/0/"
@@ -25,6 +27,11 @@ export class PokemonListItemComponent {
 
   getPokemonId(){
     return this.pokemon.url.split('/')[6]
+  }
+
+  getPokemonName(): string{
+    //return this.pokemon.name;
+    return this.translationService.translatePokemonName(+this.getPokemonId());
   }
 
   getFrontDefault(){

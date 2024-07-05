@@ -6,6 +6,8 @@ import { Pokemon } from '../model/pokemon/pokemon';
 import { Pokemons } from '../model/pokemon/pokemonsResult';
 import { PokedexService } from '../services/pokedex.service';
 
+import { TranslationService } from '../services/translation.service';
+
 @Component({
   selector: 'app-pokedex',
   templateUrl: './pokedex.component.html',
@@ -25,7 +27,7 @@ export class PokedexComponent implements OnInit {
   firstCall: Boolean = true;
 
 
-  constructor(private pokedexService: PokedexService, private router: Router) { }
+  constructor(private pokedexService: PokedexService, private router: Router, private translationService: TranslationService) { }
 
   ngOnInit(): void {
     this.loadPokemonList();
@@ -124,7 +126,7 @@ export class PokedexComponent implements OnInit {
         default:
           //classic search
           this.allFilteredPokemons = this.pokemons.filter(
-            pokemon => pokemon?.name.toLowerCase().includes(search.toLowerCase())||pokemon?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
+            pokemon => this.translationService.translatePokemonName(+pokemon?.url.split('/')[6]).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(search.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))||pokemon?.url.split('/')[6].toLowerCase().includes(search.toLowerCase())
           )
       }
       this.filteredPokemonList = this.allFilteredPokemons.slice(0,this.batchSize);

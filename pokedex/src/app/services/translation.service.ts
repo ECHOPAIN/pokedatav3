@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+
+import { PokemonSpeciesNames } from '../model/translation/translation';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +23,7 @@ export class TranslationService {
   12	zh	cn	zh-Hans	1	6
   13	pt-BR	br	pt-BR	0	13
   */
-  countryCodeMap: Map<string,number> = new Map([
+  private countryCodeMap: Map<string,number> = new Map([
                                       ["ja",1],
                                       //["ja",2],
                                       ["ko",3],
@@ -36,9 +39,27 @@ export class TranslationService {
                                       ["pt-BR",13]
                                     ]);
 
-  countryId: number = 9;//en;
+  private countryId: number = 9;//en;
 
-  constructor() { }
+  private pokemonSpeciesNamesFile = 'assets/pokemon_species_names.csv';
+  private pokemonSpeciesNamesList: PokemonSpeciesNames[] = [];
+
+  constructor(private http: HttpClient) {
+      this.http.get(this.pokemonSpeciesNamesFile, {responseType: 'text'})
+     .subscribe(
+         data => {
+             let csvToRowArray = data.split("\n");
+             for (let index = 1; index < csvToRowArray.length - 1; index++) {
+               let row = csvToRowArray[index].split(",");
+               this.pokemonSpeciesNamesList.push( {pokemon_species_id: parseInt( row[0], 10),local_language_id: parseInt( row[1], 10),name: row[2],genus: row[3]} as PokemonSpeciesNames);
+             }
+             //console.log(this.pokemonSpeciesNamesList);
+         },
+         error => {
+             //console.log(error);
+         }
+     );
+  }
 
   setLanguageByCode(countryCode: string): void{
     var countryId = this.countryCodeMap.get(countryCode);
@@ -53,5 +74,15 @@ export class TranslationService {
         result = value === this.countryId ? key : result;
     });
     return result;
+  }
+
+  translatePokemonName(idPokemon:number){
+    var res = "-";
+    this.pokemonSpeciesNamesList.forEach((pokemonSpeciesNames) =>  {
+      if (pokemonSpeciesNames.pokemon_species_id === idPokemon && pokemonSpeciesNames.local_language_id === this.countryId){
+        res = pokemonSpeciesNames.name;
+      }
+    });
+    return res;
   }
 }
