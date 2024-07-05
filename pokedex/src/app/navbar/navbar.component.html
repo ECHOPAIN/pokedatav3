@@ -6,6 +6,12 @@
       <li><a href="home">Home</a></li>
       <li><a href="pokedex">Pokedex</a></li>
       <li><a href="item">Items</a></li>
+      <li><a>Language {{countryCode}}<b>▼</b></a>
+        <ul>
+          <li><a (click)="setLanguage('en')">English (English)</a></li>
+          <li><a (click)="setLanguage('fr')">Francais (French)</a></li>
+        </ul>
+      </li>
       <!--li><a>Dropdown <b>▼</b></a>
         <ul>
           <li><a href="#">Dopdown1</a></li>

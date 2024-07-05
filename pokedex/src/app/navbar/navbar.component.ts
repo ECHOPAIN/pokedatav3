@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TranslationService } from '../services/translation.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,9 +11,12 @@ export class NavbarComponent implements OnInit {
   menuClass = "toggle";
   navigationClass = "navigation";
 
-  constructor() { }
+  countryCode = "";
+
+  constructor(private translationService: TranslationService) { }
 
   ngOnInit(): void {
+    this.countryCode = this.translationService.getLanguageCode()
   }
 
   toggleMenu(){
@@ -22,6 +27,11 @@ export class NavbarComponent implements OnInit {
       this.menuClass = "toggle";
       this.navigationClass = "navigation";
     }
+  }
+
+  setLanguage(language: string): void{
+    this.translationService.setLanguageByCode(language);
+    this.countryCode = this.translationService.getLanguageCode()
   }
 
 }
