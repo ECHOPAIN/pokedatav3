@@ -25,46 +25,15 @@ $iconwater    : #539DDF;
 
 p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color: $white}p.fairy{color: $white}p.fighting{color: $white}p.fire{color: $white}p.flying{color: $white}p.ghost{color: $black}p.grass{color: $white}p.ground{color: $white}p.ice{color: $white}p.normal{color: $white}p.poison{color: $black}p.psychic{color: $white}p.rock{color: $white}p.steel{color: $black}p.water{color: $white}
 
-.container
-{
-  border: solid $darkGray;
-  border-width: 0 0 1px 0;
+p.method{
+  font-size: smaller;
 }
-.moveListItem
-{
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  width: 100%;
-  justify-content: space-between;
-}
-.moveListItem h2
-{
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-.moveListItem p
-{
-  font-size: 1rem;
-  //color: $midBlack;
-  width: 100%;
-  margin: 5px 1px;
-  word-wrap: break-word;
-  text-align: center;
-}
-
-.moveBox{
-  margin-right: 10px;
-  width: 100%;
-  max-width: 70px;
-}
-
 
 p.method.bug{color: $lightGray}p.method.dark{color: $midBlack}p.method.dragon{color: $midBlack}p.method.electric{color: $lightGray}p.method.fairy{color: $lightGray}p.method.fighting{color: $lightGray}p.method.fire{color: $lightGray}p.method.flying{color: $lightGray}p.method.ghost{color: $midBlack}p.method.grass{color: $lightGray}p.method.ground{color: $lightGray}p.method.ice{color: $lightGray}p.method.normal{color: $lightGray}p.method.poison{color: $midBlack}p.method.psychic{color: $lightGray}p.method.rock{color: $lightGray}p.method.steel{color: $midBlack}p.method.water{color: $lightGray}
 
 
 .typeIcon {
-  margin: 10px;
+  //margin: 10px;
   border-radius: 100%;
   height: 20px;
   width: 20px;
@@ -79,26 +48,47 @@ p.method.bug{color: $lightGray}p.method.dark{color: $midBlack}p.method.dragon{co
 
 .typeIcon.bug{background: $iconbug; box-shadow: 0 0 5px $iconbug;}.typeIcon.dark{background: $icondark; box-shadow: 0 0 5px $icondark;}.typeIcon.dragon{background: $icondragon; box-shadow: 0 0 5px $icondragon;}.typeIcon.electric{background: $iconelectric; box-shadow: 0 0 5px $iconelectric;}.typeIcon.fairy{background: $iconfairy; box-shadow: 0 0 5px $iconfairy;}.typeIcon.fighting{background: $iconfighting; box-shadow: 0 0 5px $iconfighting;}.typeIcon.fire{background: $iconfire; box-shadow: 0 0 5px $iconfire;}.typeIcon.flying{background: $iconflying; box-shadow: 0 0 5px $iconflying;}.typeIcon.ghost{background: $iconghost; box-shadow: 0 0 5px  $iconghost;}.typeIcon.grass{background: $icongrass; box-shadow: 0 0 5px  $icongrass;}.typeIcon.ground{background: $iconground; box-shadow: 0 0 5px $iconground;}.typeIcon.ice{background: $iconice; box-shadow: 0 0 5px $iconice;}.typeIcon.normal{background: $iconnormal; box-shadow: 0 0 5px $iconnormal;}.typeIcon.poison{background: $iconpoison; box-shadow: 0 0 5px $iconpoison;}.typeIcon.psychic{background: $iconpsychic; box-shadow: 0 0 5px $iconpsychic;}.typeIcon.rock{background: $iconrock; box-shadow: 0 0 5px $iconrock;}.typeIcon.steel{background: $iconsteel; box-shadow: 0 0 5px $iconsteel;}.typeIcon.water{background: $iconwater;  box-shadow: 0 0 5px $iconwater;}
 
+.moveTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.moveTable td, .moveTable th {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+.moveTable tr:has(td):hover {background-color: #CACACA55;}
+
+.moveTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: black;
+}
+
+
+.moveTable td p, .moveTable th p{
+  word-wrap: break-word;
+}
+
 
 @media (max-width: 911px)
 {
-  .moveListItem
-  {
-    padding: 0.5rem;
+  
+  .moveTable td, .moveTable th {
+    padding: 4px;
   }
 
-  .moveListItem h2
-  {
-    font-size: 1.2rem;
+  .moveTable th {
+    font-size: 0.7em;
   }
 
-  .moveBox{
-    margin-right: 5px;
-    max-width: 55px;
-  }
 
-  .moveBox p{
-    font-size: 0.8rem;
+  .moveTable td p, .moveTable th p{
+    word-wrap: break-word;
+    margin: 0 0 5px;
   }
 
 }

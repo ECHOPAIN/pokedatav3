@@ -52,7 +52,35 @@ export class PokedexService {
   }
 
   getCurrentPokemonMoveDetail(moveId: number): Observable<PokemonMove> {
-    return this.http.get<PokemonMove>(this.pokemonUrl+'/move/'+moveId)
+    //return this.http.get<PokemonMove>(this.pokemonUrl+'/move/'+moveId)
+
+    //mocked pokemon move
+    return of({
+      id: moveId,
+      name: 'moveName',
+      accuracy: 100,
+      effect_chance: 2,
+      pp: 50,
+      priority: 4,
+      power: 100,
+      contest_combos: {},
+      contest_type: {},
+      contest_effect: {},
+      damage_class: {name:'physical',url:'url'},
+      effect_entries: [{}],
+      effect_changes: [{}],
+      learned_by_pokemon: [{}],
+      flavor_text_entries: [{}],
+      generation: [{}],
+      machines: [{}],
+      meta: [{}],
+      names: [{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'}],
+      past_values: [{}],
+      stat_changes: [{}],
+      super_contest_effect: {},
+      target: {},
+      type: {name:'water',url:'url'}
+    });
   }
 
   //

@@ -1,6 +1,14 @@
-<div class="container" *ngFor="let move of getSortedPokemonMove()">
-  <div class="moveListItem">
-    <div class="moveBox">
+<table class="moveTable">
+  <tr>
+    <th><p [ngClass]="pokemon.types[0].type.name">Move</p></th>
+    <th><p [ngClass]="pokemon.types[0].type.name">Power</p></th>
+    <th><p [ngClass]="pokemon.types[0].type.name">Accuracy</p></th>
+    <th><p [ngClass]="pokemon.types[0].type.name">PP</p></th>
+    <th><p [ngClass]="pokemon.types[0].type.name">Categorie</p></th>
+    <th><p [ngClass]="pokemon.types[0].type.name">Type</p></th>
+  </tr>
+  <tr *ngFor="let move of getSortedPokemonMove()">
+    <td>
       <p *ngIf="getMoveName(move.move.url); else elseBlockName" [ngClass]="pokemon.types[0].type.name">{{getMoveName(move.move.url)}}</p>
       <ng-template #elseBlockName>
         <p [ngClass]="pokemon.types[0].type.name">-</p>
@@ -9,39 +17,38 @@
       <ng-template #elseBlockLvl>
         <p class="method" [ngClass]="pokemon.types[0].type.name">{{move.version_group_details[move.version_group_details.length-1].move_learn_method.name}}</p>
       </ng-template>
-    </div>
-    <div class="moveBox">
-    <p [ngClass]="pokemon.types[0].type.name">Power</p>
+    </td>
+    <td>
     <p *ngIf="getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.power; else elseBlockPower" [ngClass]="pokemon.types[0].type.name">{{getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.power}}</p>
       <ng-template #elseBlockPower>
         <p [ngClass]="pokemon.types[0].type.name">-</p>
       </ng-template>
-    </div>
-    <div class="moveBox">
-    <p [ngClass]="pokemon.types[0].type.name">Accuracy</p>
+    </td>
+    <td>
       <p *ngIf="getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.accuracy; else elseBlockAccuracy" [ngClass]="pokemon.types[0].type.name">{{getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.accuracy}}</p>
       <ng-template #elseBlockAccuracy>
         <p [ngClass]="pokemon.types[0].type.name">-</p>
       </ng-template>
-    </div>
-    <div class="moveBox">
-    <p [ngClass]="pokemon.types[0].type.name">PP</p>
+    </td>
+    <td>
       <p *ngIf="getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.pp; else elseBlockPp" [ngClass]="pokemon.types[0].type.name">{{getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.pp}}</p>
       <ng-template #elseBlockPp>
         <p [ngClass]="pokemon.types[0].type.name">-</p>
       </ng-template>
-    </div>
-    <div class="moveBox">
+    </td>
+    <td>
       <p *ngIf="getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.damage_class?.name; else elseBlockDamageClass" [ngClass]="pokemon.types[0].type.name">{{getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.damage_class?.name}}</p>
       <ng-template #elseBlockDamageClass>
         <p [ngClass]="pokemon.types[0].type.name">-</p>
       </ng-template>
-    </div>
+    </td>
+    <td>
       <div class="typeIcon" *ngIf="getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.type?.name; else elseBlockType"  [ngClass]="getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.type?.name">
         <img src="assets/images/typeIcons/{{getPokemonMoveDetail(getPokemonMoveId(move.move.url))?.type?.name}}.svg"/>
       </div>
       <ng-template #elseBlockType>
         <p [ngClass]="pokemon.types[0].type.name">-</p>
       </ng-template>
-  </div>
-</div>
+    </td>
+  </tr>
+</table>

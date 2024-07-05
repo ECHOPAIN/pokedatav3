@@ -22,5 +22,5 @@ export interface PokemonMove {
   stat_changes: Object[],
   super_contest_effect: Object,
   target: Object,
-  type: {name: string, url: string},
+  type: {name: string, url: string}
 }
