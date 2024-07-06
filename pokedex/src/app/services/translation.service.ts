@@ -135,9 +135,14 @@ export class TranslationService {
   }
 
   getTranslatedGenus(pokemonSpecies: PokemonSpecies){
+    var genusTextToReturn = this.getTranslatedGenusByCountry(pokemonSpecies,this.countryId);
+    return genusTextToReturn ? genusTextToReturn : this.getTranslatedGenusByCountry(pokemonSpecies,this.defaultCountryId);
+  }
+
+  private getTranslatedGenusByCountry(pokemonSpecies: PokemonSpecies, countryId:number){
     var genusTextToReturn = "";
     pokemonSpecies.genera.forEach((genera) =>{
-                                   if(+genera.language.url.split('/')[6] === this.countryId){
+                                   if(+genera.language.url.split('/')[6] === countryId){
                                      genusTextToReturn = genera.genus
                                    }})
     return genusTextToReturn;
