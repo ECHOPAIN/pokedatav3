@@ -4,7 +4,7 @@
 
     <div class="pokemon" (click)="redirect(evolution.pokemon1)">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon1)" alt="{{evolution.pokemon1.name}}"></div>
-      <p [ngClass]="pokemon.types[0].type.name">{{evolution.pokemon1.name}}</p>
+      <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+evolution.pokemon1.url.split('/')[6])}}</p>
     </div>
 
     <div class="requirementBox">
@@ -105,7 +105,7 @@
     </div>
     <div class="pokemon" (click)="redirect(evolution.pokemon2)">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon2)" alt="{{evolution.pokemon2.name}}"></div>
-      <p [ngClass]="pokemon.types[0].type.name">{{evolution.pokemon2.name}}</p>
+      <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+evolution.pokemon2.url.split('/')[6])}}</p>
     </div>
   </div>
   <div *ngIf="chain.length == 0">

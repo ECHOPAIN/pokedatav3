@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import { PokemonDetail } from '../../../model/pokeapi/pokeApiDetail';
 import { PokemonEvolutionChain, PokemonEvolutionChainType } from '../../../model/pokeapi/pokeApiEvolutionChain';
 
+import { TranslationService } from '../../../services/translation.service';
+
 @Component({
   selector: 'app-pokemon-evolution-tab',
   templateUrl: './pokemon-evolution-tab.component.html',
@@ -15,7 +17,7 @@ export class PokemonEvolutionTabComponent {
 
  chain;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private translationService: TranslationService) {
       this.pokemon = {} as PokemonDetail;
       this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
       this.chain = null as any;
@@ -24,6 +26,11 @@ export class PokemonEvolutionTabComponent {
   ngOnInit(): void {
   }
 
+
+  getPokemonName(pokemonId:number): string{
+    //return this.pokemon.name;
+    return this.translationService.translatePokemonName(pokemonId);
+  }
 
   loadPokemonEvolutionChain(): boolean{
     if(!this.pokemonEvolutionChain){

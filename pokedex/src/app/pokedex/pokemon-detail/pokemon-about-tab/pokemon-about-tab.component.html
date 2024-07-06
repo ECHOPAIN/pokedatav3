@@ -48,8 +48,14 @@
           <div class="typeIcon" [ngClass]="type.type.name">
             <img src="assets/images/typeIcons/{{type.type.name}}.svg"/>
           </div>
-          <p [ngClass]="pokemon.types[0].type.name">{{type.type.name}}</p>
+          <p [ngClass]="pokemon.types[0].type.name">{{getPokemonType(+type.type.url.split('/')[6])}}</p>
         </div>
+    </div>
+    <div class="content">
+      <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Category</h2>
+      <div class="contentBox">
+        <p [ngClass]="pokemon.types[0].type.name">{{getPokemonGenus()}}</p>
+      </div>
     </div>
     <div class="content">
       <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Weight</h2>

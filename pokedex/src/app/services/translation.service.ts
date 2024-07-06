@@ -127,4 +127,13 @@ export class TranslationService {
                                                 }})
     return flavorTextToReturn;
   }
+
+  getTranslatedGenus(pokemonSpecies: PokemonSpecies){
+    var genusTextToReturn = "";
+    pokemonSpecies.genera.forEach((genera) =>{
+                                   if(+genera.language.url.split('/')[6] === this.countryId){
+                                     genusTextToReturn = genera.genus
+                                   }})
+    return genusTextToReturn;
+  }
 }

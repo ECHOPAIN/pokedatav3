@@ -22,13 +22,16 @@ export class PokemonAboutTabComponent {
 
   getPokemonFlavorText(){
     return this.translationService.getTranslatedFlavorText(this.pokemonSpecies);
-    /*var flavorTextToReturn = "";
-    this.pokemonSpecies.flavor_text_entries.forEach((flavorTextEntries) =>{
-                                                    if(flavorTextEntries.language.name == "en"){
-                                                      flavorTextToReturn = flavorTextEntries.flavor_text
-                                                    }})
-    return flavorTextToReturn;*/
   }
+
+  getPokemonType(typeId:number): string{
+    return this.translationService.translateTypeName(typeId);
+  }
+
+  getPokemonGenus(){
+    return this.translationService.getTranslatedGenus(this.pokemonSpecies);
+  }
+
   getPokemonHeight(){
     var height: String = this.pokemon.height + "";
     if(height.length <=1){
