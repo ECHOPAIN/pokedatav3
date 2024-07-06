@@ -41,7 +41,8 @@ export class TranslationService {
                                       ["pt-BR",13]
                                     ]);
 
-  private countryId: number = 9;//en;
+  private defaultCountryId: number = 9;//en;
+  private countryId: number = this.defaultCountryId;
 
   private pokemonSpeciesNamesFile = 'assets/translation/pokemon_species_names.csv';
   private pokemonSpeciesNamesList: PokemonSpeciesNames[] = [];
@@ -120,9 +121,14 @@ export class TranslationService {
   }
 
   getTranslatedFlavorText(pokemonSpecies: PokemonSpecies){
+    var flavorTextToReturn = this.getTranslatedFlavorTextByCountry(pokemonSpecies,this.countryId);
+    return flavorTextToReturn ? flavorTextToReturn : this.getTranslatedFlavorTextByCountry(pokemonSpecies,this.defaultCountryId);
+  }
+
+  private getTranslatedFlavorTextByCountry(pokemonSpecies: PokemonSpecies, countryId:number){
     var flavorTextToReturn = "";
     pokemonSpecies.flavor_text_entries.forEach((flavorTextEntries) =>{
-                                                if(+flavorTextEntries.language.url.split('/')[6] === this.countryId){
+                                                if(+flavorTextEntries.language.url.split('/')[6] === countryId){
                                                   flavorTextToReturn = flavorTextEntries.flavor_text
                                                 }})
     return flavorTextToReturn;

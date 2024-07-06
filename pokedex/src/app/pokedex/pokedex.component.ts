@@ -19,7 +19,7 @@ export class PokedexComponent implements OnInit {
   allFilteredPokemons: Pokemons[] = []
   isLoading: Boolean = false;
   batchSize: number = 50;
-  maxPokemonId: number = 1010;
+  maxPokemonId: number = 1025;
   search: String = "";
   listDisplay: Boolean = false;
 
@@ -121,7 +121,7 @@ export class PokedexComponent implements OnInit {
           break;
         case "gen9":
         case "generation9":
-          this.allFilteredPokemons = this.pokemons.slice(905,1010);
+          this.allFilteredPokemons = this.pokemons.slice(905,1025);
           break;
         default:
           //classic search

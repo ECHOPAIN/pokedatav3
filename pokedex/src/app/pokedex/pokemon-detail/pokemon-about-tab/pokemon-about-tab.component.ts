@@ -21,7 +21,8 @@ export class PokemonAboutTabComponent {
   }
 
   getPokemonFlavorText(){
-    return this.translationService.getTranslatedFlavorText(this.pokemonSpecies);
+    var flavorText = this.translationService.getTranslatedFlavorText(this.pokemonSpecies);
+    return flavorText ? flavorText : "-";
   }
 
   getPokemonType(typeId:number): string{
