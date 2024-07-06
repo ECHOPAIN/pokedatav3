@@ -6,6 +6,7 @@ import { PokemonDetail } from '../../model/pokeapi/pokeApiDetail';
 import { PokemonSpecies } from '../../model/pokeapi/pokeApiSpecies';
 import { PokemonEvolutionChain } from '../../model/pokeapi/pokeApiEvolutionChain'
 import { PokemonMove } from '../../model/pokeapi/pokeApiMove'
+import { PokemonAbility } from '../../model/pokeapi/pokeApiAbility';
 
 import { PokedexService } from '../../services/pokedex.service';
 import { ColorService } from '../../services/color.service';
@@ -29,6 +30,7 @@ export class PokemonDetailComponent {
   pokemonSpecies : PokemonSpecies;
   pokemonEvolutionChain : PokemonEvolutionChain;
   pokemonMoves : PokemonMove[];
+  pokemonAbilities: PokemonAbility[];
 
   typeColor: String = "#FFF";
   tabActive: String[] = ["active","","",""]
@@ -38,6 +40,7 @@ export class PokemonDetailComponent {
     this.pokemonSpecies = {} as PokemonSpecies;
     this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
     this.pokemonMoves = [] as PokemonMove[];
+    this.pokemonAbilities = [] as PokemonAbility[];
     this.typeColor = "#FFF";
     this.pokedexService.getCurrentPokemonDetail()
       .subscribe(pokemonRetrieved => {
@@ -58,6 +61,13 @@ export class PokemonDetailComponent {
             this.pokedexService.getCurrentPokemonMoveDetail(+move.move.url.split('/')[6])
               .subscribe(pokemonMoveRetrieved => {
                   this.pokemonMoves.push(pokemonMoveRetrieved);
+              });
+          });
+
+          this.pokemon.abilities.forEach(ability => {
+            this.pokedexService.getPokemonAbility(+ability.ability.url.split('/')[6])
+              .subscribe(pokemonAbilityRetrieved => {
+                  this.pokemonAbilities.push(pokemonAbilityRetrieved);
               });
           });
       });

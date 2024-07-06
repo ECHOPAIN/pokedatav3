@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
 import { PokemonSpecies } from '../model/pokeapi/pokeApiSpecies';
+import { PokemonAbility } from '../model/pokeapi/pokeApiAbility';
 
 import { PokemonSpeciesNames, TypeNames } from '../model/translation/translation';
 
@@ -146,5 +147,33 @@ export class TranslationService {
                                      genusTextToReturn = genera.genus
                                    }})
     return genusTextToReturn;
+  }
+
+  translateAbilityName(pokemonAbility:PokemonAbility){
+    var abilityNameToReturn = this.translateAbilityNameByCountry(pokemonAbility,this.countryId);
+    return abilityNameToReturn ? abilityNameToReturn : this.translateAbilityNameByCountry(pokemonAbility,this.defaultCountryId);
+  }
+
+  private translateAbilityNameByCountry(pokemonAbility:PokemonAbility, countryId:number){
+    var abilityNameToReturn = "";
+    pokemonAbility.names.forEach((name) =>{
+                                   if(+name.language.url.split('/')[6] === countryId){
+                                     abilityNameToReturn = name.name
+                                   }})
+    return abilityNameToReturn;
+  }
+
+  translateAbilityFlavorText(pokemonAbility:PokemonAbility){
+    var abilityNameToReturn = this.translateAbilityFlavorTextByCountry(pokemonAbility,this.countryId);
+    return abilityNameToReturn ? abilityNameToReturn : this.translateAbilityFlavorTextByCountry(pokemonAbility,this.defaultCountryId);
+  }
+
+  private translateAbilityFlavorTextByCountry(pokemonAbility:PokemonAbility, countryId:number){
+    var abilityEffectToReturn = "";
+    pokemonAbility.flavor_text_entries.forEach((flavor_text_entries) =>{
+                                   if(+flavor_text_entries.language.url.split('/')[6] === countryId){
+                                     abilityEffectToReturn = flavor_text_entries.flavor_text
+                                   }})
+    return abilityEffectToReturn;
   }
 }

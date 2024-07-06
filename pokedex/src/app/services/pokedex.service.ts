@@ -11,6 +11,7 @@ import { PokemonSpecies } from '../model/pokeapi/pokeApiSpecies'
 import { PokemonDetail } from '../model/pokeapi/pokeApiDetail'
 import { PokemonEvolutionChain } from '../model/pokeapi/pokeApiEvolutionChain'
 import { PokemonMove } from '../model/pokeapi/pokeApiMove'
+import { PokemonAbility } from '../model/pokeapi/pokeApiAbility'
 
 //mock
 import { POKEMONS } from '../mock-pokemon'
@@ -49,6 +50,10 @@ export class PokedexService {
   // WARNING: id of the evolution chain, not the pokemon
   getPokemonEvolutionChain(id: number): Observable<PokemonEvolutionChain> {
     return this.http.get<PokemonEvolutionChain>(this.pokemonUrl+'/evolution-chain/'+id)
+  }
+
+  getPokemonAbility(id: number){
+    return this.http.get<PokemonAbility>(this.pokemonUrl+'/ability/'+id)
   }
 
   getCurrentPokemonMoveDetail(moveId: number): Observable<PokemonMove> {
