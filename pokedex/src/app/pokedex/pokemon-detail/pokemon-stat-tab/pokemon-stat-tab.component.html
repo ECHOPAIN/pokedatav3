@@ -1,13 +1,12 @@
 <h2 [ngClass]="pokemon.types[0].type.name">Abilities</h2>
 <div class="abilitiesBox" *ngIf="pokemon.abilities">
-  <div class="abilityBox" *ngFor="let ability of pokemon.abilities">
+  <div class="abilityBox" *ngFor="let ability of pokemon.abilities" (click)="updateAbilityEffect(ability)">
     <p [ngClass]="pokemon.types[0].type.name">{{getAbilityName(ability)}}</p>
-    <p [ngClass]="pokemon.types[0].type.name">{{getAbilityFlavorText(ability)}}</p>
     <!--p *ngIf="ability.is_hidden" class="hiddenAbility" [ngClass]="pokemon.types[0].type.name">(hidden)</p-->
     <img *ngIf="ability.is_hidden" class="hiddenAbility" [ngClass]="pokemon.types[0].type.name" src="assets/images/hidden.png"/>
   </div>
 </div>
-<p [ngClass]="pokemon.types[0].type.name">Ability description</p>
+<p [ngClass]="pokemon.types[0].type.name">{{abilityEffect}}</p>
 <h2 class="color" [ngClass]="pokemon.types[0].type.name">STATS</h2>
 <div class="statsContent">
   <div class="stats">

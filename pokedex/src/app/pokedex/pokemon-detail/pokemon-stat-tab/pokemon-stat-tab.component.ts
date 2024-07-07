@@ -18,6 +18,8 @@ export class PokemonStatTabComponent {
  @Input() pokemonSpecies: PokemonSpecies;
  @Input() pokemonAbilities: PokemonAbility[];
 
+ abilityEffect: String = "";
+
   constructor(private pokedexService: PokedexService, private translationService: TranslationService) {
       this.pokemon = {} as PokemonDetail;
       this.pokemonSpecies = {} as PokemonSpecies;
@@ -61,5 +63,9 @@ export class PokemonStatTabComponent {
     });
 
     return pokemonAbility
+  }
+
+  updateAbilityEffect(ability:any){
+    this.abilityEffect = this.getAbilityName(ability) + " : " + this.getAbilityFlavorText(ability)
   }
 }
