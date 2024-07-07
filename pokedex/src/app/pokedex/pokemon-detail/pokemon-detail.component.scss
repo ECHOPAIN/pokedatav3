@@ -276,6 +276,7 @@ h1.bug{color: $black}h1.dark{color: $white}h1.dragon{color: $white}h1.electric{c
   background-color: $black;
   border-radius: 10px;
   transition: all .3s ease-in-out;
+  display: none;
 }
 .infoContentBox
 {

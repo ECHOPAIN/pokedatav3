@@ -25,6 +25,13 @@ export class PokedexService {
 
   private pokemonUrl = 'https://pokeapi.co/api/v2';  // URL to web api
 
+  private pokemonCache:PokemonsResult = {} as PokemonsResult;
+  private pokemonDetailCache:Map<number,PokemonDetail> = new Map() as Map<number,PokemonDetail>;
+  private pokemonSpeciesCache:Map<number,PokemonSpecies> = new Map() as Map<number,PokemonSpecies>;
+  private pokemonEvolutionChainCache:Map<number,PokemonEvolutionChain> = new Map() as Map<number,PokemonEvolutionChain>;
+  private pokemonAbilityCache:Map<number,PokemonAbility> = new Map() as Map<number,PokemonAbility>;
+  private pokemonMoveCache:Map<number,PokemonMove> = new Map() as Map<number,PokemonMove>;
+
   private displayDetail = new BehaviorSubject<boolean>(false);
   private pokemonDetailId = 0;
 
@@ -35,33 +42,86 @@ export class PokedexService {
   //Pokemons
   //
   getAllPokemonResults(): Observable<PokemonsResult>{
-    return of(POKEMONS)
+    if(!(this.pokemonCache.count > 0)){
+      this.pokemonCache = POKEMONS
+    }
+    return of(this.pokemonCache)
     //return this.http.get<PokemonsResult>(this.pokemonUrl+'/pokemon?limit=100000&offset=0')
   }
 
   getPokemonDetail(id: number): Observable<PokemonDetail> {
-    return this.http.get<PokemonDetail>(this.pokemonUrl+'/pokemon/'+id)
+    if(this.pokemonDetailCache.get(id)){
+      //Already cached
+      return of(this.pokemonDetailCache.get(id)!);
+    }else{
+      //Fetching from PokeApi
+      var toReturn = this.http.get<PokemonDetail>(this.pokemonUrl+'/pokemon/'+id);
+      toReturn.subscribe(pokemonDetail => {
+          this.pokemonDetailCache.set(id, pokemonDetail);
+      });
+      return toReturn;
+    }
   }
 
   getPokemonSpecies(id: number): Observable<PokemonSpecies> {
-    return this.http.get<PokemonSpecies>(this.pokemonUrl+'/pokemon-species/'+id)
+    if(this.pokemonSpeciesCache.get(id)){
+      //Already cached
+      return of(this.pokemonSpeciesCache.get(id)!);
+    }else{
+      //Fetching from PokeApi
+      var toReturn = this.http.get<PokemonSpecies>(this.pokemonUrl+'/pokemon-species/'+id);
+      toReturn.subscribe(pokemonSpecies => {
+          this.pokemonSpeciesCache.set(id, pokemonSpecies);
+      });
+      return toReturn;
+    }
   }
 
   // WARNING: id of the evolution chain, not the pokemon
   getPokemonEvolutionChain(id: number): Observable<PokemonEvolutionChain> {
-    return this.http.get<PokemonEvolutionChain>(this.pokemonUrl+'/evolution-chain/'+id)
+    if(this.pokemonEvolutionChainCache.get(id)){
+      //Already cached
+      return of(this.pokemonEvolutionChainCache.get(id)!);
+    }else{
+      //Fetching from PokeApi
+      var toReturn = this.http.get<PokemonEvolutionChain>(this.pokemonUrl+'/evolution-chain/'+id);
+      toReturn.subscribe(pokemonEvolutionChain => {
+          this.pokemonEvolutionChainCache.set(id, pokemonEvolutionChain);
+      });
+      return toReturn;
+    }
   }
 
   getPokemonAbility(id: number){
-    return this.http.get<PokemonAbility>(this.pokemonUrl+'/ability/'+id)
+    if(this.pokemonAbilityCache.get(id)){
+      //Already cached
+      return of(this.pokemonAbilityCache.get(id)!);
+    }else{
+      //Fetching from PokeApi
+      var toReturn = this.http.get<PokemonAbility>(this.pokemonUrl+'/ability/'+id);
+      toReturn.subscribe(pokemonAbility => {
+          this.pokemonAbilityCache.set(id, pokemonAbility);
+      });
+      return toReturn;
+    }
   }
 
-  getCurrentPokemonMoveDetail(moveId: number): Observable<PokemonMove> {
-    return this.http.get<PokemonMove>(this.pokemonUrl+'/move/'+moveId)
+  getCurrentPokemonMoveDetail(id: number): Observable<PokemonMove> {
+    if(this.pokemonMoveCache.get(id)){
+      //Already cached
+      return of(this.pokemonMoveCache.get(id)!);
+    }else{
+      //Fetching from PokeApi
+      var toReturn = this.http.get<PokemonMove>(this.pokemonUrl+'/move/'+id);
+      toReturn.subscribe(pokemonAbility => {
+          this.pokemonMoveCache.set(id, pokemonAbility);
+      });
+      return toReturn;
+    }
 
     //mocked pokemon move
     /*return of({
-      id: moveId,
+      id: id,
       name: 'moveName',
       accuracy: 100,
       effect_chance: 2,
@@ -79,7 +139,7 @@ export class PokedexService {
       generation: [{}],
       machines: [{}],
       meta: [{}],
-      names: [{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'},{name:'moveName',url:'url'}],
+      names: [{language:{name:'',url:'https://pokeapi.co/api/v2/language/1/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/2/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/3/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/4/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/5/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/6/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/7/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/8/'},name:'moveName'},{language:{name:'',url:'https://pokeapi.co/api/v2/language/9/'},name:'moveName'}],
       past_values: [{}],
       stat_changes: [{}],
       super_contest_effect: {},

@@ -179,8 +179,12 @@ export class TranslationService {
   }
 
   translateMoveName(pokemonMove:PokemonMove){
-    var moveNameToReturn = this.translateMoveNameByCountry(pokemonMove,this.countryId);
-    return moveNameToReturn ? moveNameToReturn : this.translateMoveNameByCountry(pokemonMove,this.defaultCountryId);
+    if(pokemonMove){
+      var moveNameToReturn = this.translateMoveNameByCountry(pokemonMove,this.countryId);
+      return moveNameToReturn ? moveNameToReturn : this.translateMoveNameByCountry(pokemonMove,this.defaultCountryId);
+    }else{
+      return "-";
+    }
   }
 
   private translateMoveNameByCountry(pokemonMove:PokemonMove, countryId:number){
