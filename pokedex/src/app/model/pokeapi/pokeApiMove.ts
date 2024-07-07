@@ -17,7 +17,7 @@ export interface PokemonMove {
   generation: Object[],
   machines: Object[],
   meta: Object[],
-  names: {name: string, url: string}[],
+  names: {language:{name:string,url:string},name:string}[],
   past_values: Object[],
   stat_changes: Object[],
   super_contest_effect: Object,

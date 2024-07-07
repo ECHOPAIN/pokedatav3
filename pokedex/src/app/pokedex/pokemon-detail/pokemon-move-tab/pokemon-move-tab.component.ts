@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonDetail } from '../../../model/pokeapi/pokeApiDetail';
-import { PokemonMove } from '../../../model/pokeapi/pokeApiMove'
+import { PokemonMove } from '../../../model/pokeapi/pokeApiMove';
+
+import { TranslationService } from '../../../services/translation.service';
 
 @Component({
   selector: 'app-pokemon-move-tab',
@@ -12,7 +14,7 @@ export class PokemonMoveTabComponent {
 
  @Input() pokemonMoves: PokemonMove[];
 
-  constructor() {
+  constructor(private translationService: TranslationService) {
     this.pokemon = {} as PokemonDetail;
     this.pokemonMoves = [] as PokemonMove[];
   }
@@ -42,12 +44,7 @@ export class PokemonMoveTabComponent {
   }
 
   getMoveName(url:string){
-    var pokemonMove:PokemonMove = this.getPokemonMoveDetail(this.getPokemonMoveId(url))!;
-    if(pokemonMove && pokemonMove.names){
-      return pokemonMove.names[7]?.name;
-    }else{
-      return "-";
-    }
+    return this.translationService.translateMoveName(this.getPokemonMoveDetail(this.getPokemonMoveId(url))!);
   }
 
 }

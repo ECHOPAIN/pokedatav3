@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { PokemonSpecies } from '../model/pokeapi/pokeApiSpecies';
 import { PokemonAbility } from '../model/pokeapi/pokeApiAbility';
+import { PokemonMove } from '../model/pokeapi/pokeApiMove';
 
 import { PokemonSpeciesNames, TypeNames } from '../model/translation/translation';
 
@@ -175,5 +176,19 @@ export class TranslationService {
                                      abilityEffectToReturn = flavor_text_entries.flavor_text
                                    }})
     return abilityEffectToReturn;
+  }
+
+  translateMoveName(pokemonMove:PokemonMove){
+    var moveNameToReturn = this.translateMoveNameByCountry(pokemonMove,this.countryId);
+    return moveNameToReturn ? moveNameToReturn : this.translateMoveNameByCountry(pokemonMove,this.defaultCountryId);
+  }
+
+  private translateMoveNameByCountry(pokemonMove:PokemonMove, countryId:number){
+      var moveNameToReturn = "";
+      pokemonMove.names.forEach((names) =>{
+                                     if(+names.language.url.split('/')[6] === countryId){
+                                       moveNameToReturn = names.name
+                                     }})
+      return moveNameToReturn;
   }
 }

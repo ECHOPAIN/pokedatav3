@@ -57,10 +57,10 @@ export class PokedexService {
   }
 
   getCurrentPokemonMoveDetail(moveId: number): Observable<PokemonMove> {
-    //return this.http.get<PokemonMove>(this.pokemonUrl+'/move/'+moveId)
+    return this.http.get<PokemonMove>(this.pokemonUrl+'/move/'+moveId)
 
     //mocked pokemon move
-    return of({
+    /*return of({
       id: moveId,
       name: 'moveName',
       accuracy: 100,
@@ -85,7 +85,7 @@ export class PokedexService {
       super_contest_effect: {},
       target: {},
       type: {name:'water',url:'url'}
-    });
+    });*/
   }
 
   //
