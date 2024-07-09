@@ -5,6 +5,7 @@ import { PokemonSpecies } from '../../../model/pokeapi/pokeApiSpecies';
 import { PokemonAbility } from '../../../model/pokeapi/pokeApiAbility';
 
 import { PokedexService } from '../../../services/pokedex.service';
+import { TypeService } from '../../../services/type.service';
 
 import { TranslationService } from '../../../services/translation.service';
 
@@ -17,13 +18,15 @@ export class PokemonStatTabComponent {
  @Input() pokemon: PokemonDetail;
  @Input() pokemonSpecies: PokemonSpecies;
  @Input() pokemonAbilities: PokemonAbility[];
+ @Input() pokemonWeaknesses: number[][];
 
  abilityEffect: String = "";
 
-  constructor(private pokedexService: PokedexService, private translationService: TranslationService) {
+  constructor(private pokedexService: PokedexService, private typeService: TypeService, private translationService: TranslationService) {
       this.pokemon = {} as PokemonDetail;
       this.pokemonSpecies = {} as PokemonSpecies;
       this.pokemonAbilities = []  as PokemonAbility[];
+      this.pokemonWeaknesses = [[]] as number[][];
   }
 
   getPokemonFemaleRate(){
@@ -67,5 +70,16 @@ export class PokemonStatTabComponent {
 
   updateAbilityEffect(ability:any){
     this.abilityEffect = this.getAbilityName(ability) + " : " + this.getAbilityFlavorText(ability)
+  }
+
+  getPokemonType(typeId:number): string{
+    return this.translationService.translateTypeName(typeId);
+  }
+  getPokemonEnglishType(typeId:number): string{
+    return this.translationService.translateTypeNameByCountry(typeId,9).toLowerCase();
+  }
+
+  getTypeWeaknesses(){
+    return this.pokemonWeaknesses;
   }
 }

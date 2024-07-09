@@ -113,9 +113,14 @@ export class TranslationService {
 
 
   translateTypeName(idType:number){
+    var typeNameToReturn = this.translateTypeNameByCountry(idType,this.countryId);
+    return typeNameToReturn ? typeNameToReturn : this.translateTypeNameByCountry(idType,this.defaultCountryId);
+  }
+
+  translateTypeNameByCountry(idType:number, countryId:number){
     var res = "-";
     this.typeNamesList.forEach((typeNames) =>  {
-      if (typeNames.type_id === idType && typeNames.local_language_id === this.countryId){
+      if (typeNames.type_id === idType && typeNames.local_language_id === countryId){
         res = typeNames.name;
       }
     });

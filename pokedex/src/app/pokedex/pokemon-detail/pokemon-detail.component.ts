@@ -10,6 +10,7 @@ import { PokemonAbility } from '../../model/pokeapi/pokeApiAbility';
 
 import { PokedexService } from '../../services/pokedex.service';
 import { ColorService } from '../../services/color.service';
+import { TypeService } from '../../services/type.service';
 
 import { TranslationService } from '../../services/translation.service';
 
@@ -31,17 +32,19 @@ export class PokemonDetailComponent {
   pokemonEvolutionChain : PokemonEvolutionChain;
   pokemonMoves : PokemonMove[];
   pokemonAbilities: PokemonAbility[];
+  pokemonWeaknesses: number[][];
 
   typeColor: String = "#FFF";
   tabActive: String[] = ["active","","",""]
 
-  constructor(private pokedexService: PokedexService,colorService: ColorService, private location: Location, private router: Router, private translationService: TranslationService) {
+  constructor(private pokedexService: PokedexService,colorService: ColorService, private location: Location, private router: Router, private translationService: TranslationService, private typeService: TypeService) {
     this.pokemon = {} as PokemonDetail;
     this.pokemonSpecies = {} as PokemonSpecies;
     this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
     this.pokemonMoves = [] as PokemonMove[];
     this.pokemonAbilities = [] as PokemonAbility[];
     this.typeColor = "#FFF";
+    this.pokemonWeaknesses = [[]];
     this.pokedexService.getCurrentPokemonDetail()
       .subscribe(pokemonRetrieved => {
           this.pokemon = pokemonRetrieved;
@@ -70,6 +73,8 @@ export class PokemonDetailComponent {
                   this.pokemonAbilities.push(pokemonAbilityRetrieved);
               });
           });
+
+          this.pokemonWeaknesses = this.typeService.getWeaknesses(pokemonRetrieved);
       });
 
     //To delete

@@ -23,6 +23,25 @@ $rock     : #BAAB82;
 $steel    : #417D9A;
 $water    : #4BC9FF;
 
+$iconbug      : #92BC2C;
+$icondark     : #595761;
+$icondragon   : #0C69C8;
+$iconelectric : #F2D94E;
+$iconfairy    : #EE90E6;
+$iconfighting : #D3425F;
+$iconfire     : #FBA54C;
+$iconflying   : #A1BBEC;
+$iconghost    : #5F6DBC;
+$icongrass    : #5FBD58;
+$iconground   : #DA7C4D;
+$iconice      : #75D0C1;
+$iconnormal   : #A0A29F;
+$iconpoison   : #B763CF;
+$iconpsychic  : #FA8581;
+$iconrock     : #C9BB8A;
+$iconsteel    : #5695A3;
+$iconwater    : #539DDF;
+
 .backgroundColor.bug{background: $bug;}.backgroundColor.dark{background: $dark;}.backgroundColor.dragon{background: $dragon;}.backgroundColor.electric{background: $electric;}.backgroundColor.fairy{background: $fairy;}.backgroundColor.fighting{background: $fighting;}.backgroundColor.fire{background: $fire;}.backgroundColor.flying{background: $flying;}.backgroundColor.ghost{background: $ghost;}.backgroundColor.grass{background: $grass;}.backgroundColor.ground{background: $ground;}.backgroundColor.ice{background: $ice;}.backgroundColor.normal{background: $normal;}.backgroundColor.poison{background: $poison;}.backgroundColor.psychic{background: $psychic;}.backgroundColor.rock{background: $rock;}.backgroundColor.steel{background: $steel;}.backgroundColor.water{background: $water;}
 
 h2
@@ -127,6 +146,47 @@ h1
   //background-image: linear-gradient(to right, rgba(255,255,255,0.1), rgba(0,0,0,0.1)) !important;
   animation: animate 0.5s ease-in-out forwards;
 }
+
+
+
+.types{
+  display: flex;
+  flex-flow: row wrap;
+  padding-top: 5px;
+}
+
+.types .type{
+  display: flex;
+  flex-direction: row;
+  border-radius: 50px;
+  font-size: 1rem;
+  text-align: center;
+  align-items: center;
+  padding-left: 5px;
+  margin-left: 5px;
+}
+
+.types .type p{
+  margin: 6px 15px 6px 0;
+}
+
+.types .type .typeIcon {
+    margin-right: 5px;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+}
+
+.types .type .typeIcon img {
+    height: 60%;
+    width: 60%;
+    margin: 20%;
+}
+
+.type.bug{background: $iconbug; box-shadow: 0 0 5px $iconbug;}.type.dark{background: $icondark; box-shadow: 0 0 5px $icondark;}.type.dragon{background: $icondragon; box-shadow: 0 0 5px $icondragon;}.type.electric{background: $iconelectric; box-shadow: 0 0 5px $iconelectric;}.type.fairy{background: $iconfairy; box-shadow: 0 0 5px $iconfairy;}.type.fighting{background: $iconfighting; box-shadow: 0 0 5px $iconfighting;}.type.fire{background: $iconfire; box-shadow: 0 0 5px $iconfire;}.type.flying{background: $iconflying; box-shadow: 0 0 5px $iconflying;}.type.ghost{background: $iconghost; box-shadow: 0 0 5px  $iconghost;}.type.grass{background: $icongrass; box-shadow: 0 0 5px  $icongrass;}.type.ground{background: $iconground; box-shadow: 0 0 5px $iconground;}.type.ice{background: $iconice; box-shadow: 0 0 5px $iconice;}.type.normal{background: $iconnormal; box-shadow: 0 0 5px $iconnormal;}.type.poison{background: $iconpoison; box-shadow: 0 0 5px $iconpoison;}.type.psychic{background: $iconpsychic; box-shadow: 0 0 5px $iconpsychic;}.type.rock{background: $iconrock; box-shadow: 0 0 5px $iconrock;}.type.steel{background: $iconsteel; box-shadow: 0 0 5px $iconsteel;}.type.water{background: $iconwater;  box-shadow: 0 0 5px $iconwater;}
+
+
+
 
 @keyFrames animate
 {
