@@ -36,6 +36,7 @@ export class PokemonDetailComponent {
 
   typeColor: String = "#FFF";
   tabActive: String[] = ["active","","",""]
+  pokemonImageToDisplayIsShiny: boolean = false;
 
   constructor(private pokedexService: PokedexService,colorService: ColorService, private location: Location, private router: Router, private translationService: TranslationService, private typeService: TypeService) {
     this.pokemon = {} as PokemonDetail;
@@ -97,6 +98,19 @@ export class PokemonDetailComponent {
 
   getPokemonType(typeId:number): string{
     return this.translationService.translateTypeName(typeId);
+  }
+
+  switchPokemonImageToDisplay(){
+    this.pokemonImageToDisplayIsShiny = !this.pokemonImageToDisplayIsShiny;
+  }
+
+  getPokemonImageToDisplay(): string{
+    return this.pokemonImageToDisplayIsShiny ? this.getOfficialShinyArtwork() : this.getOfficialArtwork();
+  }
+
+  getOfficialShinyArtwork():string{
+    var res = this.pokemon.sprites.other['official-artwork']?.front_shiny;
+    return res? res : this.getOfficialArtwork();
   }
 
   getOfficialArtwork():string{
