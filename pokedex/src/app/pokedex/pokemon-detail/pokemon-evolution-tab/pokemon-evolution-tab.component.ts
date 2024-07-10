@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import { PokemonDetail } from '../../../model/pokeapi/pokeApiDetail';
 import { PokemonEvolutionChain, PokemonEvolutionChainType } from '../../../model/pokeapi/pokeApiEvolutionChain';
 
+import { PokedexService } from '../../../services/pokedex.service';
+
 import { TranslationService } from '../../../services/translation.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class PokemonEvolutionTabComponent {
 
  chain;
 
-  constructor(private router: Router, private translationService: TranslationService) {
+  constructor(private pokedexService: PokedexService, private router: Router, private translationService: TranslationService) {
       this.pokemon = {} as PokemonDetail;
       this.pokemonEvolutionChain = {} as PokemonEvolutionChain;
       this.chain = null as any;
@@ -54,7 +56,7 @@ export class PokemonEvolutionTabComponent {
     if(pokemonEvolutionChain.evolves_to){
       pokemonEvolutionChain.evolves_to.forEach((evolves_to : PokemonEvolutionChainType) => {
         var pokemon1 = pokemonEvolutionChain.species;
-        var pokemon2 = evolves_to.species
+        var pokemon2 = this.getAllNonMegaGmaxForms(evolves_to.species)
         var evolutionDetails = evolves_to.evolution_details;
 
         //cas speciaux
@@ -142,11 +144,25 @@ export class PokemonEvolutionTabComponent {
   }
 
   getFrontDefault(pokemon:any){
-    return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+this.getPokemonId(pokemon)+".png"
+    return pokemon.url ? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+this.getPokemonId(pokemon)+".png" : ""
   }
 
   redirect(pokemon:any){
     this.router.navigate(['./pokedex/'+this.getPokemonId(pokemon)]);
+  }
+
+  getAllNonMegaGmaxForms(pokemon:any){
+    return this.getAllForms(this.getPokemonId(pokemon));
+  }
+
+  getAllForms(pokemonId:number){
+    var pokemonForms: any = []
+    this.pokedexService.getPokemonSpecies(pokemonId).subscribe(pokemonDetail => {
+      pokemonDetail.varieties.forEach(form => {
+        pokemonForms.push(form.pokemon)
+      });
+    });
+    return pokemonForms
   }
 
 }

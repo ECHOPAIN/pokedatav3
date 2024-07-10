@@ -103,9 +103,11 @@
       </div>
 
     </div>
-    <div class="pokemon" (click)="redirect(evolution.pokemon2)">
-      <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon2)" alt="{{evolution.pokemon2.name}}"></div>
-      <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+evolution.pokemon2.url.split('/')[6])}}</p>
+    <div class="evolveToBox">
+      <div class="pokemon" (click)="redirect(pokemon2)" *ngFor="let pokemon2 of evolution.pokemon2">
+        <div class="imgBx"><img [src]="getFrontDefault(pokemon2)" alt="{{pokemon2.name}}"></div>
+        <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+pokemon2.url.split('/')[6])}}</p>
+      </div>
     </div>
   </div>
   <div *ngIf="chain.length == 0">

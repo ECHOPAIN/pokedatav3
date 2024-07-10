@@ -5,6 +5,8 @@ import { PokemonSpecies } from '../model/pokeapi/pokeApiSpecies';
 import { PokemonAbility } from '../model/pokeapi/pokeApiAbility';
 import { PokemonMove } from '../model/pokeapi/pokeApiMove';
 
+import { PokedexService } from '../services/pokedex.service';
+
 import { PokemonSpeciesNames, TypeNames } from '../model/translation/translation';
 
 @Injectable({
@@ -51,7 +53,7 @@ export class TranslationService {
   private typeNamesFile = 'assets/translation/type_names.csv';
   private typeNamesList: TypeNames[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private pokedexService: PokedexService) {
       //load name translation file
       this.http.get(this.pokemonSpeciesNamesFile, {responseType: 'text'})
      .subscribe(
@@ -103,11 +105,23 @@ export class TranslationService {
 
   translatePokemonName(idPokemon:number){
     var res = "-";
-    this.pokemonSpeciesNamesList.forEach((pokemonSpeciesNames) =>  {
-      if (pokemonSpeciesNames.pokemon_species_id === idPokemon && pokemonSpeciesNames.local_language_id === this.countryId){
-        res = pokemonSpeciesNames.name;
-      }
-    });
+
+    if(idPokemon > 10000){ //forme alternatives
+      this.pokedexService.getPokemonDetail(idPokemon).subscribe(pokemonDetail => {
+          idPokemon = +pokemonDetail.species.url.split('/')[6];
+          this.pokemonSpeciesNamesList.forEach((pokemonSpeciesNames) =>  {
+            if (pokemonSpeciesNames.pokemon_species_id === idPokemon && pokemonSpeciesNames.local_language_id === this.countryId){
+              res = pokemonSpeciesNames.name;
+            }
+          });
+      });
+    }else{
+      this.pokemonSpeciesNamesList.forEach((pokemonSpeciesNames) =>  {
+        if (pokemonSpeciesNames.pokemon_species_id === idPokemon && pokemonSpeciesNames.local_language_id === this.countryId){
+          res = pokemonSpeciesNames.name;
+        }
+      });
+    }
     return res;
   }
 
