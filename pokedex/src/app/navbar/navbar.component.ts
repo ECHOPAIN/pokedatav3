@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   setLanguage(language: string): void{
+    this.toggleMenu()
     this.translationService.setLanguageByCode(language);
     this.countryCode = this.translationService.getLanguageCode()
   }

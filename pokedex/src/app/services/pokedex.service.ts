@@ -107,7 +107,7 @@ export class PokedexService {
   }
 
   getCurrentPokemonMoveDetail(id: number): Observable<PokemonMove> {
-    /*if(this.pokemonMoveCache.get(id)){
+    if(this.pokemonMoveCache.get(id)){
       //Already cached
       return of(this.pokemonMoveCache.get(id)!);
     }else{
@@ -117,10 +117,10 @@ export class PokedexService {
           this.pokemonMoveCache.set(id, pokemonAbility);
       });
       return toReturn;
-    }*/
+    }
 
     //mocked pokemon move
-    return of({
+    /*return of({
       id: id,
       name: 'moveName',
       accuracy: 100,
@@ -145,7 +145,7 @@ export class PokedexService {
       super_contest_effect: {},
       target: {},
       type: {name:'water',url:'url'}
-    });
+    });*/
   }
 
   //
