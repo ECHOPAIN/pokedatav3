@@ -58,6 +58,12 @@
       </div>
     </div>
     <div class="content">
+      <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Cry</h2>
+      <div class="contentBox">
+        <app-pokemon-cry [pokemon]="pokemon"></app-pokemon-cry>
+      </div>
+    </div>
+    <div class="content">
       <h2 class="pokemonTypeColor" [ngClass]="pokemon.types[0].type.name">Weight</h2>
       <div class="contentBox">
         <img class="weightImg" [ngClass]="pokemon.types[0].type.name" src="assets/images/weight-hanging-solid.png"/>

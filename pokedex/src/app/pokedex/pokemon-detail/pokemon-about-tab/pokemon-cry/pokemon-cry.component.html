@@ -1,0 +1,6 @@
+<div class="container">
+<button *ngIf="playerReady" (click)="togglePlay()">{{ waveSurfer.isPlaying() ? "⏸" : "⏵"}}</button>
+  <div #wave></div>
+</div>
+<!--p [ngClass]="pokemon.types[0].type.name">pokemon-cry works!</p>
+<audio controls src={{getPokemonCry()}}-->

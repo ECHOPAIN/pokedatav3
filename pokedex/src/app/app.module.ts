@@ -20,6 +20,7 @@ import { PokemonMoveTabComponent } from './pokedex/pokemon-detail/pokemon-move-t
 import { PokemonAboutTabComponent } from './pokedex/pokemon-detail/pokemon-about-tab/pokemon-about-tab.component';
 import { PokemonStatTabComponent } from './pokedex/pokemon-detail/pokemon-stat-tab/pokemon-stat-tab.component';
 import { ItemDetailComponent } from './item/item-detail/item-detail.component';
+import { PokemonCryComponent } from './pokedex/pokemon-detail/pokemon-about-tab/pokemon-cry/pokemon-cry.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ItemDetailComponent } from './item/item-detail/item-detail.component';
     PokemonMoveTabComponent,
     PokemonAboutTabComponent,
     PokemonStatTabComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    PokemonCryComponent
   ],
   imports: [
     BrowserModule,

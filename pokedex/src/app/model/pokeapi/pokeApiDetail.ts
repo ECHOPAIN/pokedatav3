@@ -45,5 +45,6 @@ export interface PokemonDetail {
           },
   stats: {base_stat: number, effort: number, stat: {name: string, url: string}}[],
   types: [{slot: number,type: {name: string, url: string}}],
-  weight: number
+  weight: number,
+  cries: {latest: string, legacy: string}
 }
