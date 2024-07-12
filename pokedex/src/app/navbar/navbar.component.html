@@ -1,23 +1,23 @@
 <header class = "{{navigationClass}}">
-  <a href="home" class="logo"><img src="assets/images/logoPokeballWhite.png"></a>
+  <a (click)="redirect('home')" class="logo"><img src="assets/images/logoPokeballWhite.png"></a>
   <div class="{{menuClass}}" (click)="toggleMenu()"></div>
   <nav>
     <ul>
-      <li><a href="home">Home</a></li>
-      <li><a href="pokedex">Pokedex</a></li>
-      <li><a href="item">Items</a></li>
+      <li><a (click)="redirect('home')">Home</a></li>
+      <li><a (click)="redirect('pokedex')">Pokedex</a></li>
+      <li><a (click)="redirect('item')">Items</a></li>
       <li><a>Language {{countryCode}}<b>▼</b></a>
         <ul>
-          <li><a (click)="setLanguage('en')">English (English)</a></li>
-          <li><a (click)="setLanguage('fr')">Francais (French)</a></li>
-          <li><a (click)="setLanguage('ja')">日本人 (Japanese)</a></li>
-          <li><a (click)="setLanguage('ko')">한국인 (Korean)</a></li>
-          <li><a (click)="setLanguage('zh')">中国人 (Chinese)</a></li>
-          <li><a (click)="setLanguage('de')">Deutsch (German)</a></li>
-          <li><a (click)="setLanguage('es')">Española (Spanish)</a></li>
-          <li><a (click)="setLanguage('it')">Italiano (Italian)</a></li>
-          <!--li><a (click)="setLanguage('cs')">čeština (Czech)</a></li>
-          <li><a (click)="setLanguage('pt-BR')">Português (Portuguese)</a></li-->
+          <li><a (click)="setLanguageAndNavigate('en')">English (English)</a></li>
+          <li><a (click)="setLanguageAndNavigate('fr')">Francais (French)</a></li>
+          <li><a (click)="setLanguageAndNavigate('ja')">日本人 (Japanese)</a></li>
+          <li><a (click)="setLanguageAndNavigate('ko')">한국인 (Korean)</a></li>
+          <li><a (click)="setLanguageAndNavigate('zh')">中国人 (Chinese)</a></li>
+          <li><a (click)="setLanguageAndNavigate('de')">Deutsch (German)</a></li>
+          <li><a (click)="setLanguageAndNavigate('es')">Española (Spanish)</a></li>
+          <li><a (click)="setLanguageAndNavigate('it')">Italiano (Italian)</a></li>
+          <!--li><a (click)="setLanguageAndNavigate('cs')">čeština (Czech)</a></li>
+          <li><a (click)="setLanguageAndNavigate('pt-BR')">Português (Portuguese)</a></li-->
         </ul>
       </li>
       <!--li><a>Dropdown <b>▼</b></a>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 import { Pokemons } from '../../model/pokemon/pokemonsResult';
 import { Pokemon } from '../../model/pokemon/pokemon';
@@ -15,7 +16,7 @@ import { TranslationService } from '../../services/translation.service';
 export class PokemonListItemComponent {
  @Input() pokemon: Pokemons;
 
-  constructor(private pokedexService: PokedexService, private location: Location, private translationService: TranslationService) {
+  constructor(private pokedexService: PokedexService, private location: Location, private router: Router, private translationService: TranslationService) {
     this.pokemon =
             { name: "MissingNo.",
               url: "https://pokeapi.co/api/v2/pokemon/0/"
@@ -40,7 +41,8 @@ export class PokemonListItemComponent {
 
   displayDetailWindow(){
     this.pokedexService.displayDetailWindow(parseInt(this.getPokemonId()));
-    this.location.go("/pokedex/"+this.getPokemonId());
+    this.location.go("/pokedex/"+this.getPokemonId()+"?langue="+this.translationService.getLanguageCode());
+    //this.router.navigate(['./pokedex/'+this.getPokemonId()],{queryParams: { langue: this.translationService.getLanguageCode()}});
   }
 
 }

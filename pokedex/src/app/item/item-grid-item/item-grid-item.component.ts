@@ -4,6 +4,8 @@ import {Location} from '@angular/common';
 import { Items } from '../../model/item/itemsResult';
 import { ItemService } from '../../services/item.service';
 
+import { TranslationService } from '../../services/translation.service';
+
 @Component({
   selector: 'app-item-grid-item',
   templateUrl: './item-grid-item.component.html',
@@ -12,7 +14,7 @@ import { ItemService } from '../../services/item.service';
 export class ItemGridItemComponent {
   @Input() item: Items;
 
-  constructor(private itemService: ItemService, private location: Location) {
+  constructor(private itemService: ItemService, private location: Location, private translationService: TranslationService) {
       this.item =
               { name: "MissingNo.",
                 url: "https://pokeapi.co/api/v2/pokemon/0/"
@@ -35,6 +37,6 @@ export class ItemGridItemComponent {
 
   displayDetailWindow(){
     this.itemService.displayDetailWindow(parseInt(this.getItemId()));
-    this.location.go("/item/"+this.getItemId());
+    this.location.go("/item?langue="+this.translationService.getLanguageCode());
   }
 }

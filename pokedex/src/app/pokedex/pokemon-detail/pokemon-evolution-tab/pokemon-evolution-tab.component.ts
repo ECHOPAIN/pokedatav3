@@ -160,7 +160,7 @@ export class PokemonEvolutionTabComponent {
   }
 
   redirect(pokemon:any){
-    this.router.navigate(['./pokedex/'+this.getPokemonId(pokemon)]);
+    this.router.navigate(['./pokedex/'+this.getPokemonId(pokemon)],{queryParams: { langue: this.translationService.getLanguageCode()}});
   }
 
   getAllNonMegaGmaxForms(pokemon:any){
@@ -181,10 +181,6 @@ export class PokemonEvolutionTabComponent {
     });
     return pokemonForms
     //return this.getAllForms(this.getPokemonId(pokemon));
-  }
-
-  getOtherForms(pokemonId:number){
-    return this.pokemonForms
   }
 
   getAllForms(pokemonId:number){

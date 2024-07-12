@@ -116,9 +116,9 @@
   </div>
 </div>
 
-<div *ngIf="getOtherForms(pokemon.id).length > 0">
+<div *ngIf="this.pokemonForms.length > 0">
 <h2 [ngClass]="pokemon.types[0].type.name">Other forms</h2>
-  <div class="pokemon" (click)="redirect(pokemon3)" *ngFor="let pokemon3 of getOtherForms(pokemon.id)">
+  <div class="pokemon" (click)="redirect(pokemon3)" *ngFor="let pokemon3 of this.pokemonForms">
     <div class="imgBx"><img [src]="getFrontDefault(pokemon3)" alt="{{pokemon3.name}}"></div>
     <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+pokemon3.url.split('/')[6])}}</p>
   </div>

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ItemService } from '../../services/item.service';
 import { ItemDetail } from '../../model/item/item';
 
+import { TranslationService } from '../../services/translation.service';
+
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
@@ -13,7 +15,7 @@ import { ItemDetail } from '../../model/item/item';
 export class ItemDetailComponent {
   item: ItemDetail;
 
-  constructor(private itemService: ItemService, private location: Location, private router: Router) {
+  constructor(private itemService: ItemService, private location: Location, private router: Router, private translationService: TranslationService) {
     this.item = {} as ItemDetail;
   }
 
@@ -40,6 +42,7 @@ export class ItemDetailComponent {
   hideDetailWindow(){
       this.itemService.hideDetailWindow();
       this.item = {} as ItemDetail;
-      this.location.go("/item");
+      this.location.go("/item?langue="+this.translationService.getLanguageCode());
+      //this.router.navigate(['./item'],{queryParams: { langue: this.translationService.getLanguageCode()}});
     }
 }

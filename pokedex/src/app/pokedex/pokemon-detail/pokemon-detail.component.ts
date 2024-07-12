@@ -133,7 +133,8 @@ export class PokemonDetailComponent {
     this.pokedexService.hideDetailWindow();
     this.pokemon = {} as PokemonDetail;
     this.typeColor = "#FFF";
-    this.location.go("/pokedex");
+    this.location.go("/pokedex?langue="+this.translationService.getLanguageCode());
+    //this.router.navigate(['./pokedex'],{queryParams: { langue: this.translationService.getLanguageCode()}});
   }
 
   setActiveTab(tabToActivate: number){

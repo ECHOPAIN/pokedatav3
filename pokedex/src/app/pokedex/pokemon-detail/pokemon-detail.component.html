@@ -10,7 +10,7 @@
       <div class="nameBox backgroundColor" [ngClass]="pokemon.types[0].type.name">
         <h1 [ngClass]="pokemon.types[0].type.name">{{getPokemonName() | titlecase}}</h1>
       </div>
-      <p [ngClass]="pokemon.types[0].type.name">#{{getFormatedId(pokemon.id)}} </p>
+      <p [ngClass]="pokemon.types[0].type.name">#{{getFormatedId(+this.pokemon.species.url.split('/')[6])}} </p>
     </div>
     <div class="types">
       <div class="type" [ngClass]="type.type.name" *ngFor="let type of pokemon.types">
