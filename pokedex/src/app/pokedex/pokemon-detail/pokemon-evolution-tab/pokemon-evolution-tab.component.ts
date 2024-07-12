@@ -67,7 +67,8 @@ export class PokemonEvolutionTabComponent {
     }
     if(pokemonEvolutionChain.evolves_to){
       pokemonEvolutionChain.evolves_to.forEach((evolves_to : PokemonEvolutionChainType) => {
-        var pokemon1 = pokemonEvolutionChain.species;
+        //var pokemon1 = [pokemonEvolutionChain.species];
+        var pokemon1 = this.getAllNonMegaGmaxForms(pokemonEvolutionChain.species);
         var pokemon2 = this.getAllNonMegaGmaxForms(evolves_to.species)
         var evolutionDetails = evolves_to.evolution_details;
 
@@ -172,7 +173,7 @@ export class PokemonEvolutionTabComponent {
           if (!splittedName[splittedName.length-1].includes("mega") && !splittedName[splittedName.length-1].includes("gmax") && splittedName[splittedName.length-1]!= "x" && splittedName[splittedName.length-1]!= "y") {
             pokemonForms.push(form.pokemon)
           }else{
-            this.pokemonForms.push(form.pokemon)
+            this.addIfNotExistToPokemonForms(form)
           }
         }else{
           pokemonForms.push(form.pokemon)
@@ -181,6 +182,17 @@ export class PokemonEvolutionTabComponent {
     });
     return pokemonForms
     //return this.getAllForms(this.getPokemonId(pokemon));
+  }
+  addIfNotExistToPokemonForms(form:any){
+    var pokemonFormsIds: any = []
+    var pokemonFormsDoublonsIds: number[] = []
+    for (let i = 0; i < this.pokemonForms.length; i++) {
+      const currentForm = this.pokemonForms[i];
+      pokemonFormsIds.push(this.getPokemonId(currentForm))
+    }
+    if(pokemonFormsIds.indexOf(this.getPokemonId(form.pokemon)) < 0 ) {
+        this.pokemonForms.push(form.pokemon)
+    }
   }
 
   getAllForms(pokemonId:number){

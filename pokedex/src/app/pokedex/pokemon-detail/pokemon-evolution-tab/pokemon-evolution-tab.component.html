@@ -3,9 +3,16 @@
   <div *ngIf="loadPokemonEvolutionChain()"></div>
   <div class="evolutionBox" *ngFor="let evolution of chain">
 
-    <div class="pokemon" (click)="redirect(evolution.pokemon1)">
+    <!--div class="pokemon" (click)="redirect(evolution.pokemon1)">
       <div class="imgBx"><img [src]="getFrontDefault(evolution.pokemon1)" alt="{{evolution.pokemon1.name}}"></div>
       <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+evolution.pokemon1.url.split('/')[6])}}</p>
+    </div-->
+
+    <div class="evolveFromBox">
+      <div class="pokemon" (click)="redirect(pokemon1)" *ngFor="let pokemon1 of evolution.pokemon1">
+        <div class="imgBx"><img [src]="getFrontDefault(pokemon1)" alt="{{pokemon1.name}}"></div>
+        <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+pokemon1.url.split('/')[6])}}</p>
+      </div>
     </div>
 
     <div class="requirementBox">
