@@ -108,12 +108,22 @@ export class TranslationService {
 
     if(idPokemon > 10000){ //forme alternatives
       this.pokedexService.getPokemonDetail(idPokemon).subscribe(pokemonDetail => {
-          idPokemon = +pokemonDetail.species.url.split('/')[6];
+          var idPokemonBaseForm = +pokemonDetail.species.url.split('/')[6];
           this.pokemonSpeciesNamesList.forEach((pokemonSpeciesNames) =>  {
-            if (pokemonSpeciesNames.pokemon_species_id === idPokemon && pokemonSpeciesNames.local_language_id === this.countryId){
+            if (pokemonSpeciesNames.pokemon_species_id === idPokemonBaseForm && pokemonSpeciesNames.local_language_id === this.countryId){
               res = pokemonSpeciesNames.name;
             }
           });
+          this.pokedexService.getPokemonSpecies(idPokemonBaseForm).subscribe(pokemonSpecies => {
+          pokemonSpecies.varieties.forEach((varieties) =>  {
+            if (+varieties.pokemon.url.split('/')[6] === idPokemon){
+              if(varieties.pokemon.name.includes('-')){
+                var splittedName = varieties.pokemon.name.split('-')
+                res += "("+splittedName[splittedName.length-1]+")";
+              }
+            }
+          });
+        });
       });
     }else{
       this.pokemonSpeciesNamesList.forEach((pokemonSpeciesNames) =>  {

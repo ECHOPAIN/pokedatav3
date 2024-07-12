@@ -1,3 +1,4 @@
+<h2 [ngClass]="pokemon.types[0].type.name">Evolutions</h2>
 <div *ngIf="pokemonEvolutionChain.chain">
   <div *ngIf="loadPokemonEvolutionChain()"></div>
   <div class="evolutionBox" *ngFor="let evolution of chain">
@@ -112,5 +113,13 @@
   </div>
   <div *ngIf="chain.length == 0">
     <p [ngClass]="pokemon.types[0].type.name">This Pokemon has no evolution</p>
+  </div>
+</div>
+
+<div *ngIf="getOtherForms(pokemon.id).length > 0">
+<h2 [ngClass]="pokemon.types[0].type.name">Other forms</h2>
+  <div class="pokemon" (click)="redirect(pokemon3)" *ngFor="let pokemon3 of getOtherForms(pokemon.id)">
+    <div class="imgBx"><img [src]="getFrontDefault(pokemon3)" alt="{{pokemon3.name}}"></div>
+    <p [ngClass]="pokemon.types[0].type.name">{{getPokemonName(+pokemon3.url.split('/')[6])}}</p>
   </div>
 </div>

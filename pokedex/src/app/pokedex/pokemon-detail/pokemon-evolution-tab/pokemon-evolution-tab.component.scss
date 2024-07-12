@@ -4,6 +4,31 @@ $darkGray : #535353;
 $lightGray: #CACACA;
 $white    : #F5F5F5;
 
+$bug      : #8CB230;
+$dark     : #58575F;
+$dragon   : #0F6AC0;
+$electric : #FFCE4B;
+$fairy    : #FE55A6;
+$fighting : #FF3850;
+$fire     : #FF8C38;
+$flying   : #748FC9;
+$ghost    : #556AAE;
+$grass    : #39E23F;
+$ground   : #DD7748;
+$ice      : #61CEC0;
+$normal   : #9DA0AA;
+$poison   : #9F5BBA;
+$psychic  : #EA5D60;
+$rock     : #BAAB82;
+$steel    : #417D9A;
+$water    : #4BC9FF;
+
+h2
+{
+  text-transform: uppercase;
+}
+h2.bug{color: $bug;}h2.dark{color: $dark;}h2.dragon{color: $dragon;}h2.electric{color: $electric;}h2.fairy{color: $fairy;}h2.fighting{color: $fighting;}h2.fire{color: $fire;}h2.flying{color: $flying;}h2.ghost{color: $ghost;}h2.grass{color: $grass;}h2.ground{color: $ground;}h2.ice{color: $ice;}h2.normal{color: $normal;}h2.poison{color: $poison;}h2.psychic{color: $psychic;}h2.rock{color: $rock;}h2.steel{color: $steel;}h2.water{color: $water;}
+
 p.bug{color: $white}p.dark{color: $black}p.dragon{color: $black}p.electric{color: $white}p.fairy{color: $white}p.fighting{color: $white}p.fire{color: $white}p.flying{color: $white}p.ghost{color: $black}p.grass{color: $white}p.ground{color: $white}p.ice{color: $white}p.normal{color: $white}p.poison{color: $black}p.psychic{color: $white}p.rock{color: $white}p.steel{color: $black}p.water{color: $white}
 
 p
@@ -39,6 +64,25 @@ p
   justify-content: center;
   margin-top: 10%;
 }
+
+.pokemon
+{
+  cursor: pointer;
+}
+
+.pokemon .imgBx
+{
+  margin: auto;
+}
+
+.pokemon .imgBx img
+{
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .evolutionBox .requirementBox .imgBx img
 {
   width: 50px;

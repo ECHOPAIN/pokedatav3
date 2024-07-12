@@ -18,6 +18,7 @@ export class PokemonEvolutionTabComponent {
  @Input() pokemonEvolutionChain : PokemonEvolutionChain;
 
  chain;
+ pokemonForms: any = []
 
   constructor(private pokedexService: PokedexService, private router: Router, private translationService: TranslationService) {
       this.pokemon = {} as PokemonDetail;
@@ -43,7 +44,18 @@ export class PokemonEvolutionTabComponent {
     }
     //Si le pokemon a une evolution
     if(this.chain,this.pokemonEvolutionChain.chain.evolves_to){
-      this.chain = this.buildChain(this.chain,this.pokemonEvolutionChain.chain)
+      if(this.pokemonEvolutionChain.chain.evolves_to.length > 0){
+        this.chain = this.buildChain(this.chain,this.pokemonEvolutionChain.chain)
+      }else{
+        this.chain = []
+        this.pokedexService.getPokemonSpecies(this.getPokemonId(this.pokemonEvolutionChain.chain.species)).subscribe(pokemonDetail => {
+          pokemonDetail.varieties.forEach(form => {
+            if(this.getPokemonId(form.pokemon) != this.pokemon.id){
+              this.pokemonForms.push(form.pokemon)
+            }
+          });
+        });
+      }
     }
     return false;
   }
@@ -152,7 +164,27 @@ export class PokemonEvolutionTabComponent {
   }
 
   getAllNonMegaGmaxForms(pokemon:any){
-    return this.getAllForms(this.getPokemonId(pokemon));
+    var pokemonForms: any = []
+    this.pokedexService.getPokemonSpecies(this.getPokemonId(pokemon)).subscribe(pokemonDetail => {
+      pokemonDetail.varieties.forEach(form => {
+        if(form.pokemon.name.includes('-')){
+          var splittedName = form.pokemon.name.split('-')
+          if (!splittedName[splittedName.length-1].includes("mega") && !splittedName[splittedName.length-1].includes("gmax") && splittedName[splittedName.length-1]!= "x" && splittedName[splittedName.length-1]!= "y") {
+            pokemonForms.push(form.pokemon)
+          }else{
+            this.pokemonForms.push(form.pokemon)
+          }
+        }else{
+          pokemonForms.push(form.pokemon)
+        }
+      });
+    });
+    return pokemonForms
+    //return this.getAllForms(this.getPokemonId(pokemon));
+  }
+
+  getOtherForms(pokemonId:number){
+    return this.pokemonForms
   }
 
   getAllForms(pokemonId:number){
