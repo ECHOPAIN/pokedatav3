@@ -1,4 +1,4 @@
 <div class="container">
-  <button *ngIf="playerReady" (click)="togglePlay()">{{ waveSurfer.isPlaying() ? "⏸" : "⏵"}}</button>
+  <button *ngIf="playerReady" (click)="togglePlay()"><img src="{{getPlayPauseImage()}}" alt="⏵"></button>
   <div #wave></div>
 </div>

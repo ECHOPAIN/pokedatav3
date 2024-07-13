@@ -47,4 +47,10 @@ export class PokemonCryComponent implements AfterViewInit{
       this.waveSurfer.play();
     }
   }
+
+  getPlayPauseImage(){
+    var res = ""
+    res = this.waveSurfer.isPlaying() ? "assets/images/pause-icon.svg" : "assets/images/play-icon.svg"
+    return res;
+  }
 }
