@@ -13,7 +13,7 @@ export interface PokemonMove {
   effect_entries: Object[],
   effect_changes: Object[],
   learned_by_pokemon: Object[],
-  flavor_text_entries: Object[],
+  flavor_text_entries: {flavor_text:string,language:{name:string,url:string}}[],
   generation: Object[],
   machines: Object[],
   meta: Object[],

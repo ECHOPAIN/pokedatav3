@@ -224,4 +224,25 @@ export class TranslationService {
                                      }})
       return moveNameToReturn;
   }
+
+
+
+  translateMoveFlavorText(pokemonMove:PokemonMove){
+    if(pokemonMove){
+      var moveFlavorTextToReturn = this.translateFlavorTextNameByCountry(pokemonMove,this.countryId);
+      return moveFlavorTextToReturn ? moveFlavorTextToReturn : this.translateFlavorTextNameByCountry(pokemonMove,this.defaultCountryId);
+    }else{
+      return "-";
+    }
+  }
+
+
+  private translateFlavorTextNameByCountry(pokemonMove:PokemonMove, countryId:number){
+      var moveFlavorTextToReturn = "";
+      pokemonMove.flavor_text_entries.forEach((flavorText) =>{
+                                     if(+flavorText.language.url.split('/')[6] === countryId){
+                                       moveFlavorTextToReturn = flavorText.flavor_text
+                                     }})
+      return moveFlavorTextToReturn;
+  }
 }

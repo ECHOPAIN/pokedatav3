@@ -7,7 +7,7 @@
     <th [ngClass]="'th'+sortedByCategorie+'-'+pokemon.types[0].type.name" (click)="sortMoveByCategorie()"><p [ngClass]="pokemon.types[0].type.name">Categorie</p></th>
     <th [ngClass]="'th'+sortedByType+'-'+pokemon.types[0].type.name" (click)="sortMoveByType()"><p [ngClass]="pokemon.types[0].type.name">Type</p></th>
   </tr>
-  <tr *ngFor="let move of getPokemonMove()">
+  <tr *ngFor="let move of getPokemonMoves()" class="moveBox" attr.aria-label="{{getMoveFlavorText(move.move.url)}}">
     <td>
       <p *ngIf="getMoveName(move.move.url); else elseBlockName" [ngClass]="pokemon.types[0].type.name">{{getMoveName(move.move.url)}}</p>
       <ng-template #elseBlockName>

@@ -47,7 +47,7 @@ export class PokemonMoveTabComponent {
     this.sorted=true;
   }
 
-  getPokemonMove(){
+  getPokemonMoves(){
     if(!this.sorted){
       this.sortPokemonMove();
     }
@@ -66,6 +66,10 @@ export class PokemonMoveTabComponent {
     return this.translationService.translateMoveName(this.getPokemonMoveDetail(this.getPokemonMoveId(url))!);
   }
 
+  getMoveFlavorText(url:string){
+    return this.translationService.translateMoveFlavorText(this.getPokemonMoveDetail(this.getPokemonMoveId(url))!);
+  }
+
   sortMoveByMove(){
 
     this.sortedByPower = 0;
@@ -77,8 +81,8 @@ export class PokemonMoveTabComponent {
     if(this.sortedByMoveName==0){
       this.sortedByMoveName = 1;
       this.pokemon.moves.sort((a, b) => {
-        var moveA = this.getMoveName(a.move.url);
-        var moveB = this.getMoveName(b.move.url);
+        var moveA = this.getMoveName(a.move.url).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        var moveB = this.getMoveName(b.move.url).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         return moveB < moveA ? 1
              : moveB > moveA ? -1
              : 0;                   // a and b are equal
@@ -86,8 +90,8 @@ export class PokemonMoveTabComponent {
     }else if(this.sortedByMoveName==1){
       this.sortedByMoveName = 2;
       this.pokemon.moves.sort((a, b) => {
-        var moveA = this.getMoveName(b.move.url);
-        var moveB = this.getMoveName(a.move.url);
+        var moveA = this.getMoveName(b.move.url).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        var moveB = this.getMoveName(a.move.url).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         return moveB < moveA ? 1
              : moveB > moveA ? -1
              : 0;                   // a and b are equal

@@ -80,6 +80,21 @@ p.method.bug{color: $lightGray}p.method.dark{color: $midBlack}p.method.dragon{co
 
 .moveTable tr:has(td):hover {background-color: #CACACA55;}
 
+.moveBox:hover:after,
+.moveBox:focus:after {
+  content: attr(aria-label);  /* on affiche aria-label */
+  position: absolute;
+  //top: -2.4em;
+  left: 8%;
+	transform: translateX(-4%); /* on centre horizontalement  */
+  z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+  //white-space: nowrap;  /* on interdit le retour à la ligne*/
+  padding: 5px 14px;
+  background: #CACACA99;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
 .moveTable th {
   padding-top: 12px;
   padding-bottom: 12px;

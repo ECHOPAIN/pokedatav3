@@ -107,7 +107,7 @@ export class PokedexService {
   }
 
   getCurrentPokemonMoveDetail(id: number): Observable<PokemonMove> {
-    /*if(this.pokemonMoveCache.get(id)){
+    if(this.pokemonMoveCache.get(id)){
       //Already cached
       return of(this.pokemonMoveCache.get(id)!);
     }else{
@@ -117,10 +117,10 @@ export class PokedexService {
           this.pokemonMoveCache.set(id, pokemonAbility);
       });
       return toReturn;
-    }*/
+    }
 
     //mocked pokemon move
-    return of({
+    /*return of({
       id: id,
       name: 'moveName',
       accuracy: 100,
@@ -135,7 +135,7 @@ export class PokedexService {
       effect_entries: [{}],
       effect_changes: [{}],
       learned_by_pokemon: [{}],
-      flavor_text_entries: [{}],
+      flavor_text_entries: [{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/1/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/2/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/3/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/4/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/5/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/6/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/7/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/8/"},version_group:{name:"",url:""}},{flavor_text:"flavor text",language:{name:"","url":"https://pokeapi.co/api/v2/language/9/"},version_group:{name:"",url:""}},],
       generation: [{}],
       machines: [{}],
       meta: [{}],
@@ -145,7 +145,7 @@ export class PokedexService {
       super_contest_effect: {},
       target: {},
       type: {name:'water',url:'url'}
-    });
+    });*/
   }
 
   //
