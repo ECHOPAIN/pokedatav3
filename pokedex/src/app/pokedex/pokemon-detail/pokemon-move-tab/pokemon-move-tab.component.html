@@ -1,13 +1,13 @@
 <table class="moveTable">
   <tr>
-    <th><p [ngClass]="pokemon.types[0].type.name">Move</p></th>
-    <th><p [ngClass]="pokemon.types[0].type.name">Power</p></th>
-    <th><p [ngClass]="pokemon.types[0].type.name">Accuracy</p></th>
-    <th><p [ngClass]="pokemon.types[0].type.name">PP</p></th>
-    <th><p [ngClass]="pokemon.types[0].type.name">Categorie</p></th>
-    <th><p [ngClass]="pokemon.types[0].type.name">Type</p></th>
+    <th [ngClass]="'th'+sortedByMoveName+'-'+pokemon.types[0].type.name"  (click)="sortMoveByMove()"><p [ngClass]="pokemon.types[0].type.name">Move</p></th>
+    <th [ngClass]="'th'+sortedByPower+'-'+pokemon.types[0].type.name" (click)="sortMoveByPower()"><p [ngClass]="pokemon.types[0].type.name">Power</p></th>
+    <th [ngClass]="'th'+sortedByAccuracy+'-'+pokemon.types[0].type.name" (click)="sortMoveByAccuracy()"><p [ngClass]="pokemon.types[0].type.name">Accuracy</p></th>
+    <th [ngClass]="'th'+sortedByPP+'-'+pokemon.types[0].type.name" (click)="sortMoveByPP()"><p [ngClass]="pokemon.types[0].type.name">PP</p></th>
+    <th [ngClass]="'th'+sortedByCategorie+'-'+pokemon.types[0].type.name" (click)="sortMoveByCategorie()"><p [ngClass]="pokemon.types[0].type.name">Categorie</p></th>
+    <th [ngClass]="'th'+sortedByType+'-'+pokemon.types[0].type.name" (click)="sortMoveByType()"><p [ngClass]="pokemon.types[0].type.name">Type</p></th>
   </tr>
-  <tr *ngFor="let move of getSortedPokemonMove()">
+  <tr *ngFor="let move of getPokemonMove()">
     <td>
       <p *ngIf="getMoveName(move.move.url); else elseBlockName" [ngClass]="pokemon.types[0].type.name">{{getMoveName(move.move.url)}}</p>
       <ng-template #elseBlockName>

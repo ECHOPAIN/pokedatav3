@@ -14,13 +14,24 @@ export class PokemonMoveTabComponent {
 
  @Input() pokemonMoves: PokemonMove[];
 
+ sorted:boolean = false;
+
+ sortedByMoveName:number = 0;
+ sortedByPower:number = 0;
+ sortedByAccuracy:number = 0;
+ sortedByPP:number = 0;
+ sortedByCategorie:number = 0;
+ sortedByType:number = 0;
+
   constructor(private translationService: TranslationService) {
     this.pokemon = {} as PokemonDetail;
     this.pokemonMoves = [] as PokemonMove[];
+
+
   }
 
-  getSortedPokemonMove(){
-    return this.pokemon.moves.sort((a, b) => { // non-anonymous as you ordered...
+  sortPokemonMove(){
+    this.pokemon.moves.sort((a, b) => {
                                     var lvlA = a.version_group_details[a.version_group_details.length-1].level_learned_at
                                     var lvlB = b.version_group_details[b.version_group_details.length-1].level_learned_at
                                     var methodA = a.version_group_details[a.version_group_details.length-1].move_learn_method.name
@@ -33,6 +44,14 @@ export class PokemonMoveTabComponent {
                                          : methodB > methodA ? -1 // if b should come later, push a to begin
                                          : 0;                   // a and b are equal
                                 });;
+    this.sorted=true;
+  }
+
+  getPokemonMove(){
+    if(!this.sorted){
+      this.sortPokemonMove();
+    }
+    return this.pokemon.moves;
   }
 
   getPokemonMoveDetail(moveId: number){
@@ -45,6 +64,202 @@ export class PokemonMoveTabComponent {
 
   getMoveName(url:string){
     return this.translationService.translateMoveName(this.getPokemonMoveDetail(this.getPokemonMoveId(url))!);
+  }
+
+  sortMoveByMove(){
+
+    this.sortedByPower = 0;
+    this.sortedByAccuracy = 0;
+    this.sortedByPP = 0;
+    this.sortedByCategorie = 0;
+    this.sortedByType = 0;
+
+    if(this.sortedByMoveName==0){
+      this.sortedByMoveName = 1;
+      this.pokemon.moves.sort((a, b) => {
+        var moveA = this.getMoveName(a.move.url);
+        var moveB = this.getMoveName(b.move.url);
+        return moveB < moveA ? 1
+             : moveB > moveA ? -1
+             : 0;                   // a and b are equal
+      });
+    }else if(this.sortedByMoveName==1){
+      this.sortedByMoveName = 2;
+      this.pokemon.moves.sort((a, b) => {
+        var moveA = this.getMoveName(b.move.url);
+        var moveB = this.getMoveName(a.move.url);
+        return moveB < moveA ? 1
+             : moveB > moveA ? -1
+             : 0;                   // a and b are equal
+      });
+    }else{
+      this.sortedByMoveName = 0;
+      this.sortPokemonMove();
+    }
+  }
+
+  sortMoveByPower(){
+    this.sortedByMoveName = 0;
+
+    this.sortedByAccuracy = 0;
+    this.sortedByPP = 0;
+    this.sortedByCategorie = 0;
+    this.sortedByType = 0;
+
+    if(this.sortedByPower==0){
+      this.sortedByPower = 1;
+      this.pokemon.moves.sort((a, b) => {
+        var powerA = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.power!
+        var powerB = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.power!
+        return powerA < powerB ? 1
+             : powerA > powerB ? -1
+             : 0;                   // a and b are equal
+      });
+    }else if(this.sortedByPower==1){
+      this.sortedByPower = 2;
+      this.pokemon.moves.sort((a, b) => {
+        var powerA = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.power!
+        var powerB = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.power!
+        return powerA < powerB ? 1
+             : powerA > powerB ? -1
+             : 0;                   // a and b are equal
+      });
+    }else{
+      this.sortedByPower = 0;
+      this.sortPokemonMove();
+    }
+  }
+
+  sortMoveByAccuracy(){
+    this.sortedByMoveName = 0;
+
+    this.sortedByPower = 0;
+    this.sortedByPP = 0;
+    this.sortedByCategorie = 0;
+    this.sortedByType = 0;
+
+    if(this.sortedByAccuracy==0){
+      this.sortedByAccuracy = 1;
+      this.pokemon.moves.sort((a, b) => {
+        var accuracyA = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.accuracy!
+        var accuracyB = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.accuracy!
+        return !(accuracyA) && !(!(accuracyB)) ? -1
+             : !(accuracyB) && !(!(accuracyA)) ? 1
+             : accuracyA < accuracyB ? 1
+             : accuracyA > accuracyB ? -1
+             : 0;                   // a and b are equal
+      });
+    }else if(this.sortedByAccuracy==1){
+      this.sortedByAccuracy = 2;
+      this.pokemon.moves.sort((a, b) => {
+        var accuracyA = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.accuracy!
+        var accuracyB = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.accuracy!
+        return !(accuracyA) && !(!(accuracyB)) ? -1
+             : !(accuracyB) && !(!(accuracyA)) ? 1
+             : accuracyA < accuracyB ? 1
+             : accuracyA > accuracyB ? -1
+             : 0;                   // a and b are equal
+      });
+    }else{
+      this.sortedByAccuracy = 0;
+      this.sortPokemonMove();
+    }
+  }
+
+  sortMoveByPP(){
+    this.sortedByMoveName = 0;
+
+    this.sortedByPower = 0;
+    this.sortedByAccuracy = 0;
+    this.sortedByCategorie = 0;
+    this.sortedByType = 0;
+
+    if(this.sortedByPP==0){
+      this.sortedByPP = 1;
+      this.pokemon.moves.sort((a, b) => {
+        var ppA = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.pp!
+        var ppB = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.pp!
+        return ppA < ppB ? 1
+             : ppA > ppB ? -1
+             : 0;                   // a and b are equal
+      });
+    }else if(this.sortedByPP==1){
+      this.sortedByPP = 2;
+      this.pokemon.moves.sort((a, b) => {
+        var ppA = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.pp!
+        var ppB = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.pp!
+        return ppA < ppB ? 1
+             : ppA > ppB ? -1
+             : 0;                   // a and b are equal
+      });
+    }else{
+      this.sortedByPP = 0;
+      this.sortPokemonMove();
+    }
+  }
+
+  sortMoveByCategorie(){
+    this.sortedByMoveName = 0;
+
+    this.sortedByPower = 0;
+    this.sortedByAccuracy = 0;
+    this.sortedByPP = 0;
+    this.sortedByType = 0;
+
+    if(this.sortedByCategorie==0){
+      this.sortedByCategorie = 1;
+      this.pokemon.moves.sort((a, b) => {
+        var categorieA = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.damage_class?.name!
+        var categorieB = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.damage_class?.name!
+        return categorieB < categorieA ? 1
+             : categorieB > categorieA ? -1
+             : 0;                   // a and b are equal
+      });
+    }else if(this.sortedByCategorie==1){
+      this.sortedByCategorie = 2;
+      this.pokemon.moves.sort((a, b) => {
+        var categorieA = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.damage_class?.name!
+        var categorieB = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.damage_class?.name!
+        return categorieB < categorieA ? 1
+             : categorieB > categorieA ? -1
+             : 0;                   // a and b are equal
+      });
+    }else{
+      this.sortedByCategorie = 0;
+      this.sortPokemonMove();
+    }
+  }
+
+  sortMoveByType(){
+    this.sortedByMoveName = 0;
+
+    this.sortedByPower = 0;
+    this.sortedByAccuracy = 0;
+    this.sortedByPP = 0;
+    this.sortedByCategorie = 0;
+
+    if(this.sortedByType==0){
+      this.sortedByType = 1;
+      this.pokemon.moves.sort((a, b) => {
+        var typeA = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.type?.url!
+        var typeB = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.type?.url!
+        return typeB < typeA ? 1
+             : typeB > typeA ? -1
+             : 0;                   // a and b are equal
+      });
+    }else if(this.sortedByType==1){
+      this.sortedByType = 2;
+      this.pokemon.moves.sort((a, b) => {
+        var typeA = this.getPokemonMoveDetail(this.getPokemonMoveId(b.move.url))?.type?.url!
+        var typeB = this.getPokemonMoveDetail(this.getPokemonMoveId(a.move.url))?.type?.url!
+        return typeB < typeA ? 1
+             : typeB > typeA ? -1
+             : 0;                   // a and b are equal
+      });
+    }else{
+      this.sortedByType = 0;
+      this.sortPokemonMove();
+    }
   }
 
 }
