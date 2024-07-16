@@ -168,15 +168,17 @@ export class PokemonEvolutionTabComponent {
     var pokemonForms: any = []
     this.pokedexService.getPokemonSpecies(this.getPokemonId(pokemon)).subscribe(pokemonDetail => {
       pokemonDetail.varieties.forEach(form => {
-        if(form.pokemon.name.includes('-')){
-          var splittedName = form.pokemon.name.split('-')
-          if (!splittedName[splittedName.length-1].includes("mega") && !splittedName[splittedName.length-1].includes("gmax") && splittedName[splittedName.length-1]!= "x" && splittedName[splittedName.length-1]!= "y") {
-            pokemonForms.push(form.pokemon)
+        if(form.pokemon.name != "eevee-starter"){
+          if(form.pokemon.name.includes('-')){
+            var splittedName = form.pokemon.name.split('-')
+            if (!splittedName[splittedName.length-1].includes("mega") && !splittedName[splittedName.length-1].includes("gmax") && splittedName[splittedName.length-1]!= "x" && splittedName[splittedName.length-1]!= "y") {
+              pokemonForms.push(form.pokemon)
+            }else{
+              this.addIfNotExistToPokemonForms(form)
+            }
           }else{
-            this.addIfNotExistToPokemonForms(form)
+            pokemonForms.push(form.pokemon)
           }
-        }else{
-          pokemonForms.push(form.pokemon)
         }
       });
     });
